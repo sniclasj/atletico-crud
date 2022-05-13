@@ -16,7 +16,7 @@ class League(db.Model):
     # schema for the League model
     id = db.Column(db.Integer, primary_key=True)
     league_name = db.Column(db.String(50), unique=True, nullable=False)
-    country_id = db.Column(db.Integer), db.ForeignKey("country.id", ondelete="CASCADE"), nullable=False)
+    country_id = db.Column(db.Integer, db.ForeignKey("country.id", ondelete="CASCADE"), nullable=False)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
