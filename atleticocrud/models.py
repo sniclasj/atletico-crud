@@ -31,9 +31,7 @@ class Club(db.Model):
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return "#{0} - Club: {1}".format(
-            self.league_id, self.club_name
-        )
+        return f"#{self.league_id} - Club: {self.club_name}"
 
 
 class Player(db.Model):
@@ -44,6 +42,4 @@ class Player(db.Model):
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return "#{0} - Player Name: {1}".format(
-            self.club_id, self.player_name
-        )
+        return f"#{self.club_id} - Player Name: {self.player_name}"
