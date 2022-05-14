@@ -24,3 +24,6 @@
 ![base.html Boilerplate Set-Up](documentation/deployment/atletico-crud-base-html.png)
 ![Initial app.py run](documentation/deployment/atletico-crud-initial-app-run.png)
 ![Create models.py File](documentation/deployment/atletico-crud-create-models-file.png)
+
+![Postgres CLI](documentation/deployment/atletico-crud-create-database-postgres-cli.png)
+![Generate And Migrate Models](documentation/deployment/atletico-crud-generate-migrate-models.png)
