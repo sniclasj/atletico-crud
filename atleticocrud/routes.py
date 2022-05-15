@@ -22,3 +22,8 @@ def add_country():
         db.session.commit()
         return redirect(url_for("countries"))
     return render_template("add_country.html")
+
+
+@app.route("/edit_country/<int:country_id>", methods = ["GET", "POST"])
+def edit_country(categroy_id):
+    return render_template("edit_country.html")
