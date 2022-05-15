@@ -26,4 +26,10 @@ def add_country():
 
 @app.route("/edit_country/<int:country_id>", methods = ["GET", "POST"])
 def edit_country(country_id):
-    return render_template("edit_country.html")
+    country = Country.query.get_or_404(country_id)
+    if request.method == "POST":
+        country.country_name = request.form.get("country_name")
+        db.session.commit()
+        return redirect(url_for("countries"))
+    return render_template("edit_country.html", country=country)
+    
