@@ -11,6 +11,8 @@
             </div>
             <div class="card-action">
                 <a href="#">{{ country.country_name }}</a>
+                <a href="{{ url_for('edit_country', country_id=country.id) }}">Edit</a>
+                <a href="#">Delete</a>
             </div>
         </div>
     </div>
