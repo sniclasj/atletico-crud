@@ -25,5 +25,5 @@ def add_country():
 
 
 @app.route("/edit_country/<int:country_id>", methods = ["GET", "POST"])
-def edit_country(categroy_id):
+def edit_country(country_id):
     return render_template("edit_country.html")
