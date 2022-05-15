@@ -5,16 +5,16 @@
 <div class="row">
     {% for country in countries %}
     <div class="col s12 m6 l3">
-        <div class="card cyan darken-4">
-          <div class="card-content white-text">
-            <span class="card-title">{{ country.country_name }}</span>
-          </div>
-          <div class="card-action">
-            <a href="#">View Leagues</a>
-          </div>
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static',filename='images/england-flag.png')}}">
+            </div>
+            <div class="card-action">
+                <a href="#">{{ country.country_name }}</a>
+            </div>
         </div>
-      </div>
-    {% endfor %}
+    </div>
+{% endfor %}
 </div>
 
 <div class="row">
