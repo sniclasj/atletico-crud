@@ -10,7 +10,8 @@ def home():
 
 @app.route("/countries")
 def countries():
-    return render_template("countries.html")
+    countries = list(Country.query.order_by(Country.country_name).all())
+    return render_template("countries.html", countries=countries)
 
 
 @app.route("/add_country", methods = ["GET", "POST"])
@@ -18,6 +19,6 @@ def add_country():
     if request.method == "POST":
         country = Country(country_name=request.form.get("country_name"))
         db.session.add(country)
-        db.session.commit
+        db.session.commit()
         return redirect(url_for("countries"))
     return render_template("add_country.html")
