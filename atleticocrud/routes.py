@@ -42,6 +42,12 @@ def delete_country(country_id):
     return redirect(url_for("countries"))
 
 
+@app.route("/leagues")
+def leagues():
+    leagues = list(League.query.order_by(League.league_name).all())
+    return render_template("leagues.html", leagues=leagues)
+
+
 @app.route("/add_league", methods = ["GET", "POST"])
 def add_league():
     countries = list(Country.query.order_by(Country.country_name).all())
