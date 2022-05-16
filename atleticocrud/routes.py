@@ -32,4 +32,11 @@ def edit_country(country_id):
         db.session.commit()
         return redirect(url_for("countries"))
     return render_template("edit_country.html", country=country)
-    
+ 
+
+@app.route("/delete_country/<int:country_id>")
+def delete_country(country_id):
+    country = Country.query.get_or_404(country_id)
+    db.session.delete(country)
+    db.session.commit()
+    return redirect(url_for("countries"))
