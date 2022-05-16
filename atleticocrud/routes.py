@@ -42,9 +42,9 @@ def delete_country(country_id):
     return redirect(url_for("countries"))
 
 
-@app.route("/leagues")
-def leagues():
-    leagues = list(League.query.order_by(League.league_name).all())
+@app.route("/leagues/<int:country_id>")
+def leagues(country_id):
+    leagues = list(League.query.order_by(League.league_name).filter(League.country_id==country_id))
     return render_template("leagues.html", leagues=leagues)
 
 
@@ -58,5 +58,5 @@ def add_league():
             )
         db.session.add(league)
         db.session.commit()
-        return redirect(url_for("leagues"))
+        return redirect(url_for("leagues", country_id=league.country_id))
     return render_template("add_league.html", countries=countries)
