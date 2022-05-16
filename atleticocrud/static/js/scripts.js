@@ -4,8 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
     M.Sidenav.init(sidenav);
   });
 
-// Modal initialization
+// Materialize modal initialization
   document.addEventListener('DOMContentLoaded', function() {
     let modal = document.querySelectorAll('.modal');
     M.Modal.init(modal);
+  });
+
+// Materialize dropdown list initialization
+  document.addEventListener('DOMContentLoaded', function() {
+    let dropdown = document.querySelectorAll('select');
+    M.FormSelect.init(dropdown);
   });
