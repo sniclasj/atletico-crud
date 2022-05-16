@@ -40,3 +40,17 @@ def delete_country(country_id):
     db.session.delete(country)
     db.session.commit()
     return redirect(url_for("countries"))
+
+
+@app.route("/add_league", methods = ["GET", "POST"])
+def add_league():
+    countries = list(Country.query.order_by(Country.country_name).all())
+    if request.method == "POST":
+        league = League(
+            league_name=request.form.get("league_name"),
+            country_id=request.form.get("country_id")
+            )
+        db.session.add(league)
+        db.session.commit()
+        return redirect(url_for("leagues"))
+    return render_template("add_league.html", countries=countries)
