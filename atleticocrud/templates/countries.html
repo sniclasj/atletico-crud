@@ -10,7 +10,7 @@
                 <img src="{{ url_for('static',filename='images/england-flag.png')}}">
             </div>
             <div class="card-action">
-                <a href="#">{{ country.country_name }}</a>
+                <a href="{{ url_for('leagues') }}">{{ country.country_name }}</a>
                 <a href="{{ url_for('edit_country', country_id=country.id) }}" class="btn green">Edit</a>
                 <a href="#modal-{{ country.id }}" class="btn red modal-trigger">Delete</a>
 
