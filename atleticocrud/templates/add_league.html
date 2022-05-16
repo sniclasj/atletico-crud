@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="cyan darken-4 center-align white-text">Add League</h3>
+
+<div class="row">
+    <form class="col s12" method="POST" action="{{ url_for('add_league') }}">
+        <!-- League Name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Input League Name" name="league_name" id="league_name" minlength="3" maxlength="25"
+                    type="text" class="validate" required>
+                <label for="league_name">League Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <p>Upload League Image: <input type="file"></p>
+            </div>
+        </div>
+        <!-- Country ID -->
+        <div class="row">
+            <div class="input-field col s12">
+                <select id="country_id" name="country_id" class="validate" required>
+                    <option value="" disabled selected>Select Country</option>
+                    {% for country in countries %}
+                    <option value="{{ country.id }}">{{ country.country_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="country_id">Country</label>
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large cyan darken-4">
+                    Add League +
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
