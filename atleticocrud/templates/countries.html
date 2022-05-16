@@ -11,8 +11,8 @@
             </div>
             <div class="card-action">
                 <a href="#">{{ country.country_name }}</a>
-                <a href="{{ url_for('edit_country', country_id=country.id) }}">Edit</a>
-                <a href="#">Delete</a>
+                <a href="{{ url_for('edit_country', country_id=country.id) }}" class="btn green">Edit</a>
+                <a href="#" class="btn red">Delete</a>
             </div>
         </div>
     </div>
