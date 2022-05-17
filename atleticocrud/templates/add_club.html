@@ -1,39 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
-<h3 class="cyan darken-4 center-align white-text">Add League</h3>
+<h3 class="cyan darken-4 center-align white-text">Add Club</h3>
 
 <div class="row">
-    <form class="col s12" method="POST" action="{{ url_for('add_league') }}">
-        <!-- League Name -->
+    <form class="col s12" method="POST" action="{{ url_for('add_club') }}">
+        <!-- Club Name -->
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Input League Name" name="league_name" id="league_name" minlength="3" maxlength="25"
+                <input placeholder="Input Club Name" name="club_name" id="club_name" minlength="3" maxlength="25"
                     type="text" class="validate" required>
-                <label for="league_name">League Name</label>
+                <label for="club_name">Club Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <p>Upload League Image: <input type="file"></p>
+                <p>Upload Club Image: <input type="file"></p>
             </div>
         </div>
-        <!-- Country ID -->
+        <!-- League ID -->
         <div class="row">
             <div class="input-field col s12">
-                <select id="country_id" name="country_id" class="validate" required>
-                    <option value="" disabled selected>Select Country</option>
-                    {% for country in countries %}
-                    <option value="{{ country.id }}">{{ country.country_name }}</option>
+                <select id="league_id" name="league_id" class="validate" required>
+                    <option value="" disabled selected>Select League</option>
+                    {% for league in leagues %}
+                    <option value="{{ league.id }}">{{ league.league_name }}</option>
                     {% endfor %}
                 </select>
-                <label for="country_id">Country</label>
+                <label for="league_id">League</label>
             </div>
         </div>
         <!-- Submit Button -->
         <div class="row">
             <div class="col s12 center-align">
                 <button type="submit" class="btn-large cyan darken-4">
-                    Add League +
+                    Add Club +
                 </button>
             </div>
         </div>
