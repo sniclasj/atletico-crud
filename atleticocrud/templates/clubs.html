@@ -1,30 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<h3 class="cyan darken-4 center-align white-text">Select Your League!</h3>
+<h3 class="cyan darken-4 center-align white-text">Select Your Club!</h3>
 
 <div class="row">
-    {% for league in leagues %}
+    {% for club in clubs %}
     <div class="col s12 m6 l3">
         <div class="card">
             <div class="card-image">
                 <img src="{{ url_for('static',filename='images/england-flag.png')}}">
             </div>
             <div class="card-action">
-                <a href="#">{{ league.league_name }}</a>
-                <a href="{{ url_for('edit_league', league_id=league.id) }}" class="btn green">Edit</a>
-                <a href="#modal-{{ league.id }}" class="btn red modal-trigger">Delete</a>
-
-                <!-- Modal to confirm delete -->
-                <div id="modal-{{ league.id }}" class="modal">
-                    <div class="modal-content">
-                        <h4>Are You Sure?</h4>
-                        <p>Warning! Deleting cannot be undone!</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="{{ url_for('delete_league', league_id=league.id) }}" class="btn red">Delete</a>
-                        <a href="{{ url_for('leagues', country_id=league.country_id) }}" class="modal-close btn green">Cancel</a>
-                    </div>
-                </div>
+                <a href="#">{{ club.club_name }}</a>
             </div>
         </div>
     </div>
@@ -33,8 +19,8 @@
 
 <div class="row">
     <div class="col s12 center-align">
-        <a href="{{ url_for('add_league') }}" class="btn-large cyan darken-4 white-text">
-            Add League +
+        <a href="{{ url_for('add_club') }}" class="btn-large cyan darken-4 white-text">
+            Add Club +
         </a>
     </div>
 </div>
