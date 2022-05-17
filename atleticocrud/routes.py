@@ -78,3 +78,23 @@ def delete_league(league_id):
     db.session.delete(league)
     db.session.commit()
     return redirect(url_for("leagues", country_id=league.country_id))
+
+
+@app.route("/clubs/<int:league_id>")
+def clubs(league_id):
+    clubs = list(Club.query.order_by(Club.club_name).filter(Club.league_id==league_id))
+    return render_template("clubs.html", clubs=clubs)
+
+
+@app.route("/add_club", methods = ["GET", "POST"])
+def add_club():
+    leagues = list(League.query.order_by(League.league_name).all())
+    if request.method == "POST":
+        club = Club(
+            club_name=request.form.get("club_name"),
+            league_id=request.form.get("league_id")
+            )
+        db.session.add(club)
+        db.session.commit()
+        return redirect(url_for("clubs", league_id=club.league_id))
+    return render_template("add_club.html", leagues=leagues)
