@@ -60,3 +60,13 @@ def add_league():
         db.session.commit()
         return redirect(url_for("leagues", country_id=league.country_id))
     return render_template("add_league.html", countries=countries)
+
+
+@app.route("/edit_league/<int:league_id>", methods = ["GET", "POST"])
+def edit_league(league_id):
+    league = League.query.get_or_404(league_id)
+    if request.method == "POST":
+        league.league_name = request.form.get("league_name")
+        db.session.commit()
+        return redirect(url_for("leagues", country_id=league.country_id))
+    return render_template("edit_league.html", league=league)
