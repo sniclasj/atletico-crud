@@ -11,7 +11,7 @@
             </div>
             <div class="card-action">
                 <a href="#">{{ league.league_name }}</a>
-                <a href="#" class="btn green">Edit</a>
+                <a href="{{ url_for('edit_league', league_id=league.id) }}" class="btn green">Edit</a>
                 <a href="#" class="btn red">Delete</a>
             </div>
         </div>
