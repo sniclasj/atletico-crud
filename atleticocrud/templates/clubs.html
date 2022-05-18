@@ -9,13 +9,13 @@
     {% for club in clubs %}
     <li class="collection-item avatar">
         <img src="{{ url_for('static',filename='images/england-flag.png')}}" alt="" class="circle">
-        <span class="title"><a href="#">
+        <span class="title">
                 <h5>{{club.club_name}}</h5>
-            </a></span>
+        </span>
         <p><a href="{{ url_for('edit_club', club_id=club.id) }}">Edit</a> <br>
             <a href="#modal-{{ club.id }}" class="modal-trigger">Delete</a>
         </p>
-        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        <a href="#!" class="secondary-content"><i class="btn-small">View Players</i></a>
     </li>
     <!-- Modal to confirm delete -->
     <div id="modal-{{ club.id }}" class="modal">
