@@ -11,6 +11,7 @@
             </div>
             <div class="card-action">
                 <a href="#">{{ club.club_name }}</a>
+                <a href="{{ url_for('edit_club', club_id=club.id) }}" class="btn green">Edit</a>
             </div>
         </div>
     </div>
