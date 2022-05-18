@@ -44,7 +44,7 @@ def delete_country(country_id):
 
 @app.route("/leagues/<int:country_id>")
 def leagues(country_id):
-    leagues = list(League.query.order_by(League.league_name).filter(League.country_id==country_id))
+    leagues = list(League.query.order_by(League.id).filter(League.country_id==country_id))
     return render_template("leagues.html", leagues=leagues)
 
 
