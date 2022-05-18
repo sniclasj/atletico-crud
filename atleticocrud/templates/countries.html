@@ -9,10 +9,10 @@
             <div class="card-image">
                 <img src="{{ url_for('static',filename='images/england-flag.png')}}">
             </div>
-            <div class="card-action">
-                <a href="{{ url_for('leagues', country_id=country.id ) }}">{{ country.country_name }}</a>
-                <a href="{{ url_for('edit_country', country_id=country.id) }}" class="btn green">Edit</a>
-                <a href="#modal-{{ country.id }}" class="btn red modal-trigger">Delete</a>
+            <div class="card-action left-align">
+                <a href="{{ url_for('leagues', country_id=country.id ) }}">{{ country.country_name }}</a><br>
+                <a href="{{ url_for('edit_country', country_id=country.id) }}" class="btn-small green">Edit</a>
+                <a href="#modal-{{ country.id }}" class="btn-small red modal-trigger">Delete</a>
 
                 <!-- Modal to confirm delete -->
                 <div id="modal-{{ country.id }}" class="modal">
