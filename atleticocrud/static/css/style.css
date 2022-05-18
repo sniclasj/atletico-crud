@@ -1,3 +1,10 @@
+/* Import google font Monoton */
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+.main-title {
+  font-family: 'Monoton', cursive;
+}
+
 /* Materialize stick footer */
 body {
     display: flex;
