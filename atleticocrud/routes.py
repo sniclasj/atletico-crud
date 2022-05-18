@@ -98,3 +98,13 @@ def add_club():
         db.session.commit()
         return redirect(url_for("clubs", league_id=club.league_id))
     return render_template("add_club.html", leagues=leagues)
+
+
+@app.route("/edit_club/<int:club_id>", methods = ["GET", "POST"])
+def edit_club(club_id):
+    club = Club.query.get_or_404(club_id)
+    if request.method == "POST":
+        club.club_name = request.form.get("club_name")
+        db.session.commit()
+        return redirect(url_for("clubs", league_id=club.league_id))
+    return render_template("edit_club.html", club=club)
