@@ -39,11 +39,11 @@ class Player(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     player_name = db.Column(db.String(50), nullable=False)
     player_dob = db.Column(db.Date, nullable=False)
-    player_age = db.Column(db.Integer(2), nullable=False)
+    player_age = db.Column(db.Integer, nullable=False)
     player_nationality = db.Column(db.String(25), nullable=False)
     player_position = db.Column(db.String(25), nullable=False)
     club_id = db.Column(db.Integer, db.ForeignKey("club.id", ondelete="CASCADE"), nullable=False)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return f"#{self.club_id} - Player Name: {self.player_name}"
+        return f"#{self.club_id} - Player Name: {self.player_name} - Player DOB: {self.player_dob} - Player Age: {self.player_age} - Player Nationality: {self.player_nationality} - Player Position: {self.player_position}"
