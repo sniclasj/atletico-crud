@@ -122,3 +122,17 @@ def delete_club(club_id):
 def players(club_id):
     players = list(Player.query.order_by(Player.player_name).filter(Player.club_id==club_id))
     return render_template("players.html", players=players)
+
+
+@app.route("/add_player", methods = ["GET", "POST"])
+def add_player():
+    clubs = list(Club.query.order_by(Club.club_name).all())
+    if request.method == "POST":
+        player = Player(
+            player_name=request.form.get("player_name"),
+            club_id=request.form.get("club_id")
+            )
+        db.session.add(player)
+        db.session.commit()
+        return redirect(url_for("players", club_id=player.club_id))
+    return render_template("add_player.html", clubs=clubs)
