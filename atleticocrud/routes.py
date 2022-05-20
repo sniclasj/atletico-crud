@@ -130,6 +130,10 @@ def add_player():
     if request.method == "POST":
         player = Player(
             player_name=request.form.get("player_name"),
+            player_dob=request.form.get("player_dob"),
+            player_age=request.form.get("player_age"),
+            player_nationality=request.form.get("player_nationality"),
+            player_position=request.form.get("player_position"),
             club_id=request.form.get("club_id")
             )
         db.session.add(player)
