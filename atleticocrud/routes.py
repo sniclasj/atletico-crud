@@ -116,3 +116,9 @@ def delete_club(club_id):
     db.session.delete(club)
     db.session.commit()
     return redirect(url_for("clubs", league_id=club.league_id))
+
+
+@app.route("/players/<int:club_id>")
+def players(club_id):
+    players = list(Player.query.order_by(Player.player_name).filter(Player.club_id==club_id))
+    return render_template("players.html", players=players)
