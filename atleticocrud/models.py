@@ -38,6 +38,10 @@ class Player(db.Model):
     # schema for the Player model
     id = db.Column(db.Integer, primary_key=True)
     player_name = db.Column(db.String(50), nullable=False)
+    player_dob = db.Column(db.Date, nullable=False)
+    player_age = db.Column(db.Integer(2), nullable=False)
+    player_nationality = db.Column(db.String(25), nullable=False)
+    player_position = db.Column(db.String(25), nullable=False)
     club_id = db.Column(db.Integer, db.ForeignKey("club.id", ondelete="CASCADE"), nullable=False)
 
     def __repr__(self):
