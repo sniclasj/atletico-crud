@@ -15,7 +15,7 @@
         <p><a href="{{ url_for('edit_club', club_id=club.id) }}">Edit</a> <br>
             <a href="#modal-{{ club.id }}" class="modal-trigger">Delete</a>
         </p>
-        <a href="#!" class="secondary-content"><i class="btn-small">View Players</i></a>
+        <a href="{{ url_for('players', club_id=club.id ) }}" class="secondary-content"><i class="btn-small">View Players</i></a>
     </li>
     <!-- Modal to confirm delete -->
     <div id="modal-{{ club.id }}" class="modal">
