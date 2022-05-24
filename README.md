@@ -27,3 +27,12 @@
 
 ![Postgres CLI](documentation/deployment/atletico-crud-create-database-postgres-cli.png)
 ![Generate And Migrate Models](documentation/deployment/atletico-crud-generate-migrate-models.png)
+
+# Flask-Migrate
+![Install Flask Migrate](documentation/deployment/atletico-crud-install-flask-migrate.png)
+![Flask Migrate Installed](documentation/deployment/atletico-crud-flask-migrate-installed.png)
+![Import Flask Migrate To __init__.py](documentation/deployment/atletico-crud-import-flask-migrate-to-init.png)
+![Define Migrate In __init__.py](documentation/deployment/atletico-crud-define-migrate-in-init.png)
+![Flask DB Init Command](documentation/deployment/atletico-crud-flask-db-init.png)
+![Initial Migration Command](documentation/deployment/atletico-crud-initial-migration.png)
+![Flask DB Upgrade To Apply Migration](documentation/deployment/atletico-crud-apply-migration-via-flask-db-upgrade.png)
