@@ -1,6 +1,7 @@
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+# https://flask-migrate.readthedocs.io/en/latest/
 from flask_migrate import Migrate
 if os.path.exists("env.py"):
     import env  # noqa
