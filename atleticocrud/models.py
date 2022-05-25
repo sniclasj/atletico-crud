@@ -47,3 +47,11 @@ class Player(db.Model):
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
         return f"#{self.club_id} - Player Name: {self.player_name} - Player DOB: {self.player_dob} - Player Age: {self.player_age} - Player Nationality: {self.player_nationality} - Player Position: {self.player_position}"
+
+
+class Users(db.Model):
+    # schema for the User model
+    id = db.Column(db.Integer, primary_key=True)
+    user_name = db.Column(db.String(50), unique=True, nullable=False)
+    password = db.Column(db.String(260), nullable=False)
+    verify_password = db.Column(db.String(260), nullable=False)
