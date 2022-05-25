@@ -9,6 +9,11 @@ def home():
     return render_template("home.html")
 
 
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("register.html")
+
+
 @app.route("/countries")
 def countries():
     countries = list(Country.query.order_by(Country.country_name).all())
