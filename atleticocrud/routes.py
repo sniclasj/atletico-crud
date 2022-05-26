@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, session, url_for
+from flask import flash, render_template, request, redirect, session, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from atleticocrud import app, db
 from atleticocrud.models import Country, League, Club, Player, Users
