@@ -22,9 +22,8 @@ def register():
         
         user = Users(
             user_name=request.form.get("username").lower(),
-            password=generate_password_hash(request.form.get("password")),
-            verify_password=check_password_hash(request.form.get("verify-password"))
-        )
+            password=generate_password_hash(request.form.get("password"))
+            )
         
         db.session.add(user)
         db.session.commit()
