@@ -11,8 +11,10 @@
             </div>
             <div class="card-action left-align">
                 <a href="{{ url_for('clubs', league_id=league.id ) }}">{{ league.league_name }}</a><br>
+                {% if session.user|lower == "admin"|lower %}
                 <a href="{{ url_for('edit_league', league_id=league.id) }}" class="btn-small green">Edit</a>
                 <a href="#modal-{{ league.id }}" class="btn-small red modal-trigger">Delete</a>
+                {% endif %}
 
                 <!-- Modal to confirm delete -->
                 <div id="modal-{{ league.id }}" class="modal">
@@ -31,6 +33,7 @@
     {% endfor %}
 </div>
 
+{% if session.user|lower == "admin"|lower %}
 <div class="row">
     <div class="col s12 center-align">
         <a href="{{ url_for('add_league') }}" class="btn-large cyan darken-4 white-text">
@@ -38,4 +41,5 @@
         </a>
     </div>
 </div>
+{% endif %}
 {% endblock %}
