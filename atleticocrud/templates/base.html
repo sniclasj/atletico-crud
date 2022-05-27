@@ -23,10 +23,12 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('countries') }}">Countries</a></li>
+                    {% if session.user|lower == "admin"|lower %}
                     <li><a href="{{ url_for('add_country') }}">Add Country</a></li>
                     <li><a href="{{ url_for('add_league') }}">Add League</a></li>
                     <li><a href="{{ url_for('add_club') }}">Add Club</a></li>
                     <li><a href="{{ url_for('add_player') }}">Add Player</a></li>
+                    {{% endif %}}
                     <li><a href="{{ url_for('register') }}">Register</a></li>
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
@@ -38,10 +40,12 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('countries') }}">Countries</a></li>
+            {% if session.user|lower == "admin"|lower %}
             <li><a href="{{ url_for('add_country') }}">Add Country</a></li>
             <li><a href="{{ url_for('add_league') }}">Add League</a></li>
             <li><a href="{{ url_for('add_club') }}">Add Club</a></li>
             <li><a href="{{ url_for('add_player') }}">Add Player</a></li>
+            {{% endif %}}
             <li><a href="{{ url_for('register') }}">Register</a></li>
             <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
