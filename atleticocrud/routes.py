@@ -134,6 +134,7 @@ def add_league():
     if request.method == "POST":
         league = League(
             league_name=request.form.get("league_name"),
+            league_image_url=request.form.get("league_image_url"),
             country_id=request.form.get("country_id")
             )
         db.session.add(league)
