@@ -92,8 +92,11 @@ def countries():
 @app.route("/add_country", methods = ["GET", "POST"])
 def add_country():
     if request.method == "POST":
-        country = Country(country_name=request.form.get("country_name"))
-        country_image_url = Country(country_image_url=request.form.get("country_image_url"))
+        country = Country(
+            country_name=request.form.get("country_name"),
+            country_image_url=request.form.get("country_image_url")
+        )
+
         db.session.add(country)
         db.session.commit()
         return redirect(url_for("countries"))
