@@ -18,9 +18,13 @@
 
         <nav class="cyan darken-4">
             <div class="nav-wrapper">
-                {% if session.user %}
+                {% if session.user|lower == "admin"|lower %}
+                <a href="{{ url_for('profile', username=session['user']) }}"
+                    class="brand-logo left main-title">Atletico Crud Admin</a>
+                {% if session.user|lower != "admin" %}
                 <a href="{{ url_for('profile', username=session['user']) }}"
                     class="brand-logo center main-title">Atletico Crud</a>
+                {% endif %}
                 {% else %}
                 <a href="{{ url_for('home') }}" class="brand-logo center main-title">Atletico Crud</a>
                 {% endif %}
@@ -40,7 +44,7 @@
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
                     <li><a href="{{ url_for('register') }}">Register</a></li>
-                    {% endif %}</li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
