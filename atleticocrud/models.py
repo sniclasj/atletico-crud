@@ -10,29 +10,31 @@ class Country(db.Model):
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return f"#{self.country_name} - Image URL: {self.country_image_url}"
+        return f"#{self.country_name} - Country Image URL: {self.country_image_url}"
 
 
 class League(db.Model):
     # schema for the League model
     id = db.Column(db.Integer, primary_key=True)
     league_name = db.Column(db.String(50), unique=True, nullable=False)
+    league_image_url = db.Column(db.String(250), unique=True, nullable=True)
     country_id = db.Column(db.Integer, db.ForeignKey("country.id", ondelete="CASCADE"), nullable=False)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return f"#{self.country_id} - League: {self.league_name}"
+        return f"#{self.country_id} - League: {self.league_name} - League Image URL: {self.league_image_url}"
 
 
 class Club(db.Model):
     # schema for the Club model
     id = db.Column(db.Integer, primary_key=True)
     club_name = db.Column(db.String(50), unique=True, nullable=False)
+    club_image_url = db.Column(db.String(250), unique=True, nullable=True)
     league_id = db.Column(db.Integer, db.ForeignKey("league.id", ondelete="CASCADE"), nullable=False)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return f"#{self.league_id} - Club: {self.club_name}"
+        return f"#{self.league_id} - Club: {self.club_name} - Club Image URL: {self.club_image_url}"
 
 
 class Player(db.Model):
@@ -43,11 +45,12 @@ class Player(db.Model):
     player_age = db.Column(db.Integer, nullable=False)
     player_nationality = db.Column(db.String(25), nullable=False)
     player_position = db.Column(db.String(25), nullable=False)
+    player_image_url = db.Column(db.String(250), unique=True, nullable=True)
     club_id = db.Column(db.Integer, db.ForeignKey("club.id", ondelete="CASCADE"), nullable=False)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return f"#{self.club_id} - Player Name: {self.player_name} - Player DOB: {self.player_dob} - Player Age: {self.player_age} - Player Nationality: {self.player_nationality} - Player Position: {self.player_position}"
+        return f"#{self.club_id} - Player Name: {self.player_name} - Player DOB: {self.player_dob} - Player Age: {self.player_age} - Player Nationality: {self.player_nationality} - Player Position: {self.player_position} - Player Image URL: {self.player_image_url}"
 
 
 class Users(db.Model):
