@@ -174,6 +174,7 @@ def add_club():
     if request.method == "POST":
         club = Club(
             club_name=request.form.get("club_name"),
+            club_image_url=request.form.get("club_image_url"),
             league_id=request.form.get("league_id")
             )
         db.session.add(club)
@@ -187,6 +188,7 @@ def edit_club(club_id):
     club = Club.query.get_or_404(club_id)
     if request.method == "POST":
         club.club_name = request.form.get("club_name")
+        club.club_image_url=request.form.get("club_image_url")
         db.session.commit()
         return redirect(url_for("clubs", league_id=club.league_id))
     return render_template("edit_club.html", club=club)
