@@ -7,7 +7,7 @@
     <div class="col s12 m6 l3">
         <div class="card">
             <div class="card-image">
-                <img src="{{ url_for('static',filename='images/newcastle-badge.png')}}">
+                <img src="{{ country.country_image_url }}">
             </div>
             <div class="card-action left-align">
                 <a href="{{ url_for('leagues', country_id=country.id ) }}">{{ country.country_name }}</a><br>
