@@ -105,6 +105,7 @@ def edit_country(country_id):
     country = Country.query.get_or_404(country_id)
     if request.method == "POST":
         country.country_name = request.form.get("country_name")
+        country.country_image_url = request.form.get("country_image_url")
         db.session.commit()
         return redirect(url_for("countries"))
     return render_template("edit_country.html", country=country)
