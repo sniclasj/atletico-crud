@@ -21,6 +21,7 @@
                 {% if session.user|lower == "admin"|lower %}
                 <a href="{{ url_for('profile', username=session['user']) }}"
                     class="brand-logo left main-title">Atletico Crud Admin</a>
+                <!-- Need to work out how to say session.user exists but is not specifically admin -->
                 {% if session.user|lower != "admin" %}
                 <a href="{{ url_for('profile', username=session['user']) }}"
                     class="brand-logo center main-title">Atletico Crud</a>
