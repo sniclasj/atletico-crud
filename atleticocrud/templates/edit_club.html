@@ -7,9 +7,17 @@
         <!-- Club Name -->
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Input Club Name" name="club_name" value="{{ club.club_name}}" id="club_name" minlength="3"
-                    maxlength="25" type="text" class="validate" required>
+                <input placeholder="Input Club Name" name="club_name" value="{{ club.club_name}}" id="club_name"
+                    minlength="3" maxlength="25" type="text" class="validate" required>
                 <label for="club_name">Club Name</label>
+            </div>
+        </div>
+        <!-- Club Image URL -->
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Input Club Image URL" name="club_image_url" value="{{ club.club_image_url}}" id="club_image_url"
+                    minlength="3" maxlength="250" type="text" class="validate" required>
+                <label for="club_image_url">Club Image URL</label>
             </div>
         </div>
         <!-- Submit Button -->
