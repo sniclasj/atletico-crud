@@ -7,8 +7,13 @@
     <li class="collection-item avatar">
         <img src="{{ url_for('static',filename='images/newcastle-badge.png')}}" alt="" class="circle">
         <span class="title">
-                <h6>{{player.player_name}}</h6>
+            <h6>{{player.player_name}}</h6>
         </span>
+        {% if session.user|lower == "admin"|lower %}
+        <p>
+            <a href="{{ url_for('edit_player', player_id=player.id) }}">Edit</a> <br>
+        </p>
+        {% endif %}
     </li>
     {% endfor %}
 
