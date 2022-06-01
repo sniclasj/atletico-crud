@@ -49,18 +49,7 @@
                 <p>Upload Player Image: <input type="file"></p>
             </div>
         </div>
-        <!-- Club ID -->
-        <div class="row">
-            <div class="input-field col s12">
-                <select id="club_id" name="club_id" class="validate" required>
-                    <option value="" disabled selected>Select Club</option>
-                    {% for club in clubs %}
-                    <option value="{{ club.id }}">{{ club.club_name }}</option>
-                    {% endfor %}
-                </select>
-                <label for="club_id">Club</label>
-            </div>
-        </div>
+
         <!-- Submit Button -->
         <div class="row">
             <div class="col s12 center-align">
