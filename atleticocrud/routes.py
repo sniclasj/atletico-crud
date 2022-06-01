@@ -228,14 +228,13 @@ def add_player():
 
 @app.route("/edit_player/<int:player_id>", methods = ["GET", "POST"])
 def edit_player(player_id):
-    player = Player.query.get_or_404(club_id)
+    player = Player.query.get_or_404(player_id)
     if request.method == "POST":
         player_name=request.form.get("player_name"),
         player_dob=request.form.get("player_dob"),
         player_age=request.form.get("player_age"),
         player_nationality=request.form.get("player_nationality"),
         player_position=request.form.get("player_position"),
-        club_id=request.form.get("club_id")
         db.session.commit()
         return redirect(url_for("players", club_id=player.club_id))
     return render_template("edit_player.html", player=player)
