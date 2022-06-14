@@ -37,7 +37,7 @@
                     {% if session.user|lower == "admin"|lower %}
                     <li><a class="grey-text text-lighten-1" href="{{ url_for('add_country') }}">Add Country</a></li>
                     <li><a class="grey-text text-lighten-1" href="{{ url_for('add_league') }}">Add League</a></li>
-                    <li><a class="grey-text text-lighten-1" href="{{ url_for('add_club', league_id=0) }}">Add Club</a></li>
+                    <li><a class="grey-text text-lighten-1" href="{{ url_for('add_club') }}">Add Club</a></li>
                     <li><a class="grey-text text-lighten-1" href="{{ url_for('add_player') }}">Add Player</a></li>
                     {% endif %}
                     {% else %}
@@ -57,7 +57,7 @@
             {% if session.user|lower == "admin"|lower %}
             <li><a href="{{ url_for('add_country') }}">Add Country</a></li>
             <li><a href="{{ url_for('add_league') }}">Add League</a></li>
-            <li><a href="{{ url_for('add_club', league_id=0) }}">Add Club</a></li>
+            <li><a href="{{ url_for('add_club') }}">Add Club</a></li>
             <li><a href="{{ url_for('add_player') }}">Add Player</a></li>
             {% endif %}
             {% else %}
