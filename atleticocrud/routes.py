@@ -212,8 +212,12 @@ def delete_club(club_id):
 
 @app.route("/players/<int:club_id>")
 def players(club_id):
-    players = list(Player.query.order_by(Player.player_name).filter(Player.club_id==club_id))
-    return render_template("players.html", players=players)
+    if club_id == 0:
+        players = list(Player.query.order_by(Player.player_name).all())
+        return render_template("players.html", players=players)
+    else:
+        players = list(Player.query.order_by(Player.player_name).filter(Player.club_id==club_id))
+        return render_template("players.html", players=players)
 
 
 @app.route("/add_player", methods = ["GET", "POST"])
