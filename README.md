@@ -7,7 +7,7 @@
 ![Wireframes Club](documentation/wireframes/atletico-crud-wireframe-club-page.jpg)
 ![Wireframes Player](documentation/wireframes/atletico-crud-wireframe-player-page.jpg)
 
-# Initial Set Up
+# Initial Set Up SQLAlchemy
 ![Install Flask-SQLAlchemy](documentation/deployment/atletico-crud-install-flask-sqlalchemy.png)
 ![Completed Flask-SQLAlchemy Install](documentation/deployment/atletico-crud-flask-sqlalchemy-installed.png)
 ![Create env.py File](documentation/deployment/atletico-crud-create-env-file.png)
@@ -36,3 +36,10 @@
 ![Flask DB Init Command](documentation/deployment/atletico-crud-flask-db-init.png)
 ![Initial Migration Command](documentation/deployment/atletico-crud-initial-migration.png)
 ![Flask DB Upgrade To Apply Migration](documentation/deployment/atletico-crud-apply-migration-via-flask-db-upgrade.png)
+
+# Initial Set Up MongoDB
+![Connecting to Mongo DB](documentation/deployment/atletico-crud-connect-mongo-db.png)
+![Confirmation of Mongo DB Connection](documentation/deployment/atletico-crud-mongo-connection-confirmation.png)
+![Install DNS Python](documentation/deployment/atletico-crud-install-dnspython.png)
+![Install Pymongo](documentation/deployment/atletico-crud-install-pymongo.png)
+![Adding Mongo URI to env.py](documentation/deployment/atletico-crud-add-mongo-uri-to-env.png)
