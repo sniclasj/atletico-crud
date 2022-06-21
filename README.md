@@ -44,3 +44,11 @@
 ![Install Pymongo](documentation/deployment/atletico-crud-install-pymongo.png)
 ![Install Flask-PyMongo](documentation/deployment/atletico-crud-install-flask-pymongo.png)
 ![Adding Mongo URI to env.py](documentation/deployment/atletico-crud-add-mongo-uri-to-env.png)
+
+# Heroku Deployment
+![Freeze requirements.txt](documentation/deployment/atletico-crud-heroku-freeze-requirements.png)
+![Create Procfile](documentation/deployment/atletico-crud-heroku-procfile.png)
+![Connect Heroku and GitHub ](documentation/deployment/atletico-crud-heroku-connect-to-github.png)
+![Set Config Vars](documentation/deployment/atletico-crud-heroku-config-vars.png)
+![Enable Auto Deployment](documentation/deployment/atletico-crud-heroku-enable-auto-deploys.png)
+![App Successfully Deployed](documentation/deployment/atletico-crud-heroku-successfully-deployed-app.png)
