@@ -42,4 +42,5 @@
 ![Confirmation of Mongo DB Connection](documentation/deployment/atletico-crud-mongo-connection-confirmation.png)
 ![Install DNS Python](documentation/deployment/atletico-crud-install-dnspython.png)
 ![Install Pymongo](documentation/deployment/atletico-crud-install-pymongo.png)
+![Install Flask-PyMongo](documentation/deployment/atletico-crud-install-flask-pymongo.png)
 ![Adding Mongo URI to env.py](documentation/deployment/atletico-crud-add-mongo-uri-to-env.png)
