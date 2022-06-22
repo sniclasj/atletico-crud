@@ -268,7 +268,7 @@ def add_stats():
             "player_nationality": request.form.get("player_nationality"),
             "player_position": request.form.get("player_position")
         }
-        mongo.db.tasks.insert_one(stats)
+        mongo.db.player_stats.insert_one(stats)
         return redirect(url_for("stats"))
 
     players = list(Player.query.order_by(Player.player_name).all())
