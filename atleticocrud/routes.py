@@ -257,3 +257,20 @@ def delete_player(player_id):
 def stats():
     stats = mongo.db.player_stats.find()
     return render_template("stats.html", stats=stats)
+
+
+@app.route("/add_stats")
+def add_stats():
+    if request.method == "POST":
+        stats = {
+            "player_id": request.form.get("player_id"),
+            "player_dob": request.form.get("player_dob"),
+            "player_nationality": request.form.get("player_nationality"),
+            "player_image": request.form.get("player_image"),
+            "player_position": request.form.get("player_position"),
+        }
+        mongo.db.tasks.insert_one(stats)
+        return redirect(url_for("stats", player_id=player_id))
+
+    players = list(Player.query.order_by(Player.player_name).all())
+    return render_template("add_stats.html", players=players)
