@@ -4,10 +4,11 @@
 
 <ul class="collection">
     {% for stat in stats %}
-    <li class="collection-item">Name: {{ stat.name }}</li>
-    <li class="collection-item">DOB: {{ stat.dob }}</li>
-    <li class="collection-item">Nationality: {{ stat.nationality }}</li>
-    <li class="collection-item">Position: {{ stat.position }}</li>
+    <li class="collection-item" hidden="hidden">ID: {{ stat.player_id }}</li>
+    <li class="collection-item">Name: {{ stat.player_name }}</li>
+    <li class="collection-item">DOB: {{ stat.player_dob }}</li>
+    <li class="collection-item">Nationality: {{ stat.player_nationality }}</li>
+    <li class="collection-item">Position: {{ stat.player_position }}</li>
     {% endfor %}
 
     {% if session.user|lower == "admin"|lower %}
