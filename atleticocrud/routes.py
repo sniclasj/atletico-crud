@@ -251,3 +251,9 @@ def delete_player(player_id):
     db.session.delete(player)
     db.session.commit()
     return redirect(url_for("players", club_id=player.club_id))
+
+
+@app.route("/stats")
+def stats():
+    stats = mongo.db.player_stats.find()
+    return render_template("stats.html", stats=stats)
