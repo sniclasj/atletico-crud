@@ -3,13 +3,17 @@
 <h3 class="cyan darken-4 center-align white-text">Player Stats:</h3>
 
 <div class="row">
-    <form class="col s12" method="POST" action="{{ url_for('add_player') }}">
-        <!-- Player Name -->
+    <form class="col s12" method="POST" action="{{ url_for('add_stats') }}">
+        <!-- Player ID -->
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Input Player Name" name="player_name" id="player_name" minlength="3" maxlength="25"
-                    type="text" class="validate" required>
-                <label for="player_name">Player Name</label>
+                <select id="player_id" name="player_id" class="validate" required>
+                    <option value="" disabled selected>Select Player</option>
+                    {% for player in players %}
+                    <option value="{{ player.id }}">{{ player.player_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="player_id">Player Name</label>
             </div>
         </div>
 
@@ -49,18 +53,6 @@
             </div>
         </div>
 
-        <!-- Player ID -->
-        <div class="row">
-            <div class="input-field col s12">
-                <select id="player_id" name="player_id" class="validate" required>
-                    <option value="" disabled selected>Select Player</option>
-                    {% for player in players %}
-                    <option value="{{ player.id }}">{{ player.player_name }}</option>
-                    {% endfor %}
-                </select>
-                <label for="player_id">Player</label>
-            </div>
-        </div>
         <!-- Submit Button -->
         <div class="row">
             <div class="col s12 center-align">
