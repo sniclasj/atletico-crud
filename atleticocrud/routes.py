@@ -259,11 +259,12 @@ def stats():
     return render_template("stats.html", stats=stats)
 
 
-@app.route("/add_stats")
+@app.route("/add_stats", methods = ["GET", "POST"])
 def add_stats():
     if request.method == "POST":
         stats = {
             "player_id": request.form.get("player_id"),
+            "player_name": request.form.get("player_name"),
             "player_dob": request.form.get("player_dob"),
             "player_nationality": request.form.get("player_nationality"),
             "player_position": request.form.get("player_position")
