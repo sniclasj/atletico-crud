@@ -266,7 +266,6 @@ def add_stats():
             "player_id": request.form.get("player_id"),
             "player_dob": request.form.get("player_dob"),
             "player_nationality": request.form.get("player_nationality"),
-            "player_image": request.form.get("player_image"),
             "player_position": request.form.get("player_position"),
         }
         mongo.db.tasks.insert_one(stats)
