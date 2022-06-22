@@ -269,7 +269,7 @@ def add_stats():
             "player_position": request.form.get("player_position"),
         }
         mongo.db.tasks.insert_one(stats)
-        return redirect(url_for("stats", player_id=player_id))
+        return redirect(url_for("stats"))
 
     players = list(Player.query.order_by(Player.player_name).all())
     return render_template("add_stats.html", players=players)
