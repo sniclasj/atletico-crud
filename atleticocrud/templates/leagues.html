@@ -4,13 +4,13 @@
 
 <div class="row">
     {% for league in leagues %}
-    <div class="col s12 m6 l3">
+    <div class="col s12 m6 l3 card-style">
         <div class="card">
             <div class="card-image">
                 <img src="{{ league.league_image_url }}" alt="{{ league.league_name }} Logo">
             </div>
-            <div class="card-action left-align">
-                <a href="{{ url_for('clubs', league_id=league.id ) }}">{{ league.league_name }}</a><br>
+            <div class="card-action">
+                <a class="card-text-style" href="{{ url_for('clubs', league_id=league.id ) }}">{{ league.league_name }}</a><br>
                 {% if session.user|lower == "admin"|lower %}
                 <a href="{{ url_for('edit_league', league_id=league.id) }}" class="btn-small green">Edit</a>
                 <a href="#modal-{{ league.id }}" class="btn-small red modal-trigger">Delete</a>
