@@ -5,6 +5,12 @@
   font-family: 'Monoton', cursive;
 }
 
+img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}
+
 /* Materialize stick footer */
 body {
     display: flex;
