@@ -5,7 +5,7 @@
 <ul class="collection">
     {% for club in clubs %}
     <li class="collection-item avatar">
-        <img src="{{ club.club_image_url }}" alt="" class="circle">
+        <img src="{{ club.club_image_url }}" alt="{{ club.club_name }} Badge" class="circle">
         <span class="title">
             <h6>{{club.club_name}}</h6>
         </span>
