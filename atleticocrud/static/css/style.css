@@ -11,6 +11,15 @@ img {
   object-fit: contain;
 }
 
+.card-style {
+  text-align: center;
+}
+
+.card-text-style {
+  text-transform: none !important;
+  color: darkcyan !important;
+}
+
 /* Materialize stick footer */
 body {
     display: flex;
