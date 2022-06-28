@@ -185,17 +185,20 @@ def clubs(league_id):
 
 @app.route("/add_club", methods=["GET", "POST"])
 def add_club():
-    leagues = list(League.query.order_by(League.league_name).all())
-    if request.method == "POST":
-        club = Club(
-            club_name=request.form.get("club_name"),
-            club_image_url=request.form.get("club_image_url"),
-            league_id=request.form.get("league_id")
-            )
-        db.session.add(club)
-        db.session.commit()
-        return redirect(url_for("clubs", league_id=club.league_id))
-    return render_template("add_club.html", leagues=leagues)
+    if session["user"] != "admin":
+        return redirect(url_for("clubs", league_id=0))
+    else:
+        leagues = list(League.query.order_by(League.league_name).all())
+        if request.method == "POST":
+            club = Club(
+                club_name=request.form.get("club_name"),
+                club_image_url=request.form.get("club_image_url"),
+                league_id=request.form.get("league_id")
+                )
+            db.session.add(club)
+            db.session.commit()
+            return redirect(url_for("clubs", league_id=club.league_id))
+        return render_template("add_club.html", leagues=leagues)
 
 
 @app.route("/edit_club/<int:club_id>", methods=["GET", "POST"])
