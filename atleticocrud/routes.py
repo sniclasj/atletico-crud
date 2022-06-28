@@ -289,7 +289,7 @@ def add_stats():
                     "player_position": request.form.get("player_position")
                 }
                 mongo.db.player_stats.insert_one(stats)
-                return redirect(url_for("stats"))
+                return redirect(url_for("stats", player_id=player.player_id))
             else:
                 flash("This player already has stats")
                 return redirect(url_for("add_stats"))
