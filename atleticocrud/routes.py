@@ -138,18 +138,20 @@ def leagues(country_id):
 
 @app.route("/add_league", methods=["GET", "POST"])
 def add_league():
-    if session["user"] != "admin"|
-    countries = list(Country.query.order_by(Country.country_name).all())
-    if request.method == "POST":
-        league = League(
-            league_name=request.form.get("league_name"),
-            league_image_url=request.form.get("league_image_url"),
-            country_id=request.form.get("country_id")
-            )
-        db.session.add(league)
-        db.session.commit()
-        return redirect(url_for("leagues", country_id=league.country_id))
-    return render_template("add_league.html", countries=countries)
+    if session["user"] != "admin":
+        return redirect(url_for("leagues", country_id=0))
+    else:
+        countries = list(Country.query.order_by(Country.country_name).all())
+        if request.method == "POST":
+            league = League(
+                league_name=request.form.get("league_name"),
+                league_image_url=request.form.get("league_image_url"),
+                country_id=request.form.get("country_id")
+                )
+            db.session.add(league)
+            db.session.commit()
+            return redirect(url_for("leagues", country_id=league.country_id))
+        return render_template("add_league.html", countries=countries)
 
 
 @app.route("/edit_league/<int:league_id>", methods=["GET", "POST"])
