@@ -92,16 +92,18 @@ def countries():
 
 @app.route("/add_country", methods=["GET", "POST"])
 def add_country():
-    if request.method == "POST":
-        country = Country(
-            country_name=request.form.get("country_name"),
-            country_image_url=request.form.get("country_image_url")
-        )
-
-        db.session.add(country)
-        db.session.commit()
+    if  session["user"] != "admin":
         return redirect(url_for("countries"))
-    return render_template("add_country.html")
+    else:
+        if request.method == "POST":
+            country = Country(
+                country_name=request.form.get("country_name"),
+                country_image_url=request.form.get("country_image_url")
+            )
+            db.session.add(country)
+            db.session.commit()
+            return redirect(url_for("countries"))
+        return render_template("add_country.html")
 
 
 @app.route("/edit_country/<int:country_id>", methods=["GET", "POST"])
@@ -136,6 +138,7 @@ def leagues(country_id):
 
 @app.route("/add_league", methods=["GET", "POST"])
 def add_league():
+    if session["user"] != "admin"|
     countries = list(Country.query.order_by(Country.country_name).all())
     if request.method == "POST":
         league = League(
