@@ -17,19 +17,6 @@
             </div>
         </div>
 
-        <!-- Player Name -->
-        <div class="row">
-            <div class="input-field col s12">
-                <select id="player_name" name="player_name" class="validate" required>
-                    <option value="" disabled selected>Input Name</option>
-                    {% for player in players %}
-                    <option value="{{ player.player_name }}">{{ player.player_name }}</option>
-                    {% endfor %}
-                </select>
-                <label for="player_name">Player Name</label>
-            </div>
-        </div>
-
         <!-- Player DOB -->
         <div class="row">
             <div class="input-field col s12">
