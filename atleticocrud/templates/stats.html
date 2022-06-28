@@ -3,13 +3,11 @@
 <h3 class="center-align main-title cyan-text text-darken-4">Stats:</h3>
 
 <ul class="collection">
-    {% for stat in stats %}
-    <li class="collection-item" hidden="hidden">ID: {{ stat.player_id }}</li>
-    <li class="collection-item">Name: {{ stat.player_name }}</li>
-    <li class="collection-item">DOB: {{ stat.player_dob }}</li>
-    <li class="collection-item">Nationality: {{ stat.player_nationality }}</li>
-    <li class="collection-item">Position: {{ stat.player_position }}</li>
-    {% endfor %}
+    <li class="collection-item" hidden="hidden">ID: {{ stats.player_id }}</li>
+    <li class="collection-item">Name: {{ stats.player_name }}</li>
+    <li class="collection-item">DOB: {{ stats.player_dob }}</li>
+    <li class="collection-item">Nationality: {{ stats.player_nationality }}</li>
+    <li class="collection-item">Position: {{ stats.player_position }}</li>
 
     {% if session.user|lower == "admin"|lower %}
     <div class="row">
