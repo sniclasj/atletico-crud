@@ -15,7 +15,7 @@
             <a href="#modal-{{ player.id }}" class="modal-trigger">Delete</a>
         </p>
         {% endif %}
-        <a href="{{ url_for('stats') }}" class="secondary-content"><i
+        <a href="{{ url_for('stats', player_id=player.id) }}" class="secondary-content"><i
             class="btn-small btn-style cyan darken-4">View Stats</i></a>
     </li>
     <!-- Modal to confirm delete -->
