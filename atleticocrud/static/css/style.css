@@ -34,3 +34,13 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+.name-link {
+  text-decoration: none !important;
+  color: #ffffff;
+}
+
+.name-link:hover {
+  background-color: #ffffff;
+  color: darkcyan;
+}
