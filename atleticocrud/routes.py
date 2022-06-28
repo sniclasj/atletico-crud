@@ -92,7 +92,7 @@ def countries():
 
 @app.route("/add_country", methods=["GET", "POST"])
 def add_country():
-    if  session["user"] != "admin":
+    if session["user"] != "admin":
         return redirect(url_for("countries"))
     else:
         if request.method == "POST":
@@ -179,7 +179,8 @@ def clubs(league_id):
         clubs = list(Club.query.order_by(Club.club_name).all())
         return render_template("clubs.html", clubs=clubs)
     else:
-        clubs = list(Club.query.order_by(Club.club_name).filter(Club.league_id==league_id))
+        clubs = list(Club.query.order_by(Club.club_name).filter(
+            Club.league_id == league_id))
         return render_template("clubs.html", clubs=clubs)
 
 
@@ -206,7 +207,7 @@ def edit_club(club_id):
     club = Club.query.get_or_404(club_id)
     if request.method == "POST":
         club.club_name = request.form.get("club_name")
-        club.club_image_url=request.form.get("club_image_url")
+        club.club_image_url = request.form.get("club_image_url")
         db.session.commit()
         return redirect(url_for("clubs", league_id=club.league_id))
     return render_template("edit_club.html", club=club)
@@ -226,7 +227,8 @@ def players(club_id):
         players = list(Player.query.order_by(Player.player_name).all())
         return render_template("players.html", players=players)
     else:
-        players = list(Player.query.order_by(Player.player_name).filter(Player.club_id==club_id))
+        players = list(Player.query.order_by(Player.player_name).filter(
+            Player.club_id == club_id))
         return render_template("players.html", players=players)
 
 
@@ -285,7 +287,8 @@ def add_stats():
                     "player_id": request.form.get("player_id"),
                     "player_name": player.player_name,
                     "player_dob": request.form.get("player_dob"),
-                    "player_nationality": request.form.get("player_nationality"),
+                    "player_nationality": request.form.get(
+                        "player_nationality"),
                     "player_position": request.form.get("player_position")
                 }
                 mongo.db.player_stats.insert_one(stats)
