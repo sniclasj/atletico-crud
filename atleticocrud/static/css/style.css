@@ -20,6 +20,10 @@ img {
   color: darkcyan !important;
 }
 
+.btn-style {
+  text-transform: none !important;
+}
+
 /* Materialize stick footer */
 body {
     display: flex;
