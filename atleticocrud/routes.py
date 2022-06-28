@@ -14,18 +14,18 @@ def home():
 def register():
     if request.method == "POST":
         # check if username already exists in db
-        existing_user = Users.query.filter(Users.user_name == \
-                                           request.form.get("username").lower()).all()
-        
+        existing_user = Users.query.filter(
+            Users.user_name == request.form.get("username").lower()).all()
+
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
-        
+
         user = Users(
             user_name=request.form.get("username").lower(),
             password=generate_password_hash(request.form.get("password"))
             )
-        
+
         db.session.add(user)
         db.session.commit()
 
@@ -41,19 +41,19 @@ def register():
 def login():
     if request.method == "POST":
         # check if username exists in db
-        existing_user = Users.query.filter(Users.user_name == \
-                                           request.form.get("username").lower()).all()
+        existing_user = Users.query.filter(
+            Users.user_name == request.form.get("username").lower()).all()
 
         if existing_user:
             print(request.form.get("username"))
             # ensure hashed password matches user input
             if check_password_hash(
-                    existing_user[0].password, request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        flash("Welcome, {}".format(
-                            request.form.get("username")))
-                        return redirect(url_for(
-                            "profile", username=session["user"]))
+                existing_user[0].password, request.form.get("password")):
+                    session["user"] = request.form.get("username").lower()
+                    flash("Welcome, {}".format(
+                        request.form.get("username")))
+                    return redirect(url_for(
+                        "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -69,7 +69,7 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-        
+
     if "user" in session:
         return render_template("profile.html", username=session["user"])
 
@@ -90,7 +90,7 @@ def countries():
     return render_template("countries.html", countries=countries)
 
 
-@app.route("/add_country", methods = ["GET", "POST"])
+@app.route("/add_country", methods=["GET", "POST"])
 def add_country():
     if request.method == "POST":
         country = Country(
@@ -104,7 +104,7 @@ def add_country():
     return render_template("add_country.html")
 
 
-@app.route("/edit_country/<int:country_id>", methods = ["GET", "POST"])
+@app.route("/edit_country/<int:country_id>", methods=["GET", "POST"])
 def edit_country(country_id):
     country = Country.query.get_or_404(country_id)
     if request.method == "POST":
@@ -113,7 +113,7 @@ def edit_country(country_id):
         db.session.commit()
         return redirect(url_for("countries"))
     return render_template("edit_country.html", country=country)
- 
+
 
 @app.route("/delete_country/<int:country_id>")
 def delete_country(country_id):
@@ -129,11 +129,12 @@ def leagues(country_id):
         leagues = list(League.query.order_by(League.league_name).all())
         return render_template("leagues.html", leagues=leagues)
     else:
-        leagues = list(League.query.order_by(League.id).filter(League.country_id==country_id))
+        leagues = list(League.query.order_by(League.id).filter(
+            League.country_id == country_id))
         return render_template("leagues.html", leagues=leagues)
 
 
-@app.route("/add_league", methods = ["GET", "POST"])
+@app.route("/add_league", methods=["GET", "POST"])
 def add_league():
     countries = list(Country.query.order_by(Country.country_name).all())
     if request.method == "POST":
@@ -148,7 +149,7 @@ def add_league():
     return render_template("add_league.html", countries=countries)
 
 
-@app.route("/edit_league/<int:league_id>", methods = ["GET", "POST"])
+@app.route("/edit_league/<int:league_id>", methods=["GET", "POST"])
 def edit_league(league_id):
     league = League.query.get_or_404(league_id)
     if request.method == "POST":
@@ -177,7 +178,7 @@ def clubs(league_id):
         return render_template("clubs.html", clubs=clubs)
 
 
-@app.route("/add_club", methods = ["GET", "POST"])
+@app.route("/add_club", methods=["GET", "POST"])
 def add_club():
     leagues = list(League.query.order_by(League.league_name).all())
     if request.method == "POST":
@@ -192,7 +193,7 @@ def add_club():
     return render_template("add_club.html", leagues=leagues)
 
 
-@app.route("/edit_club/<int:club_id>", methods = ["GET", "POST"])
+@app.route("/edit_club/<int:club_id>", methods=["GET", "POST"])
 def edit_club(club_id):
     club = Club.query.get_or_404(club_id)
     if request.method == "POST":
@@ -221,7 +222,7 @@ def players(club_id):
         return render_template("players.html", players=players)
 
 
-@app.route("/add_player", methods = ["GET", "POST"])
+@app.route("/add_player", methods=["GET", "POST"])
 def add_player():
     clubs = list(Club.query.order_by(Club.club_name).all())
     if request.method == "POST":
@@ -235,11 +236,11 @@ def add_player():
     return render_template("add_player.html", clubs=clubs)
 
 
-@app.route("/edit_player/<int:player_id>", methods = ["GET", "POST"])
+@app.route("/edit_player/<int:player_id>", methods=["GET", "POST"])
 def edit_player(player_id):
     player = Player.query.get_or_404(player_id)
     if request.method == "POST":
-        player_name=request.form.get("player_name"),
+        player_name = request.form.get("player_name"),
         db.session.commit()
         return redirect(url_for("players", club_id=player.club_id))
     return render_template("edit_player.html", player=player)
@@ -253,24 +254,31 @@ def delete_player(player_id):
     return redirect(url_for("players", club_id=player.club_id))
 
 
-@app.route("/stats")
-def stats():
-    stats = mongo.db.player_stats.find()
+@app.route("/stats/<player_id>")
+def stats(player_id):
+    stats = mongo.db.player_stats.find_one({"player_id": player_id})
     return render_template("stats.html", stats=stats)
 
 
-@app.route("/add_stats", methods = ["GET", "POST"])
+@app.route("/add_stats", methods=["GET", "POST"])
 def add_stats():
     if request.method == "POST":
-        stats = {
-            "player_id": request.form.get("player_id"),
-            "player_name": request.form.get("player_name"),
-            "player_dob": request.form.get("player_dob"),
-            "player_nationality": request.form.get("player_nationality"),
-            "player_position": request.form.get("player_position")
-        }
-        mongo.db.player_stats.insert_one(stats)
-        return redirect(url_for("stats"))
+        new_stats = request.form.get("player_id")
+        if mongo.db.player_stats.count_documents(
+                {"player_id": new_stats}, limit=1) == 0:
+            player = Player.query.get_or_404(request.form.get("player_id"))
+            stats = {
+                "player_id": request.form.get("player_id"),
+                "player_name": player.player_name,
+                "player_dob": request.form.get("player_dob"),
+                "player_nationality": request.form.get("player_nationality"),
+                "player_position": request.form.get("player_position")
+            }
+            mongo.db.player_stats.insert_one(stats)
+            return redirect(url_for("stats"))
+        else:
+            flash("This player already has stats")
+            return redirect(url_for("add_stats"))
 
     players = list(Player.query.order_by(Player.player_name).all())
     return render_template("add_stats.html", players=players)
