@@ -289,7 +289,7 @@ def add_stats():
                     "player_dob": request.form.get("player_dob"),
                     "player_nationality": request.form.get(
                         "player_nationality"),
-                    "player_position": request.form.get("player_position")
+                    "player_position": request.form.get("club_id")
                 }
                 mongo.db.player_stats.insert_one(stats)
                 return redirect(url_for("stats", player_id=player.player_id))
@@ -299,3 +299,41 @@ def add_stats():
 
         players = list(Player.query.order_by(Player.player_name).all())
         return render_template("add_stats.html", players=players)
+
+
+@app.route("/playersa/<club_id>")
+def playersa(club_id):
+    if club_id == 0:
+        # Need to fix this next line to display all players
+        playersa = mongo.db.players.find()
+    else:
+        playersa = mongo.db.players.find({"club_id": club_id})
+        return render_template("playersa.html", playersa=playersa)
+
+
+@app.route("/add_playera", methods=["GET", "POST"])
+def add_playera():
+    if session["user"] != "admin":
+        return redirect(url_for("playersa", club_id=0))
+    else:
+        if request.method == "POST":
+            new_playera = request.form.get("club_id")
+            if mongo.db.player.count_documents(
+                    {"club_id": new_playera}, limit=40) == 0:
+                club = Club.query.get_or_404(request.form.get("club_id"))
+                playersa = {
+                    "name": request.form.get("player_name"),
+                    "dob": request.form.get("player_dob"),
+                    "nationality": request.form.get(
+                        "player_nationality"),
+                    "position": request.form.get("player_position"),
+                    "club_id": request.form.get("club_id")
+                }
+                mongo.db.players.insert_one(playersa)
+                return redirect(url_for("playersa", club_id=club.id))
+            else:
+                flash("This player already has stats")
+                return redirect(url_for("add_playera"))
+
+        clubs = list(Club.query.order_by(Club.club_name).all())
+        return render_template("add_playera.html", clubs=clubs)
