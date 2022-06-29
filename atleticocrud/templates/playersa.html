@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="center-align main-title cyan-text text-darken-4">Playersa:</h3>
+
+{% for x in playersa %}
+<ul class="collection">
+    <li class="collection-item">Name: {{ x.name }}</li>
+    <li class="collection-item">DOB: {{ x.dob }}</li>
+    <li class="collection-item">Nationality: {{ x.nationality }}</li>
+    <li class="collection-item">Position: {{ x.position }}</li>
+{% endfor %}
+
+    {% if session.user|lower == "admin"|lower %}
+    <div class="row">
+        <div class="col s12 center-align">
+            <a href="{{ url_for('add_playera') }}"  class="btn-large cyan darken-4 white-text">
+                Add Playersa +
+            </a>
+        </div>
+    </div>
+    {% endif %}
+    {% endblock %}
