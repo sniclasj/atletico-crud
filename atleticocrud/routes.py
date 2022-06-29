@@ -289,7 +289,7 @@ def add_stats():
                     "player_dob": request.form.get("player_dob"),
                     "player_nationality": request.form.get(
                         "player_nationality"),
-                    "player_position": request.form.get("club_id")
+                    "player_position": request.form.get("player_position")
                 }
                 mongo.db.player_stats.insert_one(stats)
                 return redirect(url_for("stats", player_id=player.player_id))
