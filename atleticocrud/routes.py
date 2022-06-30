@@ -2,7 +2,7 @@ from flask import flash, render_template, request, redirect, session, url_for
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from atleticocrud import app, db, mongo
-from atleticocrud.models import Country, League, Club, Player, Users
+from atleticocrud.models import Country, League, Club, Users
 
 
 @app.route("/")
