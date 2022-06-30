@@ -221,50 +221,40 @@ def delete_club(club_id):
     return redirect(url_for("clubs", league_id=club.league_id))
 
 
-@app.route("/players/<int:club_id>")
-def players(club_id):
-    if club_id == 0:
-        players = list(Player.query.order_by(Player.player_name).all())
-        return render_template("players.html", players=players)
-    else:
-        players = list(Player.query.order_by(Player.player_name).filter(
-            Player.club_id == club_id))
-        return render_template("players.html", players=players)
+
+# @app.route("/add_player", methods=["GET", "POST"])
+# def add_player():
+#     if session["user"] != "admin":
+#         return redirect(url_for("players", club_id=0))
+#     else:
+#         clubs = list(Club.query.order_by(Club.club_name).all())
+#         if request.method == "POST":
+#             player = Player(
+#                 player_name=request.form.get("player_name"),
+#                 club_id=request.form.get("club_id")
+#                 )
+#             db.session.add(player)
+#             db.session.commit()
+#             return redirect(url_for("players", club_id=player.club_id))
+#         return render_template("add_player.html", clubs=clubs)
 
 
-@app.route("/add_player", methods=["GET", "POST"])
-def add_player():
-    if session["user"] != "admin":
-        return redirect(url_for("players", club_id=0))
-    else:
-        clubs = list(Club.query.order_by(Club.club_name).all())
-        if request.method == "POST":
-            player = Player(
-                player_name=request.form.get("player_name"),
-                club_id=request.form.get("club_id")
-                )
-            db.session.add(player)
-            db.session.commit()
-            return redirect(url_for("players", club_id=player.club_id))
-        return render_template("add_player.html", clubs=clubs)
+# @app.route("/edit_player/<int:player_id>", methods=["GET", "POST"])
+# def edit_player(player_id):
+#     player = Player.query.get_or_404(player_id)
+#     if request.method == "POST":
+#         player_name = request.form.get("player_name"),
+#         db.session.commit()
+#         return redirect(url_for("players", club_id=player.club_id))
+#     return render_template("edit_player.html", player=player)
 
 
-@app.route("/edit_player/<int:player_id>", methods=["GET", "POST"])
-def edit_player(player_id):
-    player = Player.query.get_or_404(player_id)
-    if request.method == "POST":
-        player_name = request.form.get("player_name"),
-        db.session.commit()
-        return redirect(url_for("players", club_id=player.club_id))
-    return render_template("edit_player.html", player=player)
-
-
-@app.route("/delete_player/<int:player_id>")
-def delete_player(player_id):
-    player = Player.query.get_or_404(player_id)
-    db.session.delete(player)
-    db.session.commit()
-    return redirect(url_for("players", club_id=player.club_id))
+# @app.route("/delete_player/<int:player_id>")
+# def delete_player(player_id):
+#     player = Player.query.get_or_404(player_id)
+#     db.session.delete(player)
+#     db.session.commit()
+#     return redirect(url_for("players", club_id=player.club_id))
 
 
 @app.route("/stats/<player_id>")
