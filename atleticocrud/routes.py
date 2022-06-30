@@ -221,14 +221,6 @@ def delete_club(club_id):
     return redirect(url_for("clubs", league_id=club.league_id))
 
 
-# @app.route("/delete_player/<int:player_id>")
-# def delete_player(player_id):
-#     player = Player.query.get_or_404(player_id)
-#     db.session.delete(player)
-#     db.session.commit()
-#     return redirect(url_for("players", club_id=player.club_id))
-
-
 @app.route("/stats/<player_id>")
 def stats(player_id):
     stats = mongo.db.player_stats.find_one({"player_id": player_id})
