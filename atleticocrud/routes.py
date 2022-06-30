@@ -247,7 +247,8 @@ def add_playera():
                     "nationality": request.form.get(
                         "player_nationality"),
                     "position": request.form.get("player_position"),
-                    "club_id": request.form.get("club_id")
+                    "club_id": request.form.get("club_id"),
+                    "image_url": request.form.get("player_image_url")
                 }
                 mongo.db.players.insert_one(playersa)
                 return redirect(url_for("playersa", club_id=club.id))
