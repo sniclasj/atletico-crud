@@ -223,9 +223,9 @@ def delete_club(club_id):
 
 @app.route("/playersa/<club_id>")
 def playersa(club_id):
-    if club_id == 0:
-        # Need to fix this next line to display all players
+    if club_id == "0":
         playersa = mongo.db.players.find()
+        return render_template("playersa.html", playersa=playersa)
     else:
         playersa = mongo.db.players.find({"club_id": club_id})
         return render_template("playersa.html", playersa=playersa)
