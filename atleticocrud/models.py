@@ -37,25 +37,14 @@ class Club(db.Model):
     club_image_url = db.Column(db.String(250), unique=True, nullable=True)
     league_id = db.Column(db.Integer, db.ForeignKey(
         "league.id", ondelete="CASCADE"), nullable=False)
-    players = db.relationship(
-        "Player", backref="club", cascade="all, delete", lazy=True)
+    # Need to figure out the backref for MongoDB
+    # players = db.relationship(
+    #     "Player", backref="club", cascade="all, delete", lazy=True)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
         return
         f"#{self.league_id} - Club: {self.club_name} - Club Image URL: {self.club_image_url}"
-
-
-class Player(db.Model):
-    # schema for the Player model
-    id = db.Column(db.Integer, primary_key=True)
-    player_name = db.Column(db.String(50), nullable=False)
-    club_id = db.Column(db.Integer, db.ForeignKey(
-        "club.id", ondelete="CASCADE"), nullable=False)
-
-    def __repr__(self):
-        # __repr__ to represent itself in the form of a string
-        return f"#{self.club_id} - Player Name: {self.player_name}"
 
 
 class Users(db.Model):
