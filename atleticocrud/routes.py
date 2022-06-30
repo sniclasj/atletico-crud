@@ -221,16 +221,6 @@ def delete_club(club_id):
     return redirect(url_for("clubs", league_id=club.league_id))
 
 
-# @app.route("/edit_player/<int:player_id>", methods=["GET", "POST"])
-# def edit_player(player_id):
-#     player = Player.query.get_or_404(player_id)
-#     if request.method == "POST":
-#         player_name = request.form.get("player_name"),
-#         db.session.commit()
-#         return redirect(url_for("players", club_id=player.club_id))
-#     return render_template("edit_player.html", player=player)
-
-
 # @app.route("/delete_player/<int:player_id>")
 # def delete_player(player_id):
 #     player = Player.query.get_or_404(player_id)
