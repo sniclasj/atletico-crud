@@ -221,12 +221,6 @@ def delete_club(club_id):
     return redirect(url_for("clubs", league_id=club.league_id))
 
 
-@app.route("/stats/<player_id>")
-def stats(player_id):
-    stats = mongo.db.player_stats.find_one({"player_id": player_id})
-    return render_template("stats.html", stats=stats)
-
-
 @app.route("/add_stats", methods=["GET", "POST"])
 def add_stats():
     if session["user"] != "admin":
