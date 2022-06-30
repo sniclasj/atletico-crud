@@ -4,10 +4,16 @@
 
 {% for player in playersa %}
 <ul class="collection">
-    <li class="collection-item">Name: {{ player.name }}</li>
-    <li class="collection-item">DOB: {{ player.dob }}</li>
-    <li class="collection-item">Nationality: {{ player.nationality }}</li>
-    <li class="collection-item">Position: {{ player.position }}</li>
+    <li class="collection-item avatar">
+        <img src="#" alt="Image of #" class="circle">
+        <span class="title">{{ player.name }}</span>
+        <p>DOB: {{ player.dob }} <br>
+            Nationality: {{ player.nationality }} <br>
+            Position: {{ player.position }}
+        </p>
+        <a href="#" class="secondary-content"><i class="material-icons">{{ club_name }}</i></a>
+    </li>
+</ul>
 {% endfor %}
 
     {% if session.user|lower == "admin"|lower %}
