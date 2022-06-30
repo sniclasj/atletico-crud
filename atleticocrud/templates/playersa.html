@@ -5,7 +5,7 @@
 {% for player in playersa %}
 <ul class="collection">
     <li class="collection-item avatar">
-        <img src="#" alt="Image of #" class="circle">
+        <img src="{{ player.image_url }}" alt="Image of {{ player.name }}" class="circle">
         <span class="title">{{ player.name }}</span>
         <p>DOB: {{ player.dob }} <br>
             Nationality: {{ player.nationality }} <br>
