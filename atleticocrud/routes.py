@@ -221,34 +221,6 @@ def delete_club(club_id):
     return redirect(url_for("clubs", league_id=club.league_id))
 
 
-@app.route("/add_stats", methods=["GET", "POST"])
-def add_stats():
-    if session["user"] != "admin":
-        return redirect(url_for("players", club_id=0))
-    else:
-        if request.method == "POST":
-            new_stats = request.form.get("player_id")
-            if mongo.db.player_stats.count_documents(
-                    {"player_id": new_stats}, limit=1) == 0:
-                player = Player.query.get_or_404(request.form.get("player_id"))
-                stats = {
-                    "player_id": request.form.get("player_id"),
-                    "player_name": player.player_name,
-                    "player_dob": request.form.get("player_dob"),
-                    "player_nationality": request.form.get(
-                        "player_nationality"),
-                    "player_position": request.form.get("player_position")
-                }
-                mongo.db.player_stats.insert_one(stats)
-                return redirect(url_for("stats", player_id=player.player_id))
-            else:
-                flash("This player already has stats")
-                return redirect(url_for("add_stats"))
-
-        players = list(Player.query.order_by(Player.player_name).all())
-        return render_template("add_stats.html", players=players)
-
-
 @app.route("/playersa/<club_id>")
 def playersa(club_id):
     if club_id == 0:
