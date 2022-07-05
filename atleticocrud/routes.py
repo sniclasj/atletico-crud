@@ -258,3 +258,9 @@ def add_playera():
 
         clubs = list(Club.query.order_by(Club.club_name).all())
         return render_template("add_playera.html", clubs=clubs)
+
+
+@app.route("/edit_playera/<player_id>", methods=["GET", "POST"])
+def edit_playera(player_id):
+    player = mongo.db.player.find_one({"_id": ObjectId(player_id)})
+    return render_template("edit_playera.html", player=player)
