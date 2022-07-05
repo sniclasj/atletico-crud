@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="cyan darken-4 center-align white-text">Edit Player</h3>
+
+<!-- Player Name -->
+<div class="row">
+    <div class="input-field col s12">
+        <input placeholder="Input Player Name" name="player_name" id="player_name" minlength="3" maxlength="25"
+            type="text" class="validate" required>
+        <label for="player_name">Player Name</label>
+    </div>
+</div>
+
+<!-- Player Image URL -->
+<div class="row">
+    <div class="input-field col s12">
+        <input placeholder="Input Club Image URL" name="player_image_url" id="player_image_url" minlength="3"
+            maxlength="250" type="text" class="validate" required>
+        <label for="player_image_url">Player Image URL</label>
+    </div>
+</div>
+
+<!-- Player DOB -->
+<div class="row">
+    <div class="input-field col s12">
+        <input placeholder="Input Player DOB" name="player_dob" id="player_dob" minlength="3" maxlength="25" type="text"
+            class="validate" required>
+        <label for="player_dob">Player DOB</label>
+    </div>
+</div>
+
+<!-- Player Nationality -->
+<div class="row">
+    <div class="input-field col s12">
+        <input placeholder="Input Player Nationality" name="player_nationality" id="player_nationality" minlength="3"
+            maxlength="25" type="text" class="validate" required>
+        <label for="player_nationality">Player Nationality</label>
+    </div>
+</div>
+
+<!-- Player Position -->
+<div class="row">
+    <div class="input-field col s12">
+        <input placeholder="Input Player Position" name="player_position" id="player_position" minlength="3"
+            maxlength="25" type="text" class="validate" required>
+        <label for="player_position">Player Position</label>
+    </div>
+</div>
+
+
+<!-- Submit Button -->
+<div class="row">
+    <div class="col s12 center-align">
+        <button type="submit" class="btn-large cyan darken-4">
+            Edit Player +
+        </button>
+    </div>
+</div>
+</form>
+</div>
+
+{% endblock %}
