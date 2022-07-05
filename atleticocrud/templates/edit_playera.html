@@ -5,7 +5,7 @@
 <!-- Player Name -->
 <div class="row">
     <div class="input-field col s12">
-        <input placeholder="Input Player Name" name="player_name" id="player_name" minlength="3" maxlength="25"
+        <input placeholder="Input Player Name" name="player_name" value="{{ player.name }}" id="player_name" minlength="3" maxlength="25"
             type="text" class="validate" required>
         <label for="player_name">Player Name</label>
     </div>
@@ -14,7 +14,7 @@
 <!-- Player Image URL -->
 <div class="row">
     <div class="input-field col s12">
-        <input placeholder="Input Club Image URL" name="player_image_url" id="player_image_url" minlength="3"
+        <input placeholder="Input Club Image URL" name="player_image_url" value="{{ player.image_url }}" id="player_image_url" minlength="3"
             maxlength="250" type="text" class="validate" required>
         <label for="player_image_url">Player Image URL</label>
     </div>
@@ -23,7 +23,7 @@
 <!-- Player DOB -->
 <div class="row">
     <div class="input-field col s12">
-        <input placeholder="Input Player DOB" name="player_dob" id="player_dob" minlength="3" maxlength="25" type="text"
+        <input placeholder="Input Player DOB" name="player_dob" value="{{ player.dob }}" id="player_dob" minlength="3" maxlength="25" type="text"
             class="validate" required>
         <label for="player_dob">Player DOB</label>
     </div>
@@ -32,7 +32,7 @@
 <!-- Player Nationality -->
 <div class="row">
     <div class="input-field col s12">
-        <input placeholder="Input Player Nationality" name="player_nationality" id="player_nationality" minlength="3"
+        <input placeholder="Input Player Nationality" name="player_nationality" value="{{ player.nationality }}" id="player_nationality" minlength="3"
             maxlength="25" type="text" class="validate" required>
         <label for="player_nationality">Player Nationality</label>
     </div>
@@ -41,7 +41,7 @@
 <!-- Player Position -->
 <div class="row">
     <div class="input-field col s12">
-        <input placeholder="Input Player Position" name="player_position" id="player_position" minlength="3"
+        <input placeholder="Input Player Position" name="player_position" value="{{ player.position }}" id="player_position" minlength="3"
             maxlength="25" type="text" class="validate" required>
         <label for="player_position">Player Position</label>
     </div>
