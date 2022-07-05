@@ -238,7 +238,7 @@ def add_playera():
     else:
         if request.method == "POST":
             new_playera = request.form.get("club_id")
-            if mongo.db.player.count_documents(
+            if mongo.db.players.count_documents(
                     {"club_id": new_playera}, limit=40) == 0:
                 club = Club.query.get_or_404(request.form.get("club_id"))
                 playersa = {
@@ -262,5 +262,20 @@ def add_playera():
 
 @app.route("/edit_playera/<player_id>", methods=["GET", "POST"])
 def edit_playera(player_id):
-    player = mongo.db.player.find_one({"_id": ObjectId(player_id)})
-    return render_template("edit_playera.html", player=player)
+    if session["user"] != "admin":
+        return redirect(url_for("playersa", club_id=0))
+    else:
+        player = mongo.db.players.find_one({"_id": ObjectId(player_id)})
+        if request.method == "POST":
+            submit = {
+                "name": request.form.get("player_name"),
+                "dob": request.form.get("player_dob"),
+                "nationality": request.form.get(
+                    "player_nationality"),
+                "position": request.form.get("player_position"),
+                "club_id": request.form.get("club_id"),
+                "image_url": request.form.get("player_image_url")
+                }
+            mongo.db.player.find_one_and_update({"_id": ObjectId(player_id)}, submit)
+            flash("Player Updated!")
+        return render_template("edit_playera.html", player=player)
