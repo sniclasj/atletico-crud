@@ -12,7 +12,7 @@
             Position: {{ player.position }}
             {% if session.user|lower == "admin"|lower %}
         <p>
-            <a href="#">Edit</a> <br>
+            <a href="{{ url_for('edit_playera', player_id=player._id)}}">Edit</a> <br>
             <a href="#">Delete</a>
         </p>
         {% endif %}
