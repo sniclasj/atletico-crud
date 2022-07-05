@@ -10,6 +10,12 @@
         <p>DOB: {{ player.dob }} <br>
             Nationality: {{ player.nationality }} <br>
             Position: {{ player.position }}
+            {% if session.user|lower == "admin"|lower %}
+        <p>
+            <a href="#">Edit</a> <br>
+            <a href="#">Delete</a>
+        </p>
+        {% endif %}
         </p>
         <a href="#" class="secondary-content"><i class="material-icons">Club</i></a>
     </li>
