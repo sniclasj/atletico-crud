@@ -217,9 +217,10 @@ def edit_club(club_id):
     return render_template("edit_club.html", club=club, leagues=leagues)
 
 
-@app.route("/delete_club/<int:club_id>")
+@app.route("/delete_club/<club_id>")
 def delete_club(club_id):
     club = Club.query.get_or_404(club_id)
+    mongo.db.players.delete_many({"club_id": (club_id)})
     db.session.delete(club)
     db.session.commit()
     return redirect(url_for("clubs", league_id=club.league_id))
