@@ -7,27 +7,38 @@
         <!-- League Name -->
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Input League Name" name="league_name" value="{{ league.league_name}}" id="league_name" minlength="3"
-                    maxlength="25" type="text" class="validate" required>
+                <input placeholder="Input League Name" name="league_name" value="{{ league.league_name}}"
+                    id="league_name" minlength="3" maxlength="25" type="text" class="validate" required>
                 <label for="league_name">League Name</label>
             </div>
         </div>
         <!-- League Image URL -->
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Input League Image URL" name="league_image_url" value="{{ league.league_image_url}}" id="league_image_url" minlength="3"
-                    maxlength="250" type="text" class="validate" required>
+                <input placeholder="Input League Image URL" name="league_image_url" value="{{ league.league_image_url}}"
+                    id="league_image_url" minlength="3" maxlength="250" type="text" class="validate" required>
                 <label for="league_name">League Image URL</label>
             </div>
         </div>
-        <!-- Submit Button -->
+        <!-- Country ID -->
         <div class="row">
-            <div class="col s12 center-align">
-                <button type="submit" class="btn-large cyan darken-4">
-                    Edit League +
-                </button>
+            <div class="input-field col s12">
+                <select id="country_id" name="country_id" class="validate" required>
+                    <option value="" disabled selected>Select Country</option>
+                    {% for country in countries %}
+                    <option value="{{ country.id }}">{{ country.country_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="country_id">Country</label>
             </div>
-        </div>
+            <!-- Submit Button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large cyan darken-4">
+                        Edit League +
+                    </button>
+                </div>
+            </div>
     </form>
 </div>
 
