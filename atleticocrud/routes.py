@@ -252,9 +252,9 @@ def add_playera():
         return redirect(url_for("playersa", club_id=0))
     else:
         if request.method == "POST":
-            new_playera = request.form.get("club_id")
+            new_playera = request.form.get("player_image_url")
             if mongo.db.players.count_documents(
-                    {"club_id": new_playera}, limit=40) == 0:
+                    {"image_url": new_playera}, limit=1) == 0:
                 club = Club.query.get_or_404(request.form.get("club_id"))
                 playersa = {
                     "name": request.form.get("player_name"),
