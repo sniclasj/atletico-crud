@@ -164,7 +164,8 @@ def edit_league(league_id):
         league.country_id = request.form.get("country_id")
         db.session.commit()
         return redirect(url_for("leagues", country_id=league.country_id))
-    return render_template("edit_league.html", league=league, countries=countries)
+    return render_template(
+        "edit_league.html", league=league, countries=countries)
 
 
 @app.route("/delete_league/<int:league_id>")
