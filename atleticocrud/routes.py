@@ -102,6 +102,7 @@ def add_country():
             )
             db.session.add(country)
             db.session.commit()
+            flash("Country Successfully Added!")
             return redirect(url_for("countries"))
         return render_template("add_country.html")
 
@@ -113,6 +114,7 @@ def edit_country(country_id):
         country.country_name = request.form.get("country_name")
         country.country_image_url = request.form.get("country_image_url")
         db.session.commit()
+        flash("Country Successfully Updated!")
         return redirect(url_for("countries"))
     return render_template("edit_country.html", country=country)
 
@@ -122,6 +124,7 @@ def delete_country(country_id):
     country = Country.query.get_or_404(country_id)
     db.session.delete(country)
     db.session.commit()
+    flash("Country Successfully Deleted!")
     return redirect(url_for("countries"))
 
 
@@ -150,6 +153,7 @@ def add_league():
                 )
             db.session.add(league)
             db.session.commit()
+            flash("League Successfully Added!")
             return redirect(url_for("leagues", country_id=league.country_id))
         return render_template("add_league.html", countries=countries)
 
@@ -163,6 +167,7 @@ def edit_league(league_id):
         league.league_image_url = request.form.get("league_image_url")
         league.country_id = request.form.get("country_id")
         db.session.commit()
+        flash("League Successfully Updated!")
         return redirect(url_for("leagues", country_id=league.country_id))
     return render_template(
         "edit_league.html", league=league, countries=countries)
@@ -173,6 +178,7 @@ def delete_league(league_id):
     league = League.query.get_or_404(league_id)
     db.session.delete(league)
     db.session.commit()
+    flash("League Successfully Deleted!")
     return redirect(url_for("leagues", country_id=league.country_id))
 
 
@@ -201,6 +207,7 @@ def add_club():
                 )
             db.session.add(club)
             db.session.commit()
+            flash("Club Successfully Added!")
             return redirect(url_for("clubs", league_id=club.league_id))
         return render_template("add_club.html", leagues=leagues)
 
@@ -214,6 +221,7 @@ def edit_club(club_id):
         club.club_image_url = request.form.get("club_image_url")
         club.league_id = request.form.get("league_id")
         db.session.commit()
+        flash("Club Successfully Updated!")
         return redirect(url_for("clubs", league_id=club.league_id))
     return render_template("edit_club.html", club=club, leagues=leagues)
 
@@ -224,6 +232,7 @@ def delete_club(club_id):
     mongo.db.players.delete_many({"club_id": (club_id)})
     db.session.delete(club)
     db.session.commit()
+    flash("Club Successfully Deleted!")
     return redirect(url_for("clubs", league_id=club.league_id))
 
 
@@ -257,9 +266,10 @@ def add_playera():
                     "image_url": request.form.get("player_image_url")
                 }
                 mongo.db.players.insert_one(playersa)
+                flash("Player Successfully Added!")
                 return redirect(url_for("playersa", club_id=club.id))
             else:
-                flash("This player already has stats")
+                flash("This Player Already Exists!")
                 return redirect(url_for("add_playera"))
 
         clubs = list(Club.query.order_by(Club.club_name).all())
@@ -285,7 +295,7 @@ def edit_playera(player_id):
                 }
             mongo.db.players.update_one(
                 {"_id": ObjectId(player_id)}, {"$set": submit})
-            flash("Player Updated!")
+            flash("Player Successfully Updated!")
             return redirect(url_for("playersa", club_id=0))
         return render_template("edit_playera.html", player=player, clubs=clubs)
 
@@ -293,5 +303,5 @@ def edit_playera(player_id):
 @app.route("/delete_playera/<player_id>")
 def delete_playera(player_id):
     mongo.db.players.delete_one({"_id": ObjectId(player_id)})
-    flash("Player Successfully Deleted")
+    flash("Player Successfully Deleted!")
     return redirect(url_for("playersa", club_id=0))
