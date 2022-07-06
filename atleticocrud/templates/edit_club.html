@@ -15,9 +15,21 @@
         <!-- Club Image URL -->
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Input Club Image URL" name="club_image_url" value="{{ club.club_image_url}}" id="club_image_url"
-                    minlength="3" maxlength="250" type="text" class="validate" required>
+                <input placeholder="Input Club Image URL" name="club_image_url" value="{{ club.club_image_url}}"
+                    id="club_image_url" minlength="3" maxlength="250" type="text" class="validate" required>
                 <label for="club_image_url">Club Image URL</label>
+            </div>
+        </div>
+        <!-- League ID -->
+        <div class="row">
+            <div class="input-field col s12">
+                <select id="league_id" name="league_id" class="validate" required>
+                    <option value="" disabled selected>Select League</option>
+                    {% for league in leagues %}
+                    <option value="{{ league.id }}">{{ league.league_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="league_id">League</label>
             </div>
         </div>
         <!-- Submit Button -->
