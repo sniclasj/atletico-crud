@@ -276,13 +276,13 @@ def edit_playera(player_id):
                 "club_id": request.form.get("club_id"),
                 "image_url": request.form.get("player_image_url")
                 }
-            mongo.db.player.find_one_and_update({"_id": ObjectId(player_id)}, submit)
+            mongo.db.player.update_one({"_id": ObjectId(player_id)}, submit)
             flash("Player Updated!")
         return render_template("edit_playera.html", player=player, clubs=clubs)
 
 
 @app.route("/delete_playera/<player_id>")
 def delete_playera(player_id):
-    mongo.db.players.remove({"_id": ObjectId(player_id)})
+    mongo.db.players.delete_one({"_id": ObjectId(player_id)})
     flash("Player Successfully Deleted")
-    return redirect(url_for("playersa"))
+    return redirect(url_for("playersa", club_id=0))
