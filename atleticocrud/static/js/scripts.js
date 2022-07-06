@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     datepicker = document.querySelectorAll('.datepicker');
     M.Datepicker.init(datepicker, {
       format: "dd mmm yyyy",
+      yearRange: 100,
       i18n: {done: "Select"}
     });
   });
