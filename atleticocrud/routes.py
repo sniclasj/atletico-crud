@@ -265,6 +265,7 @@ def edit_playera(player_id):
     if session["user"] != "admin":
         return redirect(url_for("playersa", club_id=0))
     else:
+        clubs = list(Club.query.order_by(Club.club_name).all())
         player = mongo.db.players.find_one({"_id": ObjectId(player_id)})
         if request.method == "POST":
             submit = {
@@ -279,6 +280,7 @@ def edit_playera(player_id):
             mongo.db.players.update_one(
                 {"_id": ObjectId(player_id)}, {"$set": submit})
             flash("Player Updated!")
+            return redirect(url_for("playersa", club_id=0))
         return render_template("edit_playera.html", player=player, clubs=clubs)
 
 
