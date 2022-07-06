@@ -156,13 +156,15 @@ def add_league():
 
 @app.route("/edit_league/<int:league_id>", methods=["GET", "POST"])
 def edit_league(league_id):
+    countries = list(Country.query.order_by(Country.country_name).all())
     league = League.query.get_or_404(league_id)
     if request.method == "POST":
         league.league_name = request.form.get("league_name")
         league.league_image_url = request.form.get("league_image_url")
+        league.country_id = request.form.get("country_id")
         db.session.commit()
         return redirect(url_for("leagues", country_id=league.country_id))
-    return render_template("edit_league.html", league=league)
+    return render_template("edit_league.html", league=league, countries=countries)
 
 
 @app.route("/delete_league/<int:league_id>")
