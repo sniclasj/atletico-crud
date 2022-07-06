@@ -276,7 +276,8 @@ def edit_playera(player_id):
                 "club_id": request.form.get("club_id"),
                 "image_url": request.form.get("player_image_url")
                 }
-            mongo.db.player.update_one({"_id": ObjectId(player_id)}, submit)
+            mongo.db.players.update_one(
+                {"_id": ObjectId(player_id)}, {"$set": submit})
             flash("Player Updated!")
         return render_template("edit_playera.html", player=player, clubs=clubs)
 
