@@ -305,3 +305,8 @@ def delete_playera(player_id):
     mongo.db.players.delete_one({"_id": ObjectId(player_id)})
     flash("Player Successfully Deleted!")
     return redirect(url_for("playersa", club_id=0))
+
+
+@app.route("/form", methods=["GET", "POST"])
+def form():
+    return render_template("form.html")
