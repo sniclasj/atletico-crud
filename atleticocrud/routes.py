@@ -307,6 +307,11 @@ def delete_playera(player_id):
     return redirect(url_for("playersa", club_id=0))
 
 
-@app.route("/form", methods=["GET", "POST"])
+@app.route("/form")
 def form():
     return render_template("form.html")
+
+
+@app.route("/confirmation")
+def confirmation():
+    return render_template("confirmation.html")
