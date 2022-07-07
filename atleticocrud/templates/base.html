@@ -33,7 +33,9 @@
                         <li><a href="{{ url_for('leagues', country_id=0) }}">Leagues</a></li>
                         <li><a href="{{ url_for('clubs', league_id=0) }}">Clubs</a></li>
                         <li><a href="{{ url_for('playersa', club_id=0) }}">Players</a></li>
+                        {% if session.user != "admin"|lower %}
                         <li><a href="#">Form</a></li>
+                        {% endif %}
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -51,7 +53,9 @@
                 <li><a href="{{ url_for('leagues', country_id=0) }}">Leagues</a></li>
                 <li><a href="{{ url_for('clubs', league_id=0) }}">Clubs</a></li>
                 <li><a href="{{ url_for('playersa', club_id=0) }}">Players</a></li>
+                {% if session.user != "admin"|lower %}
                 <li><a href="#">Form</a></li>
+                {% endif %}
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
                 <li><a href="{{ url_for('home') }}">Home</a></li>
