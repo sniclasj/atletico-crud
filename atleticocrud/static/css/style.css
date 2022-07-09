@@ -24,6 +24,10 @@ img {
   text-transform: none !important;
 }
 
+.btn-text {
+  font-size: 10px;
+}
+
 /* Materialize stick footer */
 body {
     display: flex;
