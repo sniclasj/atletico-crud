@@ -32,8 +32,10 @@ Users can also navigate to a _Form_ page to submit their suggestions for players
 The website utilises Materialize CSS to responsively react to different screen sizes so that the user can view content on multiple devices.
 
 ## Colour Scheme
+I selected the dark-cyan and white colour scheme as they contrasted nicely with each other _e.g. white text on a dark-cyan background or vice versa_. The dark-cyan also didn't clash with any country flag, league logo or club crest/kit and was a more interesting colour than a dark grey or black.
 
 ## Typography
+The font used for the logo and the page headings is Monoton from Google Fonts. I chose this font as it reminded me of the font utilised by the football/soccer magazine 'Mundial'.
 
 # Visual ERD
 ![Visual ERD](documentation/testing/atletico-crud-erd-image.png)
