@@ -1,3 +1,13 @@
+# Atletico Crud
+
+# User Stories
+
+# UX
+
+# Colour Scheme
+
+# Typography
+
 # Visual ERD
 ![Visual ERD](documentation/testing/atletico-crud-erd-image.png)
 
@@ -6,6 +16,20 @@
 ![Wireframes League](documentation/wireframes/atletico-crud-wireframe-league-page.jpg)
 ![Wireframes Club](documentation/wireframes/atletico-crud-wireframe-club-page.jpg)
 ![Wireframes Player](documentation/wireframes/atletico-crud-wireframe-player-page.jpg)
+
+# Features
+
+## Existing Features
+
+## Features Left to Implement
+
+# Technologies Used
+
+# Testing
+
+# Deployment
+
+# Set Up Steps
 
 # Initial Set Up SQLAlchemy
 ![Install Flask-SQLAlchemy](documentation/deployment/atletico-crud-install-flask-sqlalchemy.png)
@@ -52,3 +76,5 @@
 ![Set Config Vars](documentation/deployment/atletico-crud-heroku-config-vars.png)
 ![Enable Auto Deployment](documentation/deployment/atletico-crud-heroku-enable-auto-deploys.png)
 ![App Successfully Deployed](documentation/deployment/atletico-crud-heroku-successfully-deployed-app.png)
+
+# Credits
