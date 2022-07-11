@@ -55,6 +55,20 @@ The font used for the logo and the page headings is Monoton from Google Fonts. I
 ## Features Left to Implement
 
 # Technologies Used
+- Git - used for version control.
+- GitHub - used to secure my code online.
+- Gitpod - used as the cloud-based IDE.
+- GitHub Projects - used to track project progress via a basic kanban.
+- Flask - XXX.
+- SQLAlchemy - XXX.
+- MongoDB - XXX.
+- Heroku - used to deploy the site.
+- amiresponsive - used for the mockup image.
+- Materialize CSS - used to create the layout and structure of the website.
+- HTML - used to write the code for the website.
+- Python - used to write the code for the website.
+- JavaScript - used to initialize Materialize CSS scripts.
+- CSS - used to style the website.
 
 # Testing
 
