@@ -1,7 +1,10 @@
 # Atletico Crud
 Atletico Crud is an online soccer/football database.
+
 The database contains players who are renowned as having 'legend status' for a particular club, in a particular league within a particular country _e.g. Alan Shearer who played for Newcastle United in the Premier League in England._
+
 The aim of the website is for users to view players who have already been inducted to the database and for them to submit their own suggestions for players to be entered into the database via a Form.
+
 The website's admin will then review the submitted forms and decide whether to create a new entry.
 
 # User Stories
@@ -11,18 +14,26 @@ The website's admin will then review the submitted forms and decide whether to c
 - As a user, I want to be able to submit a form to suggest a player that should be added to the database.
 - As a user, I want to be able to receive confirmation that my form has been sent.
 - As a user, I want to be able to navigate to view all countries, leagues, clubs and players.
-
+- As a user I want to be able to view the website across multiple devices and screen sizes.
 - As an admin, I want to be able to create/add data to the database.
 - As an admin, I want to be able to read/view data on the database.
 - As an admin, I want to be able to updtae/edit data within the database.
 - As an admin, I want to be able to delete data from the database.
 - As an admin, I want to receive confirmation that actions involving creating, editing or deleting have been successful or unsuccessful.
+- As a user I want to be able to create/add, read/view, update/edit and delete content on the website across multiple devices and screen sizes.
 
 # UX
+The aim of the site is to be as minimal as possible so that attention is focused on the database content.
 
-# Colour Scheme
+Once registered or logged in, users are taken their profile page. From here, the ever present navigation bar allows the user to navigate to Countries, Leagues, Clubs or Players. When utilising the links in the navbar directly _e.g. clicking Clubs_, the user will be directed to a view showing all clubs across all leagues present in the database. However, if the player were to navigate to _Leagues_ first before selecting _Premier League_, the club's visible would be filitered so that only Premier League clubs are displayed. This gives the user the felxibility to look at what they are most interested in viewing.
 
-# Typography
+Users can also navigate to a _Form_ page to submit their suggestions for players who they believe should be inducted into the database.
+
+The website utilises Materialize CSS to responsively react to different screen sizes so that the user can view content on multiple devices.
+
+## Colour Scheme
+
+## Typography
 
 # Visual ERD
 ![Visual ERD](documentation/testing/atletico-crud-erd-image.png)
