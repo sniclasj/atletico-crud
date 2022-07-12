@@ -52,7 +52,98 @@ The font used for the logo and the page headings is Monoton from Google Fonts. I
 
 ## Existing Features
 
+### Navbar
+
+### Logo
+
+### Registration
+
+### Log In
+
+### Log Out
+
+### Flash Messages
+
+### Profile Page
+
+### Countries Page
+
+### Add Country Button (Admin Only)
+
+### Add Country Page (Admin Only)
+
+### Edit Country Button (Admin Only)
+
+### Edit Country Page (Admin Only)
+
+### Delete Country Button (Admin Only)
+
+### Delete Country Modal (Admin Only)
+
+### Leagues Page
+
+### Add League Button (Admin Only)
+
+### Add League Page (Admin Only)
+
+### Edit League Button (Admin Only)
+
+### Edit League Page (Admin Only)
+
+### Delete League Button (Admin Only)
+
+### Delete League Modal (Admin Only)
+
+### Clubs Page
+
+### Add Club Button (Admin Only)
+
+### Add Club Page (Admin Only)
+
+### Edit Club Button (Admin Only)
+
+### Edit Club Page (Admin Only)
+
+### Delete Club Button (Admin Only)
+
+### Delete Club Modal (Admin Only)
+
+### Players Page
+
+### Add Player Button (Admin Only)
+
+### Add Player Page (Admin Only)
+
+### Edit Player Button (Admin Only)
+
+### Edit Player Page (Admin Only)
+
+### Delete Player Button (Admin Only)
+
+### Delete Player Modal (Admin Only)
+
+### Form Page
+
+### Confirmation Page
+
+### Footer
+
+### Favicon
+
 ## Features Left to Implement
+
+### Improved Admin Functionality
+A toggle for username's with admin rights instead of relying on a username.
+
+### Search Functionality
+The ability to search for a specific league, club or player.
+
+### Improved Route Mapping
+Route for clubs would be country/league/club instead of club/league_id.
+Route for players would be country/league/club/player instead of player/club_id.
+
+### Enter Full Record Functionality
+A method for a full record to be added whereby a country, league, club and player could be added from one form with data being stored in the relevant tables.
 
 # Technologies Used
 - Git - used for version control.
