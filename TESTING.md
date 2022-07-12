@@ -4,6 +4,14 @@
 
 # Code Validation
 
+## HTML
+
+## CSS
+
+## JavaScript
+
+## Python
+
 # Responsiveness
 
 # User Story Tests
