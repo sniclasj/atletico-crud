@@ -213,3 +213,14 @@ To view all testing documentation, please refer to [TESTING.md](TESTING.md).
 ![App Successfully Deployed](documentation/deployment/atletico-crud-heroku-successfully-deployed-app.png)
 
 # Credits
+
+## Content
+Code Institute LMS videos.
+
+## Media
+Images used for countries/clubs/leagues/badges.
+
+## Acknowledgements
+I would like to thank my Code Institute mentor Tim Nelson for his support during the course of this project.
+
+I would also like to thank the Code Institute tutor team for the assistance provided during the course of this project.
