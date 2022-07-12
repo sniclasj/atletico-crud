@@ -126,11 +126,14 @@ def edit_country(country_id):
 # Route to delete country if admin
 @app.route("/delete_country/<int:country_id>")
 def delete_country(country_id):
-    country = Country.query.get_or_404(country_id)
-    db.session.delete(country)
-    db.session.commit()
-    flash("Country Successfully Deleted!")
-    return redirect(url_for("countries"))
+    if session["user"] != "admin":
+        return redirect(url_for("countries"))
+    else:
+        country = Country.query.get_or_404(country_id)
+        db.session.delete(country)
+        db.session.commit()
+        flash("Country Successfully Deleted!")
+        return redirect(url_for("countries"))
 
 
 # Route to display all leagues if country_id == 0
@@ -185,11 +188,14 @@ def edit_league(league_id):
 # Route to delete league if admin
 @app.route("/delete_league/<int:league_id>")
 def delete_league(league_id):
-    league = League.query.get_or_404(league_id)
-    db.session.delete(league)
-    db.session.commit()
-    flash("League Successfully Deleted!")
-    return redirect(url_for("leagues", country_id=league.country_id))
+    if session["user"] != "admin":
+        return redirect(url_for("leagues", country_id=0))
+    else:
+        league = League.query.get_or_404(league_id)
+        db.session.delete(league)
+        db.session.commit()
+        flash("League Successfully Deleted!")
+        return redirect(url_for("leagues", country_id=league.country_id))
 
 
 # Route to display all clubs if league_id == 0
@@ -243,12 +249,15 @@ def edit_club(club_id):
 # Route to delete club if admin
 @app.route("/delete_club/<club_id>")
 def delete_club(club_id):
-    club = Club.query.get_or_404(club_id)
-    mongo.db.players.delete_many({"club_id": (club_id)})
-    db.session.delete(club)
-    db.session.commit()
-    flash("Club Successfully Deleted!")
-    return redirect(url_for("clubs", league_id=club.league_id))
+    if session["user"] != "admin":
+        return redirect(url_for("clubs", league_id=0))
+    else:
+        club = Club.query.get_or_404(club_id)
+        mongo.db.players.delete_many({"club_id": (club_id)})
+        db.session.delete(club)
+        db.session.commit()
+        flash("Club Successfully Deleted!")
+        return redirect(url_for("clubs", league_id=club.league_id))
 
 
 # Route to display all players if league_id == 0
@@ -322,9 +331,12 @@ def edit_playera(player_id):
 # Route to delete player if admin
 @app.route("/delete_playera/<player_id>")
 def delete_playera(player_id):
-    mongo.db.players.delete_one({"_id": ObjectId(player_id)})
-    flash("Player Successfully Deleted!")
-    return redirect(url_for("playersa", club_id=0))
+    if session["user"] != "admin":
+        return redirect(url_for("playersa", club_id=0))
+    else:
+        mongo.db.players.delete_one({"_id": ObjectId(player_id)})
+        flash("Player Successfully Deleted!")
+        return redirect(url_for("playersa", club_id=0))
 
 
 # Route to form if user != admin
