@@ -20,7 +20,7 @@ The website's admin will then review the submitted forms and decide whether to c
 - As an admin, I want to be able to updtae/edit data within the database.
 - As an admin, I want to be able to delete data from the database.
 - As an admin, I want to receive confirmation that actions involving creating, editing or deleting have been successful or unsuccessful.
-- As a user I want to be able to create/add, read/view, update/edit and delete content on the website across multiple devices and screen sizes.
+- As an admin I want to be able to create/add, read/view, update/edit and delete content on the website across multiple devices and screen sizes.
 
 # UX
 The aim of the site is to be as minimal as possible so that attention is focused on the database content.
