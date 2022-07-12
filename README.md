@@ -56,6 +56,8 @@ The font used for the logo and the page headings is Monoton from Google Fonts. I
 
 ### Logo
 
+### Home Page
+
 ### Registration
 
 ### Log In
