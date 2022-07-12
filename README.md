@@ -5,7 +5,7 @@ The database contains players who are renowned as having 'legend status' for a p
 
 The aim of the website is for users to view players who have already been inducted to the database and for them to submit their own suggestions for players to be entered into the database via a Form.
 
-The website's admin will then review the submitted forms and decide whether to create a new entry.
+The website's admin will then review the submitted forms and decide whether to create a new entry. The admin has the ability to create/add, read/view, update/edit and delete data.
 
 # User Stories
 - As a user, I want to be able to register as a user on the website.
