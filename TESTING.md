@@ -2,6 +2,12 @@
 
 # Browser Compatibility
 
+## Chrome
+
+## Edge
+
+## Safari (Mobile)
+
 # Code Validation
 
 ## HTML
