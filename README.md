@@ -163,11 +163,9 @@ A method for a full record to be added whereby a country, league, club and playe
 
 # Testing
 
-# Deployment
+# Set Up
 
-# Set Up Steps
-
-# Initial Set Up SQLAlchemy
+## Initial Set Up SQLAlchemy
 ![Install Flask-SQLAlchemy](documentation/deployment/atletico-crud-install-flask-sqlalchemy.png)
 ![Completed Flask-SQLAlchemy Install](documentation/deployment/atletico-crud-flask-sqlalchemy-installed.png)
 ![Create env.py File](documentation/deployment/atletico-crud-create-env-file.png)
@@ -188,7 +186,7 @@ A method for a full record to be added whereby a country, league, club and playe
 ![Postgres CLI](documentation/deployment/atletico-crud-create-database-postgres-cli.png)
 ![Generate And Migrate Models](documentation/deployment/atletico-crud-generate-migrate-models.png)
 
-# Flask-Migrate
+## Flask-Migrate
 ![Install Flask Migrate](documentation/deployment/atletico-crud-install-flask-migrate.png)
 ![Flask Migrate Installed](documentation/deployment/atletico-crud-flask-migrate-installed.png)
 ![Import Flask Migrate To __init__.py](documentation/deployment/atletico-crud-import-flask-migrate-to-init.png)
@@ -197,7 +195,7 @@ A method for a full record to be added whereby a country, league, club and playe
 ![Initial Migration Command](documentation/deployment/atletico-crud-initial-migration.png)
 ![Flask DB Upgrade To Apply Migration](documentation/deployment/atletico-crud-apply-migration-via-flask-db-upgrade.png)
 
-# Initial Set Up MongoDB
+## Initial Set Up MongoDB
 ![Connecting to Mongo DB](documentation/deployment/atletico-crud-connect-mongo-db.png)
 ![Confirmation of Mongo DB Connection](documentation/deployment/atletico-crud-mongo-connection-confirmation.png)
 ![Install DNS Python](documentation/deployment/atletico-crud-install-dnspython.png)
