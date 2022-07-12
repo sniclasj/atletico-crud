@@ -5,6 +5,7 @@ from atleticocrud import app, db, mongo
 from atleticocrud.models import Country, League, Club, Users
 
 
+# Route for homepage for registration/log-in
 @app.route("/")
 def home():
     return render_template("home.html")
@@ -84,12 +85,14 @@ def logout():
     return redirect(url_for("login"))
 
 
+# Route for all countries
 @app.route("/countries")
 def countries():
     countries = list(Country.query.order_by(Country.country_name).all())
     return render_template("countries.html", countries=countries)
 
 
+# Route to add a country if admin
 @app.route("/add_country", methods=["GET", "POST"])
 def add_country():
     if session["user"] != "admin":
@@ -107,6 +110,7 @@ def add_country():
         return render_template("add_country.html")
 
 
+# Route to edit country if admin
 @app.route("/edit_country/<int:country_id>", methods=["GET", "POST"])
 def edit_country(country_id):
     country = Country.query.get_or_404(country_id)
@@ -119,6 +123,7 @@ def edit_country(country_id):
     return render_template("edit_country.html", country=country)
 
 
+# Route to delete country if admin
 @app.route("/delete_country/<int:country_id>")
 def delete_country(country_id):
     country = Country.query.get_or_404(country_id)
@@ -128,6 +133,8 @@ def delete_country(country_id):
     return redirect(url_for("countries"))
 
 
+# Route to display all leagues if country_id == 0
+# Otherwise route displays leagues for a specific country_id
 @app.route("/leagues/<int:country_id>")
 def leagues(country_id):
     if country_id == 0:
@@ -139,6 +146,7 @@ def leagues(country_id):
         return render_template("leagues.html", leagues=leagues)
 
 
+# Route to add league if admin
 @app.route("/add_league", methods=["GET", "POST"])
 def add_league():
     if session["user"] != "admin":
@@ -158,6 +166,7 @@ def add_league():
         return render_template("add_league.html", countries=countries)
 
 
+# Route to edit league if admin
 @app.route("/edit_league/<int:league_id>", methods=["GET", "POST"])
 def edit_league(league_id):
     countries = list(Country.query.order_by(Country.country_name).all())
@@ -173,6 +182,7 @@ def edit_league(league_id):
         "edit_league.html", league=league, countries=countries)
 
 
+# Route to delete league if admin
 @app.route("/delete_league/<int:league_id>")
 def delete_league(league_id):
     league = League.query.get_or_404(league_id)
@@ -182,6 +192,8 @@ def delete_league(league_id):
     return redirect(url_for("leagues", country_id=league.country_id))
 
 
+# Route to display all clubs if league_id == 0
+# Otherwise route displays clubs for a specific league_id
 @app.route("/clubs/<int:league_id>")
 def clubs(league_id):
     if league_id == 0:
@@ -193,6 +205,7 @@ def clubs(league_id):
         return render_template("clubs.html", clubs=clubs)
 
 
+# Route to add club if admin
 @app.route("/add_club", methods=["GET", "POST"])
 def add_club():
     if session["user"] != "admin":
@@ -212,6 +225,7 @@ def add_club():
         return render_template("add_club.html", leagues=leagues)
 
 
+# Route to edit club if admin
 @app.route("/edit_club/<int:club_id>", methods=["GET", "POST"])
 def edit_club(club_id):
     leagues = list(League.query.order_by(League.league_name).all())
@@ -226,6 +240,7 @@ def edit_club(club_id):
     return render_template("edit_club.html", club=club, leagues=leagues)
 
 
+# Route to delete club if admin
 @app.route("/delete_club/<club_id>")
 def delete_club(club_id):
     club = Club.query.get_or_404(club_id)
@@ -236,6 +251,8 @@ def delete_club(club_id):
     return redirect(url_for("clubs", league_id=club.league_id))
 
 
+# Route to display all players if league_id == 0
+# Otherwise route displays players for a specific league_id
 @app.route("/playersa/<club_id>")
 def playersa(club_id):
     if club_id == "0":
@@ -246,6 +263,7 @@ def playersa(club_id):
         return render_template("playersa.html", playersa=playersa)
 
 
+# Route to add player if admin
 @app.route("/add_playera", methods=["GET", "POST"])
 def add_playera():
     if session["user"] != "admin":
@@ -276,6 +294,7 @@ def add_playera():
         return render_template("add_playera.html", clubs=clubs)
 
 
+# Route to edit player if admin
 @app.route("/edit_playera/<player_id>", methods=["GET", "POST"])
 def edit_playera(player_id):
     if session["user"] != "admin":
@@ -300,6 +319,7 @@ def edit_playera(player_id):
         return render_template("edit_playera.html", player=player, clubs=clubs)
 
 
+# Route to delete player if admin
 @app.route("/delete_playera/<player_id>")
 def delete_playera(player_id):
     mongo.db.players.delete_one({"_id": ObjectId(player_id)})
@@ -307,11 +327,19 @@ def delete_playera(player_id):
     return redirect(url_for("playersa", club_id=0))
 
 
+# Route to form if user != admin
 @app.route("/form")
 def form():
-    return render_template("form.html")
+    if session["user"] == "admin":
+        return redirect(url_for("profile", username=session["user"]))
+    else:
+        return render_template("form.html")
 
 
+# Route to confirmation page after form submission
 @app.route("/confirmation")
 def confirmation():
-    return render_template("confirmation.html")
+    if session["user"] == "admin":
+        return redirect(url_for("profile", username=session["user"]))
+    else:
+        return render_template("confirmation.html")
