@@ -218,7 +218,7 @@ To view all testing documentation, please refer to [TESTING.md](TESTING.md).
 # Credits
 
 ## Content
-Code Institute LMS videos.
+I utilised the Mini Project on the [Code Institute LMS](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/054c3813e82e4195b5a4d8cd8a99ebaa/) to help me create this project.
 
 ## Media
 Images used for countries/clubs/leagues/badges.
