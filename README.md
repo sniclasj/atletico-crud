@@ -162,6 +162,7 @@ A method for a full record to be added whereby a country, league, club and playe
 - CSS - used to style the website.
 
 # Testing
+To view all testing documentation, please refer to [TESTING.md](TESTING.md).
 
 # Set Up
 
