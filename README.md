@@ -155,9 +155,13 @@ A method for a full record to be added whereby a country, league, club and playe
 - GitHub - used to secure my code online.
 - Gitpod - used as the cloud-based IDE.
 - GitHub Projects - used to track project progress [here](https://github.com/sniclasj/atletico-crud/projects/1).
-- Flask - XXX.
-- SQLAlchemy - XXX.
-- MongoDB - XXX.
+- Flask - used to create the Python web application.
+- Flask-SQLAlchemy - used as an extension to Flask to simplify use of SQLAlchemy.
+- Flask Migrate - used to handle SQLAlchemy database migrations for the Flask application.
+- PyMongo - used as the Python distribution containing tools for working with MongoDB.
+- Flask-PyMongo - used to bridge Flask and PyMongo.
+- SQLAlchemy - used for the relational database provider.
+- MongoDB - used as the non-relational database provider.
 - Heroku - used to deploy the site.
 - amiresponsive - used for the mockup image.
 - Materialize CSS - used to create the layout and structure of the website.
