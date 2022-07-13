@@ -1,4 +1,7 @@
 # Atletico Crud
+
+![Am I Responsive](documentation/testing/atletico-crud-am-i-responsive.png)
+
 Atletico Crud is an online soccer/football database.
 
 The database contains players who are renowned as having 'legend status' for a particular club, in a particular league within a particular country _e.g. Alan Shearer who played for Newcastle United in the Premier League in England._

@@ -111,7 +111,7 @@ Safari Log-Out
 - As a user, I want to be able to navigate to view all countries, leagues, clubs and players from the navbar.
 ![Chrome Navbar](documentation/testing/atletico-crud-chrome-navbar.png)
 - As a user I want to be able to view the website across multiple devices and screen sizes.
-XXX
+![Am I Responsive](documentation/testing/atletico-crud-am-i-responsive.png)
 - As an admin, I want to be able to create/add data to the database.
 ![Chrome Addition of Country/Leage/Club/Player](documentation/testing/atletico-crud-chrome-addition.png)
 - As an admin, I want to be able to read/view data on the database.
