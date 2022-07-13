@@ -228,8 +228,26 @@ To view all testing documentation, please refer to [TESTING.md](TESTING.md).
 I utilised the Mini Project on the [Code Institute LMS](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/054c3813e82e4195b5a4d8cd8a99ebaa/) to help me create this project.
 
 ## Media
-Images used for countries/clubs/leagues/badges.
+The images used for country flags, league logos, club badges and players are summarised in the table below.
 
+| Country  | League | Club | Player |
+| ------------- | ------------- | ------------ | ------------- |
+| [England](https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/1280px-Flag_of_England.svg.png)  | [Premier League](https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Premier_League_Logo.svg/1920px-Premier_League_Logo.svg.png)  | [Newcastle](https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Newcastle_United_Logo.svg/800px-Newcastle_United_Logo.svg.png) | [Alan Shearer](https://resources.premierleague.com/premierleague/photos/players/250x250/p1.png)  |
+|          |                 |           | [Gary Speed](https://resources.premierleague.com/premierleague/photos/players/250x250/p1849.png)   |
+|          |                 | [Liverpool](https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/800px-Liverpool_FC.svg.png) | [Mohamed Salah](https://www.planetsport.com/image-library/square/500/r/rszpa-56244351.jpg) |
+|          |                 |           | [Kenny Dalglish](https://static.independent.co.uk/2021/03/04/09/newFile-2.jpg?quality=75&width=990&auto=webp&crop=982:726,smart)  |
+| [Germany](https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1280px-Flag_of_Germany.svg.png)  | [Bundesliga](https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Bundesliga_logo_%282017%29.svg/800px-Bundesliga_logo_%282017%29.svg.png)  | [Borussia Dortmund](https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/800px-Borussia_Dortmund_logo.svg.png) | [Robert Lewandowski](https://e0.365dm.com/14/01/2048x1152/452132615_3061784.jpg?20140104223905)  |
+|          |                 |           | [Erling Haaland](https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt49694380611d8437/627fb6ef9154c30583900874/GettyImages-1397198517.jpg?quality=80&width=1000&format=pjpg&auto=webp)    |
+|          |                 | [Werder Bremen](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SV-Werder-Bremen-Logo.svg/800px-SV-Werder-Bremen-Logo.svg.png) | [Claudio Pizarro](https://static.dw.com/image/19096488_303.jpg) |
+|          |                 |           | [Miroslav Klose](https://pbs.twimg.com/media/D1OQozYXQAA6RNS?format=jpg&name=medium)  |
+| [Spain](https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1280px-Bandera_de_Espa%C3%B1a.svg.png)  | [La Liga](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/LaLiga_Santander_logo_%28stacked%29.svg/1024px-LaLiga_Santander_logo_%28stacked%29.svg.png)  | [Atletico Madrid](https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/Atletico_Madrid_2017_logo.svg/800px-Atletico_Madrid_2017_logo.svg.png) | [Antoine Griezmann](https://cdn.resfu.com/media/img_news/agencia-efe_multimedia_55007494820.multimedia.photos.55007494820003.file.jpg?size=1000x&lossy=1)  |
+|          |                 |           | [Fernando Torres](https://img-estaticos.atleticodemadrid.com/system/file4s/14522/medium2x2/torrescapitan.jpg?1419808980)   |
+|          |                 | [Real Betis](https://upload.wikimedia.org/wikipedia/en/thumb/1/13/Real_betis_logo.svg/1024px-Real_betis_logo.svg.png) | [Joaquín](https://i.guim.co.uk/img/media/d475c2cb1f3d4c2c8803e858e115490aa6facb43/0_136_4000_2400/master/4000.jpg?width=1140&quality=45&fit=max&dpr=2&s=51f92cfa52d77728404265527d9cc00f) |
+|          |                 |           | [Denílson](https://images.squarespace-cdn.com/content/v1/5b1ee719af2096cdf978a8be/1601496483372-4NP6JH3SCPY926YX2QCJ/image-asset.jpeg?format=750w)  |
+| [Italy](https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/1024px-Flag_of_Italy.svg.png)  | [Serie A](https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/Logo_Serie_A_TIM_2021.svg/800px-Logo_Serie_A_TIM_2021.svg.png)  | [Fiorentina](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/2022_ACF_Fiorentina_logo.svg/800px-2022_ACF_Fiorentina_logo.svg.png) | [Gabriel Batistuta](https://cdn.vox-cdn.com/thumbor/l4ZmfjSrScIl7cnGYMxvQAs3U40=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22002200/1638835.jpg)  |
+|          |                 |           | [Dušan Vlahovic](https://www.si.com/.image/t_share/MTgwNjQ1MzM2MzU4ODU1NzY4/sipa_33122839.jpg)    |
+|          |                 | [Roma](https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/AS_Roma_logo_%282017%29.svg/800px-AS_Roma_logo_%282017%29.svg.png) | [Daniele De Rossi](https://cdn.vox-cdn.com/thumbor/bJHTKnBFR3Y1-gDrv2Ypoguc1XA=/0x0:3000x2140/1220x813/filters:focal(1230x551:1710x1031):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/59412171/944411452.jpg.0.jpg) |
+|          |                 |           | [Francesco Totti](https://e1.365dm.com/13/02/800x600/Francesco-Totti-Roma-2013_2902020.jpg?20130717231903)  |
 ## Acknowledgements
 I would like to thank my Code Institute mentor Tim Nelson for his support during the course of this project.
 
