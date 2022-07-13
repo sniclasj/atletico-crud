@@ -60,23 +60,215 @@ The font used for the logo and the page headings is Monoton from Google Fonts. I
 ## Existing Features
 
 ### Navbar
+The navbar is always present at the top of the page for large screens and as a collapsible side navbar on smaller screen devices. The links visible depend on the user session status. For example, if no user is logged in, the only links available are Home, Log In and Register. Similarly, the Form link is only visible when logged in as a non-admin user and is hidden when logged in as an admin. This variation in navbar display is achieved via the code snippet below.
+![Navbar Large](documentation/testing/atletico-crud-chrome-navbar.png)
+![Navbar Mobile](documentation/testing/atletico-crud-safari-sidenav.jpg)
+```html
+                <ul class="left hide-on-med-and-down">
+                    {% if session.user %}
+                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <li><a href="{{ url_for('countries') }}">Countries</a></li>
+                        <li><a href="{{ url_for('leagues', country_id=0) }}">Leagues</a></li>
+                        <li><a href="{{ url_for('clubs', league_id=0) }}">Clubs</a></li>
+                        <li><a href="{{ url_for('playersa', club_id=0) }}">Players</a></li>
+                        {% if session.user != "admin"|lower %}
+                        <li><a href="{{ url_for('form') }}">Form</a></li>
+                        {% endif %}
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('login') }}">Log In</a></li>
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
+                </ul>
+```
 
 ### Logo
+The logo is always visible at the top of the page for large and small screen devices. The logo will link to the profile page if a user is logged in and will link to the home page if no user is logged in. The code snippet below demonstrates how this is achieved.
+![Logo](documentation/testing/atletico-crud-logo.png)
+
+```html
+{% if session.user %}
+                    <a href="{{ url_for('profile', username=session['user']) }}" class="brand-logo right main-title">
+                        Atletico Crud
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('home') }}" class="brand-logo right main-title">Atletico Crud</a>
+                {% endif %}
+```
 
 ### Home Page
+The home page allows users visiting the website to Register or to Log-In via clickable buttons.
+![Home Page](documentation/testing/atletico-crud-chrome-home.png)
 
 ### Registration
+The registration page allows users to create a username and password to gain access to the site. It will not allow for duplicate usernames which is achieved via the code block below.
+There is also a link at the bottom of the registration page to take an user to the log-in page in the event that they have already created an account.
+![Registration Page](documentation/testing/atletico-crud-chrome-register.png)
+```python
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        # check if username already exists in db
+        existing_user = Users.query.filter(
+            Users.user_name == request.form.get("username").lower()).all()
+
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("register"))
+
+        user = Users(
+            user_name=request.form.get("username").lower(),
+            password=generate_password_hash(request.form.get("password"))
+            )
+
+        db.session.add(user)
+        db.session.commit()
+
+        # put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Registration Successful!")
+        return redirect(url_for("profile", username=session["user"]))
+
+    return render_template("register.html")
+```
 
 ### Log In
+The log-in page allows users to log in using their username and password to gain access to the site. It will alert the user if their credentials are incorrect via the code block below.
+There is also a link at the bottom of the log-in page to take an user to the registration page in the event that they need to create an account.
+![Log In Page](documentation/testing/atletico-crud-chrome-log-in.png)
+```python
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # check if username exists in db
+        existing_user = Users.query.filter(
+            Users.user_name == request.form.get("username").lower()).all()
 
-### Log Out
+        if existing_user:
+            print(request.form.get("username"))
+            # ensure hashed password matches user input
+            if check_password_hash(
+                existing_user[0].password, request.form.get("password")):
+                    session["user"] = request.form.get("username").lower()
+                    flash("Welcome, {}".format(
+                        request.form.get("username")))
+                    return redirect(url_for(
+                        "profile", username=session["user"]))
+            else:
+                # invalid password match
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login"))
 
-### Flash Messages
+        else:
+            # username doesn't exist
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
+```
 
 ### Profile Page
+The profile page is what users are directed to once logged-in or registered.
+![Profile Page](documentation/testing/atletico-crud-chrome-profile.png)
+```python
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+
+    if "user" in session:
+        return render_template("profile.html", username=session["user"])
+
+    return redirect(url_for("login"))
+```
+
+### Log Out
+The log-out page allows users to log-out of their profile. This is achieved via the code block below.
+![Log Out](documentation/testing/atletico-crud-chrome-log-out.png)
+```python
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("Log Out Successful!")
+    session.pop("user")
+    return redirect(url_for("login"))
+```
+
+### Flash Messages
+Flash messages pop up on the page when users complete actions such as logging in, logging out and entry of incorrect credentials. Additionally, when the user is an admin, the flash messages confirm actions such as successfully adding, editing or deleting data.
+These flash messages can be seen in the code snippets above and the format of these messages is set in the file base.html which extends to other pages via template inheritance as shown in the code snippet below.
+![Flash Messages](documentation/testing/atletico-crud-chrome-flash.png)
+```html
+    <section>
+        <!-- flash messages -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="cyan-text text-darken-4 center-align">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </section>
+```
 
 ### Countries Page
+The countries page displays flags for the countries currently available in the database. When logged in as an admin, the 'Edit' and 'Delete' buttons are visible however these are hidden when logged in as a non-admin user. Clicking on the Country name below the flag image will take the user to the leagues associated with this particular country in the database _e.g. Clicking England will display the English league called Premier League_.
+![Countries Page](documentation/testing/atletico-crud-chrome-countries.png)
+```html
+<div class="row">
+    {% for country in countries %}
+    <div class="col s12 m6 l3 card-style">
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ country.country_image_url }}" alt="{{ country.country_name }} Flag">
+            </div>
+            <div class="card-action">
+                <a class="card-text-style" href="{{ url_for('leagues', country_id=country.id ) }}">{{ country.country_name }}</a><br>
+                {% if session.user|lower == "admin"|lower %}
+                <a href="{{ url_for('edit_country', country_id=country.id) }}" class="btn-small green">Edit</a>
+                <a href="#modal-{{ country.id }}" class="btn-small red modal-trigger">Delete</a>
+                {% endif %}
 
+                <!-- Modal to confirm delete -->
+                <div id="modal-{{ country.id }}" class="modal">
+                    <div class="modal-content">
+                        <h4>Are You Sure?</h4>
+                        <p>Warning! Deleting cannot be undone!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ url_for('delete_country', country_id=country.id) }}" class="btn red">Delete</a>
+                        <a href="{{ url_for('countries') }}" class="modal-close btn green">Cancel</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+```
+```python
+class Country(db.Model):
+    # schema for the Country model
+    id = db.Column(db.Integer, primary_key=True)
+    country_name = db.Column(db.String(25), unique=True, nullable=False)
+    country_image_url = db.Column(db.String(250), unique=True, nullable=True)
+    leagues = db.relationship(
+        "League", backref="country", cascade="all, delete", lazy=True)
+
+    def __repr__(self):
+        # __repr__ to represent itself in the form of a string
+        return
+        f"#{self.country_name} - Country Image URL: {self.country_image_url}"
+```
+```python
+# Route for all countries
+@app.route("/countries")
+def countries():
+    countries = list(Country.query.order_by(Country.country_name).all())
+    return render_template("countries.html", countries=countries)
+```
 ### Add Country Button (Admin Only)
 
 ### Add Country Page (Admin Only)
