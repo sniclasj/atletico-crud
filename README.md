@@ -154,7 +154,7 @@ A method for a full record to be added whereby a country, league, club and playe
 - Git - used for version control.
 - GitHub - used to secure my code online.
 - Gitpod - used as the cloud-based IDE.
-- GitHub Projects - used to track project progress via a basic kanban.
+- GitHub Projects - used to track project progress [here](https://github.com/sniclasj/atletico-crud/projects/1).
 - Flask - XXX.
 - SQLAlchemy - XXX.
 - MongoDB - XXX.
