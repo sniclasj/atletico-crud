@@ -105,9 +105,9 @@ Safari Log-Out
 ![Chrome Clubs Page](documentation/testing/atletico-crud-chrome-clubs.png)
 ![Chrome Players Page](documentation/testing/atletico-crud-chrome-players.png)
 - As a user, I want to be able to submit a form to suggest a player that should be added to the database.
-XXX
+![Chrome Form](documentation/testing/atletico-crud-chrome-form.png)
 - As a user, I want to be able to receive confirmation that my form has been sent.
-XXX
+![Chrome Confirmation](documentation/testing/atletico-crud-chrome-confirmation.png)
 - As a user, I want to be able to navigate to view all countries, leagues, clubs and players from the navbar.
 ![Chrome Navbar](documentation/testing/atletico-crud-chrome-navbar.png)
 - As a user I want to be able to view the website across multiple devices and screen sizes.
