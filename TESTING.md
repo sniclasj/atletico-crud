@@ -3,6 +3,9 @@
 # Browser Compatibility
 
 ## Chrome
+Chrome Navbar
+![Chrome Navbar](documentation/testing/atletico-crud-chrome-navbar.png)
+
 Chrome Home Page
 ![Chrome Home Page](documentation/testing/atletico-crud-chrome-home.png)
 
@@ -27,7 +30,10 @@ Chrome Clubs Page
 Chrome Players Page
 ![Chrome Players Page](documentation/testing/atletico-crud-chrome-players.png)
 
-Chrome Edit Club Page
+Chrome Addition of Country/Leage/Club/Player
+![Chrome Addition of Country/Leage/Club/Player](documentation/testing/atletico-crud-chrome-addition.png)
+
+Chrome Edit Country/League/Club/Player Page
 ![Chrome Edit Club Page](documentation/testing/atletico-crud-chrome-edit.png)
 
 Chrome Delete Modal
@@ -89,17 +95,39 @@ Safari Log-Out
 
 # User Story Tests
 - As a user, I want to be able to register as a user on the website.
+![Chrome Register Page](documentation/testing/atletico-crud-chrome-register.png)
 - As a user, I want to be able to log in and log out from the website.
+![Chrome Log-In Page](documentation/testing/atletico-crud-chrome-log-in.png)
+![Chrome Log-Out](documentation/testing/atletico-crud-chrome-log-out.png)
 - As a user, I want to be able to read/view countries, leagues, clubs and players that have already been inducted into the database.
+![Chrome Countries Page](documentation/testing/atletico-crud-chrome-countries.png)
+![Chrome Leagues Page](documentation/testing/atletico-crud-chrome-leagues.png)
+![Chrome Clubs Page](documentation/testing/atletico-crud-chrome-clubs.png)
+![Chrome Players Page](documentation/testing/atletico-crud-chrome-players.png)
 - As a user, I want to be able to submit a form to suggest a player that should be added to the database.
+XXX
 - As a user, I want to be able to receive confirmation that my form has been sent.
-- As a user, I want to be able to navigate to view all countries, leagues, clubs and players.
+XXX
+- As a user, I want to be able to navigate to view all countries, leagues, clubs and players from the navbar.
+![Chrome Navbar](documentation/testing/atletico-crud-chrome-navbar.png)
 - As a user I want to be able to view the website across multiple devices and screen sizes.
+XXX
 - As an admin, I want to be able to create/add data to the database.
+![Chrome Addition of Country/Leage/Club/Player](documentation/testing/atletico-crud-chrome-addition.png)
 - As an admin, I want to be able to read/view data on the database.
+![Chrome Countries Page](documentation/testing/atletico-crud-chrome-countries.png)
+![Chrome Leagues Page](documentation/testing/atletico-crud-chrome-leagues.png)
+![Chrome Clubs Page](documentation/testing/atletico-crud-chrome-clubs.png)
+![Chrome Players Page](documentation/testing/atletico-crud-chrome-players.png)
 - As an admin, I want to be able to updtae/edit data within the database.
+![Chrome Edit Club Page](documentation/testing/atletico-crud-chrome-edit.png)
 - As an admin, I want to be able to delete data from the database.
+![Chrome Delete Modal](documentation/testing/atletico-crud-chrome-delete-modal.png)
 - As an admin, I want to receive confirmation that actions involving creating, editing or deleting have been successful or unsuccessful.
+![Chrome Flash Message](documentation/testing/atletico-crud-chrome-flash.png)
 - As an admin I want to be able to create/add, read/view, update/edit and delete content on the website across multiple devices and screen sizes.
+![Safari Add Country Page](documentation/testing/atletico-crud-safari-add-country.jpg)
+![Safari Edit Player Page](documentation/testing/atletico-crud-safari-edit-player.jpg)
+![Safari Delete Modal](documentation/testing/atletico-crud-safari-delete-modal.jpg)
 
 # Unfixed Bugs
