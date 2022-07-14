@@ -173,9 +173,17 @@ def leagues(country_id):
 def add_league():
     if session["user"] != "admin":
         return redirect(url_for("leagues", country_id=0))
-    else:
-        countries = list(Country.query.order_by(Country.country_name).all())
-        if request.method == "POST":
+
+    countries = list(Country.query.order_by(Country.country_name).all())
+    if request.method == "POST":
+        existing_league = League.query.filter(
+            func.lower(League.league_name) == request.form.get(
+                "league_name").lower()).first()
+
+        if existing_league:
+            flash("League Already Exists!")
+            return redirect(url_for("add_league"))
+
             league = League(
                 league_name=request.form.get("league_name"),
                 league_image_url=request.form.get("league_image_url"),
@@ -184,8 +192,9 @@ def add_league():
             db.session.add(league)
             db.session.commit()
             flash("League Successfully Added!")
-            return redirect(url_for("leagues", country_id=league.country_id))
-        return render_template("add_league.html", countries=countries)
+            return redirect(url_for(
+                "leagues", country_id=league.country_id))
+    return render_template("add_league.html", countries=countries)
 
 
 # Route to edit league if admin
