@@ -254,9 +254,18 @@ def clubs(league_id):
 def add_club():
     if session["user"] != "admin":
         return redirect(url_for("clubs", league_id=0))
-    else:
-        leagues = list(League.query.order_by(League.league_name).all())
-        if request.method == "POST":
+
+    leagues = list(League.query.order_by(League.league_name).all())
+    if request.method == "POST":
+
+        existing_club = Club.query.filter(
+            func.lower(Club.club_name) == request.form.get(
+                "club_name").lower()).first()
+
+        if existing_club:
+            flash("Club Already Exists!")
+            return redirect(url_for("add_club"))
+
             club = Club(
                 club_name=request.form.get("club_name"),
                 club_image_url=request.form.get("club_image_url"),
@@ -266,7 +275,7 @@ def add_club():
             db.session.commit()
             flash("Club Successfully Added!")
             return redirect(url_for("clubs", league_id=club.league_id))
-        return render_template("add_club.html", leagues=leagues)
+    return render_template("add_club.html", leagues=leagues)
 
 
 # Route to edit club if admin
