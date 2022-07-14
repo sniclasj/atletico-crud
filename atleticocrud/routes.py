@@ -284,6 +284,15 @@ def edit_club(club_id):
     leagues = list(League.query.order_by(League.league_name).all())
     club = Club.query.get_or_404(club_id)
     if request.method == "POST":
+
+        existing_club = Club.query.filter(
+            func.lower(Club.club_name) == request.form.get(
+                "club_name").lower()).first()
+
+        if existing_club:
+            flash("Club Already Exists!")
+            return redirect(url_for("clubs", league_id=0))
+
         club.club_name = request.form.get("club_name")
         club.club_image_url = request.form.get("club_image_url")
         club.league_id = request.form.get("league_id")
