@@ -20,7 +20,7 @@ def register():
             Users.user_name == request.form.get("username").lower()).all()
 
         if existing_user:
-            flash("Username already exists")
+            flash("Username Already Exists!")
             return redirect(url_for("register"))
 
         user = Users(
@@ -103,7 +103,7 @@ def add_country():
             func.lower(Country.country_name) == request.form.get(
                 "country_name").lower()).first()
         if existing_country:
-            flash("Country already exists")
+            flash("Country Already Exists!")
             return redirect(url_for("add_country"))
 
         country = Country(
@@ -130,7 +130,7 @@ def edit_country(country_id):
             func.lower(Country.country_name) == request.form.get(
                 "country_name").lower()).first()
         if existing_country:
-            flash("Country already exists")
+            flash("Country Already Exists!")
             return redirect(url_for("countries"))
 
         country.country_name = request.form.get("country_name")
