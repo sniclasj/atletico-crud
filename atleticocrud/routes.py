@@ -1,6 +1,7 @@
 from flask import flash, render_template, request, redirect, session, url_for
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy import func
 from atleticocrud import app, db, mongo
 from atleticocrud.models import Country, League, Club, Users
 
@@ -43,18 +44,16 @@ def login():
     if request.method == "POST":
         # check if username exists in db
         existing_user = Users.query.filter(
-            Users.user_name == request.form.get("username").lower()).all()
+            Users.user_name == request.form.get("username").lower()).first()
 
         if existing_user:
-            print(request.form.get("username"))
             # ensure hashed password matches user input
-            if check_password_hash(
-                existing_user[0].password, request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+            if check_password_hash(existing_user.password, request.form.get("password")):  # noqa
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -97,27 +96,27 @@ def countries():
 def add_country():
     if session["user"] != "admin":
         return redirect(url_for("countries"))
-    else:
-        if request.method == "POST":
-            # existing_country = Country.query.filter(
-            #     Country.country_name == request.form.get(
-            #         "country_name").lower()).all()
 
-            # if existing_country:
-            #     flash("Country already exists")
-            #     return redirect(url_for("add_country"))
+    if request.method == "POST":
 
-            country = Country(
-                country_name=request.form.get("country_name"),
-                country_image_url=request.form.get("country_image_url")
-                )
+        existing_country = Country.query.filter(
+            func.lower(Country.country_name) == request.form.get(
+                "country_name").lower()).first()
+        if existing_country:
+            flash("Country already exists")
+            return redirect(url_for("add_country"))
 
-            db.session.add(country)
-            db.session.commit()
-            flash("Country Successfully Added!")
-            return redirect(url_for("countries"))
+        country = Country(
+            country_name=request.form.get("country_name"),
+            country_image_url=request.form.get("country_image_url")
+            )
 
-        return render_template("add_country.html")
+        db.session.add(country)
+        db.session.commit()
+        flash("Country Successfully Added!")
+        return redirect(url_for("countries"))
+
+    return render_template("add_country.html")
 
 
 # Route to edit country if admin
@@ -293,6 +292,9 @@ def add_playera():
             if mongo.db.players.count_documents(
                     {"image_url": new_playera}, limit=1) == 0:
                 club = Club.query.get_or_404(request.form.get("club_id"))
+                league = club.league_id
+                get_league = League.query.get_or_404(league)
+                country = get_league.country_id
                 playersa = {
                     "name": request.form.get("player_name"),
                     "dob": request.form.get("player_dob"),
@@ -300,6 +302,8 @@ def add_playera():
                         "player_nationality"),
                     "position": request.form.get("player_position"),
                     "club_id": request.form.get("club_id"),
+                    "league_id": league,
+                    "country_id": country,
                     "image_url": request.form.get("player_image_url")
                 }
                 mongo.db.players.insert_one(playersa)
