@@ -99,14 +99,24 @@ def add_country():
         return redirect(url_for("countries"))
     else:
         if request.method == "POST":
+            # existing_country = Country.query.filter(
+            #     Country.country_name == request.form.get(
+            #         "country_name").lower()).all()
+
+            # if existing_country:
+            #     flash("Country already exists")
+            #     return redirect(url_for("add_country"))
+
             country = Country(
                 country_name=request.form.get("country_name"),
                 country_image_url=request.form.get("country_image_url")
-            )
+                )
+
             db.session.add(country)
             db.session.commit()
             flash("Country Successfully Added!")
             return redirect(url_for("countries"))
+
         return render_template("add_country.html")
 
 
