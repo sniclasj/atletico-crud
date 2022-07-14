@@ -287,15 +287,109 @@ The Add Country button only appears on the countries page if the user logged in 
 ```
 
 ### Add Country Page (Admin Only)
-The Add Country page allows the admin user to type in a country name to the form as well as an image url to represent that particular country.
+The Add Country page allows the admin user to type in a country name to the form as well as an image url to represent that particular country. The code snippets below show the html form, the routes and the model which PREVENTS DUPLICATE ENTRIES.
+```html
+<div class="row">
+    <form class="col s12" method="POST" action="{{ url_for('add_country') }}">
+        <!-- Country Name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Input Country Name" name="country_name" id="country_name" minlength="3"
+                    maxlength="25" type="text" class="validate" required>
+                <label for="country_name">Country Name</label>
+            </div>
+        </div>
+        <!-- Country Image URL -->
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Input Country Image URL" name="country_image_url" id="country_image_url" minlength="3"
+                    maxlength="250" type="text" class="validate" required>
+                <label for="country_image_url">Country Image URL</label>
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large cyan darken-4">
+                    Add Country +
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+```
+PYTHON CODE SNIPPETS FOR ROUTES AND MODELS
 
 ### Edit Country Button (Admin Only)
+The Edit Country button only appears on the countries page if the user logged in is an admin. Clicking the button takes the admin user to the Edit Country page which is discussed below.
+![Edit Country Button](documentation/testing/atletico-crud-edit-country-button.png)
+```html
+{% if session.user|lower == "admin"|lower %}
+<a href="{{ url_for('edit_country', country_id=country.id) }}" class="btn-small green">Edit</a>
+<a href="#modal-{{ country.id }}" class="btn-small red modal-trigger">Delete</a>
+{% endif %}
+```
 
 ### Edit Country Page (Admin Only)
+The Edit Country page allows the admin user to edit the details for a country such as the country name and the image url to represent that particular country. The code snippets below show the html form, the routes and the model which PREVENTS DUPLICATE ENTRIES.
+```html
+<div class="row">
+    <form class="col s12" method="POST" action="{{ url_for('edit_country', country_id=country.id) }}">
+        <!-- Country Name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Input Country Name" name="country_name" value="{{ country.country_name}}"
+                    id="country_name" minlength="3" maxlength="25" type="text" class="validate" required>
+                <label for="country_name">Country Name</label>
+            </div>
+        </div>
+        <!-- Country Image URL -->
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Input Country Image URL" name="country_image_url" value="{{ country.country_image_url}}"
+                    id="country_image_url" minlength="3" maxlength="250" type="text" class="validate" required>
+                <label for="country_image_url">Country Image URL</label>
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large cyan darken-4">
+                    Edit Country +
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+```
+PYTHON CODE SNIPPETS FOR ROUTES AND MODELS
 
 ### Delete Country Button (Admin Only)
+The Delete Country button only appears on the countries page if the user logged in is an admin. Clicking the button initiates a modal which pops up asking the user if they definitely wish to proceed with the deletion which is discussed in the next section.
+![Delete Country Button](documentation/testing/atletico-crud-delete-country-button.png)
+```html
+{% if session.user|lower == "admin"|lower %}
+<a href="{{ url_for('edit_country', country_id=country.id) }}" class="btn-small green">Edit</a>
+<a href="#modal-{{ country.id }}" class="btn-small red modal-trigger">Delete</a>
+{% endif %}
+```
 
 ### Delete Country Modal (Admin Only)
+The modal pop-up allows a user to confirm the deletion by clicking Delete or to cancel the deletion by clicking Cancel. Clicking Cancel takes the user back to the countries page.
+![Delete Modal](documentation/testing/atletico-crud-chrome-delete-modal.png)
+```html
+<!-- Modal to confirm delete -->
+<div id="modal-{{ country.id }}" class="modal">
+    <div class="modal-content">
+        <h4>Are You Sure?</h4>
+        <p>Warning! Deleting cannot be undone!</p>
+    </div>
+    <div class="modal-footer">
+        <a href="{{ url_for('delete_country', country_id=country.id) }}" class="btn red">Delete</a>
+        <a href="{{ url_for('countries') }}" class="modal-close btn green">Cancel</a>
+    </div>
+</div>
+```
 
 ### Leagues Page
 
