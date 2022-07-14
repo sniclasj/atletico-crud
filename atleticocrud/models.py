@@ -27,7 +27,11 @@ class League(db.Model):
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return f"#{self.country_id} - League: {self.league_name} - League Image URL: {self.league_image_url}"
+        return(
+            f"#{self.country_id} - "
+            f"# League: {self.league_name} - "
+            f"# League Image URL: {self.league_image_url}"
+        )
 
 
 class Club(db.Model):
@@ -37,14 +41,14 @@ class Club(db.Model):
     club_image_url = db.Column(db.String(250), unique=True, nullable=True)
     league_id = db.Column(db.Integer, db.ForeignKey(
         "league.id", ondelete="CASCADE"), nullable=False)
-    # Need to figure out the backref for MongoDB
-    # players = db.relationship(
-    #     "Player", backref="club", cascade="all, delete", lazy=True)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return
-        f"#{self.league_id} - Club: {self.club_name} - Club Image URL: {self.club_image_url}"
+        return(
+            f"#{self.league_id} - "
+            f"# Club: {self.club_name} - "
+            f"# Club Image URL: {self.club_image_url}"
+            )
 
 
 class Users(db.Model):
