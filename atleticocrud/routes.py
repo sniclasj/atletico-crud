@@ -203,6 +203,15 @@ def edit_league(league_id):
     countries = list(Country.query.order_by(Country.country_name).all())
     league = League.query.get_or_404(league_id)
     if request.method == "POST":
+
+        existing_league = League.query.filter(
+            func.lower(League.league_name) == request.form.get(
+                "league_name").lower()).first()
+
+        if existing_league:
+            flash("League Already Exists!")
+            return redirect(url_for("leagues", country_id=0))
+
         league.league_name = request.form.get("league_name")
         league.league_image_url = request.form.get("league_image_url")
         league.country_id = request.form.get("country_id")
