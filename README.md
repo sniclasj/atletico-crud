@@ -270,8 +270,24 @@ def countries():
     return render_template("countries.html", countries=countries)
 ```
 ### Add Country Button (Admin Only)
+The Add Country button only appears on the countries page if the user logged in is an admin. Clicking the button takes the admin user to the Add Country page which is discussed below.
+
+![Add Country Button](documentation/testing/atletico-crud-add-country-button.png)
+```html
+{% if session.user|lower == "admin"|lower %}
+<div class="row">
+    <div class="col s12 center-align">
+        <a href="{{ url_for('add_country') }}" class="btn-large cyan darken-4 white-text">
+            Add Country +
+        </a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+```
 
 ### Add Country Page (Admin Only)
+The Add Country page allows the admin user to type in a country name to the form as well as an image url to represent that particular country.
 
 ### Edit Country Button (Admin Only)
 
