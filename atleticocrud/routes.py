@@ -139,6 +139,7 @@ def delete_country(country_id):
         return redirect(url_for("countries"))
     else:
         country = Country.query.get_or_404(country_id)
+        mongo.db.players.delete_many({"country_id": (country_id)})
         db.session.delete(country)
         db.session.commit()
         flash("Country Successfully Deleted!")
@@ -201,6 +202,7 @@ def delete_league(league_id):
         return redirect(url_for("leagues", country_id=0))
     else:
         league = League.query.get_or_404(league_id)
+        mongo.db.players.delete_many({"league_id": (league_id)})
         db.session.delete(league)
         db.session.commit()
         flash("League Successfully Deleted!")
