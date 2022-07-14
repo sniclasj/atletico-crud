@@ -123,7 +123,16 @@ def add_country():
 @app.route("/edit_country/<int:country_id>", methods=["GET", "POST"])
 def edit_country(country_id):
     country = Country.query.get_or_404(country_id)
+
     if request.method == "POST":
+
+        existing_country = Country.query.filter(
+            func.lower(Country.country_name) == request.form.get(
+                "country_name").lower()).first()
+        if existing_country:
+            flash("Country already exists")
+            return redirect(url_for("countries"))
+
         country.country_name = request.form.get("country_name")
         country.country_image_url = request.form.get("country_image_url")
         db.session.commit()
