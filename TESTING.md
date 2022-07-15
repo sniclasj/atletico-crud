@@ -97,6 +97,7 @@ Safari Log-Out
 ![CSS](documentation/testing/atletico-crud-css-validation.png)
 
 ## JavaScript
+![JS Hint](documentation/testing/atletico-crud-js-hint-validation.png)
 
 ## Python
 
