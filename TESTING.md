@@ -93,6 +93,19 @@ Safari Log-Out
 ![Clubs](documentation/testing/atletico-crud-html-validation-clubs.png)
 ![Players](documentation/testing/atletico-crud-html-validation-playersa.png)
 
+The following pages can be validated by visiting the respective page, right clicking on the page and selecting _View page source_. The source code can then be copied and pasted into the HTML validator providing the option of _Check by text input_ has been selected on the validator's page.
+
+![Add Country](documentation/testing/atletico-crud-html-validation-add-country.png)
+![Add League](documentation/testing/atletico-crud-html-validation-add-league.png)
+![Add Club](documentation/testing/atletico-crud-html-validation-add-club.png)
+![Add Player](documentation/testing/atletico-crud-html-validation-add-playersa.png)
+![Edit Country](documentation/testing/atletico-crud-html-validation-edit-country.png)
+![Edit League](documentation/testing/atletico-crud-html-validation-edit-league.png)
+![Edit Club](documentation/testing/atletico-crud-html-validation-edit-club.png)
+![Edit Player](documentation/testing/atletico-crud-html-validation-edit-playera.png)
+![Form](documentation/testing/atletico-crud-html-validation-form.png)
+![Confirmation](documentation/testing/atletico-crud-html-validation-confirmation.png)
+
 ## CSS
 ![CSS](documentation/testing/atletico-crud-css-validation.png)
 
