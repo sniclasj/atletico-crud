@@ -133,6 +133,8 @@ The hyperlink and screenshot below shows that the only error displaying when val
 ![CSS](documentation/testing/atletico-crud-css-validation.png)
 
 ## JavaScript
+The screenshot below shows that the only issue with the JavaScript used for this project is an undefined variable _M_. This arises due to the initialization JavaScrip code used by Materialize CSS and can therefore be ignored.
+
 ![JS Hint](documentation/testing/atletico-crud-js-hint-validation.png)
 
 ## Python
