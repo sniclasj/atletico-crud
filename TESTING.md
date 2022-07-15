@@ -94,6 +94,7 @@ Safari Log-Out
 ![Players](documentation/testing/atletico-crud-html-validation-playersa.png)
 
 ## CSS
+![CSS](documentation/testing/atletico-crud-css-validation.png)
 
 ## JavaScript
 
