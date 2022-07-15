@@ -84,26 +84,46 @@ Safari Log-Out
 # Code Validation
 
 ## HTML
+The following screenshots and hyperlinks show that the same warning is raised for all pages. The warning is due to the lack of heading on a section element relating to flash messages. This is due to the extension of base.html to all other html pages via template inheritance. Giving the section a heading is not appropriate in this instance.
+
+[Home Page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fatletico-crud.herokuapp.com%2F)
 ![Home](documentation/testing/atletico-crud-html-validation-home.png)
+[Register Page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fatletico-crud.herokuapp.com%2Fregister)
 ![Register](documentation/testing/atletico-crud-html-validation-register.png)
+[Log In Page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fatletico-crud.herokuapp.com%2Flogin)
 ![Log In](documentation/testing/atletico-crud-html-validation-login.png)
+[Profile Page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fatletico-crud.herokuapp.com%2Fprofile%2Fadmin)
 ![Profile](documentation/testing/atletico-crud-html-validation-profile.png)
+[Countries Page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fatletico-crud.herokuapp.com%2Fcountries)
 ![Countries](documentation/testing/atletico-crud-html-validation-countries.png)
+[Leagues Page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fatletico-crud.herokuapp.com%2Fleagues%2F0)
 ![Leagues](documentation/testing/atletico-crud-html-validation-leagues.png)
+[Clubs Page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fatletico-crud.herokuapp.com%2Fclubs%2F0)
 ![Clubs](documentation/testing/atletico-crud-html-validation-clubs.png)
+[Players Page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fatletico-crud.herokuapp.com%2Fplayersa%2F0)
 ![Players](documentation/testing/atletico-crud-html-validation-playersa.png)
 
-The following pages can be validated by visiting the respective page, right clicking on the page and selecting _View page source_. The source code can then be copied and pasted into the HTML validator providing the option of _Check by text input_ has been selected on the validator's page.
+The following pages can be validated by visiting the respective page, right clicking on the page and selecting _View page source_. The source code can then be copied and pasted into the HTML validator providing the option of _Check by text input_ has been selected on the validator page. For this reason, no hyperlinks have been provided however the following screenshots show that the same warning is raised for all pages. The warning is due to the lack of heading on a section element relating to flash messages. This is due to the extension of base.html to all other html pages via template inheritance. Giving the section a heading is not appropriate in this instance.
 
+Add Country Page
 ![Add Country](documentation/testing/atletico-crud-html-validation-add-country.png)
+Add League Page
 ![Add League](documentation/testing/atletico-crud-html-validation-add-league.png)
+Add Club Page
 ![Add Club](documentation/testing/atletico-crud-html-validation-add-club.png)
+Add Player Page
 ![Add Player](documentation/testing/atletico-crud-html-validation-add-playersa.png)
+Edit Country Page
 ![Edit Country](documentation/testing/atletico-crud-html-validation-edit-country.png)
+Edit League Page
 ![Edit League](documentation/testing/atletico-crud-html-validation-edit-league.png)
+Edit Club Page
 ![Edit Club](documentation/testing/atletico-crud-html-validation-edit-club.png)
+Edit Player Page
 ![Edit Player](documentation/testing/atletico-crud-html-validation-edit-playera.png)
+Form Page
 ![Form](documentation/testing/atletico-crud-html-validation-form.png)
+Confirmation Page
 ![Confirmation](documentation/testing/atletico-crud-html-validation-confirmation.png)
 
 ## CSS
