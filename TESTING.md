@@ -127,6 +127,9 @@ Confirmation Page
 ![Confirmation](documentation/testing/atletico-crud-html-validation-confirmation.png)
 
 ## CSS
+The hyperlink and screenshot below shows that the only error displaying when validating the CSS is related to the link used to import Materialize CSS. As this code is essential for the app's style and is also not code that I have written, this error is ignored.
+
+[CSS Validation](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fatletico-crud.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 ![CSS](documentation/testing/atletico-crud-css-validation.png)
 
 ## JavaScript
