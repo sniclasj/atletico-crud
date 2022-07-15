@@ -84,6 +84,14 @@ Safari Log-Out
 # Code Validation
 
 ## HTML
+![Home](documentation/testing/atletico-crud-html-validation-home.png)
+![Register](documentation/testing/atletico-crud-html-validation-register.png)
+![Log In](documentation/testing/atletico-crud-html-validation-login.png)
+![Profile](documentation/testing/atletico-crud-html-validation-profile.png)
+![Countries](documentation/testing/atletico-crud-html-validation-countries.png)
+![Leagues](documentation/testing/atletico-crud-html-validation-leagues.png)
+![Clubs](documentation/testing/atletico-crud-html-validation-clubs.png)
+![Players](documentation/testing/atletico-crud-html-validation-playersa.png)
 
 ## CSS
 
