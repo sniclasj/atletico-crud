@@ -52,7 +52,7 @@
         <!-- Club ID -->
         <div class="row">
             <div class="input-field col s12">
-                <select id="club_id" name="club_id" value = "{{ player.club_id }}" class="validate" required>
+                <select id="club_id" name="club_id" class="validate" required>
                     <option value="" disabled selected>Select Club</option>
                     {% for club in clubs %}
                     <option value="{{ club.id }}">{{ club.club_name }}</option>
