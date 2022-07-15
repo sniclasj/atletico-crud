@@ -100,6 +100,10 @@ Safari Log-Out
 ![JS Hint](documentation/testing/atletico-crud-js-hint-validation.png)
 
 ## Python
+![Init](documentation/testing/atletico-crud-python-validation-init.png)
+![Models](documentation/testing/atletico-crud-python-validation-models.png)
+![Routes](documentation/testing/atletico-crud-python-validation-routes.png)
+![App](documentation/testing/atletico-crud-python-validation-app.png)
 
 # Responsiveness
 
