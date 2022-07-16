@@ -83,8 +83,11 @@ The font used for the logo and the page headings is Monoton from Google Fonts. I
 ### Navbar
 
 The navbar is always present at the top of the page for large screens and as a collapsible side navbar on smaller screen devices. The links visible depend on the user session status. For example, if no user is logged in, the only links available are Home, Log In and Register. Similarly, the Form link is only visible when logged in as a non-admin user and is hidden when logged in as an admin. This variation in navbar display is achieved via the code snippet below.
+
 ![Navbar Large](documentation/testing/atletico-crud-chrome-navbar.png)
+
 ![Navbar Mobile](documentation/testing/atletico-crud-safari-sidenav.jpg)
+
 ```html
                 <ul class="left hide-on-med-and-down">
                     {% if session.user %}
@@ -129,7 +132,9 @@ The home page allows users visiting the website to Register or to Log-In via cli
 
 The registration page allows users to create a username and password to gain access to the site. It will not allow for duplicate usernames which is achieved via the code block below.
 There is also a link at the bottom of the registration page to take an user to the log-in page in the event that they have already created an account.
+
 ![Registration Page](documentation/testing/atletico-crud-chrome-register.png)
+
 ```python
 @app.route("/register", methods=["GET", "POST"])
 def register():
