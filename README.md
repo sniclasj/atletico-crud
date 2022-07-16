@@ -887,11 +887,33 @@ During the course of development, it became necessary to update the Postgres mod
 ![Flask DB Upgrade To Apply Migration](documentation/deployment/atletico-crud-apply-migration-via-flask-db-upgrade.png)
 
 ## Initial Set Up MongoDB
+
+- Connect MongoDB
+
 ![Connecting to Mongo DB](documentation/deployment/atletico-crud-connect-mongo-db.png)
+
+- Confirmation of MongoDB Connection UPDATE SCREENSHOT
+
 ![Confirmation of Mongo DB Connection](documentation/deployment/atletico-crud-mongo-connection-confirmation.png)
+
+- Install DNS Python
+
 ![Install DNS Python](documentation/deployment/atletico-crud-install-dnspython.png)
+
+- Install PyMongo
+
 ![Install Pymongo](documentation/deployment/atletico-crud-install-pymongo.png)
+
+- Install Flask-PyMongo
+
 ![Install Flask-PyMongo](documentation/deployment/atletico-crud-install-flask-pymongo.png)
+
+- Get MONGO_URI CHANGE SCREENSHOT
+
+![Get MONGO_URI](documentation/deployment/)
+
+- Add Mongo URI to env.py CHANGE SCREENSHOT
+
 ![Adding Mongo URI to env.py](documentation/deployment/atletico-crud-add-mongo-uri-to-env.png)
 
 # Credits
