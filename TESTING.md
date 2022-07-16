@@ -226,6 +226,25 @@ App
 
 # Responsiveness
 
+## Countries
+
+### Countries Large
+
+![Countries Large](documentation/testing/atletico-crud-responsiveness-countries-large.png)
+
+### Countries Medium
+
+![Countries Medium](documentation/testing/atletico-crud-responsiveness-countries-medium.png)
+
+### Countries Small
+
+![Countries Small](documentation/testing/atletico-crud-responsiveness-countries-small.png)
+
+## Leagues Page
+
+## Clubs Page
+
+## Players Page
 
 # User Story Tests
 
