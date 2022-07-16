@@ -468,51 +468,188 @@ def delete_country(country_id):
         return redirect(url_for("countries"))
 ```
 
-### Leagues Page
+### Discussion On Page Features
 
-### Add League Button (Admin Only)
+The features discussed above for _Countries_ are applicable for the following:
+- Leagues
+- Add League
+- Edit League
+- Delete League
+- Clubs
+- Add Club
+- Edit Club
+- Delete Club
+- Players
+- Add Player
+- Edit Player
+- Delete Player
 
-### Add League Page (Admin Only)
+The only difference is in the _routes_ for _Leagues, Clubs_ and _Players_ with regards to filtered and unfiltered views. This is shown in the code and explained below.
 
-### Edit League Button (Admin Only)
+```python
+# Route to display all leagues if country_id == 0
+# Otherwise route displays leagues for a specific country_id
+@app.route("/leagues/<int:country_id>")
+def leagues(country_id):
+    if country_id == 0:
+        leagues = list(League.query.order_by(League.league_name).all())
+        return render_template("leagues.html", leagues=leagues)
+    else:
+        leagues = list(League.query.order_by(League.id).filter(
+            League.country_id == country_id))
+        return render_template("leagues.html", leagues=leagues)
+```
 
-### Edit League Page (Admin Only)
+The code above shows that if _Leagues_ is clicked via the _navbar_, the value of ```html <int:country_id>``` is equal to 0 and it will therefore return a view of ALL Leagues across ALL Countries. However, if the user clicks on England, the value of ```html <int:country_id>``` is equal to 1 and therefore the Leagues displayed are filtered for Leagues associated with that specific Country.
 
-### Delete League Button (Admin Only)
-
-### Delete League Modal (Admin Only)
-
-### Clubs Page
-
-### Add Club Button (Admin Only)
-
-### Add Club Page (Admin Only)
-
-### Edit Club Button (Admin Only)
-
-### Edit Club Page (Admin Only)
-
-### Delete Club Button (Admin Only)
-
-### Delete Club Modal (Admin Only)
+This logic also applies to the _Clubs_ and _Players routes_ e.g. if _Clubs_ is clicked via the _navbar_, the value of ```html <int:league_id>``` is equal to 0 and it will therefore return a view of ALL Clubs across ALL Leagues. However, if the user clicks on Premier League, the value of ```html <int:league_id>``` is equal to 1 and therefore the Clubs displayed are filtered for Clubs associated with that specific League.
 
 ### Players Page
 
-### Add Player Button (Admin Only)
+The data for Players is stored in a MongoDB collection called _players_. Due to this, the code in the _Players route_ is different to _Countries, Leagues_ and _Clubs_ as shown below. A screenshot of the Mongo DB collection and an example of a document entry is also shown below.
+
+![Mongo DB Players Collection](documentation/testing/atletico-crud-mongo-db-collection.png)
+
+```python
+# Route to display all players if league_id == 0
+# Otherwise route displays players for a specific league_id
+@app.route("/playersa/<club_id>")
+def playersa(club_id):
+    if club_id == "0":
+        playersa = mongo.db.players.find()
+        return render_template("playersa.html", playersa=playersa)
+    else:
+        playersa = mongo.db.players.find({"club_id": club_id})
+        return render_template("playersa.html", playersa=playersa)
+```
 
 ### Add Player Page (Admin Only)
 
-### Edit Player Button (Admin Only)
+The data for Players is stored in a MongoDB collection called _players_. Due to this, the code in the _Add Player route_ is different to _Add Country, Add League_ and _Add Club_ as shown below.
+
+```python
+# Route to add player if admin
+@app.route("/add_playera", methods=["GET", "POST"])
+def add_playera():
+    if session["user"] != "admin":
+        return redirect(url_for("playersa", club_id=0))
+    else:
+        if request.method == "POST":
+            new_playera = request.form.get("player_image_url")
+            if mongo.db.players.count_documents(
+                    {"image_url": new_playera}, limit=1) == 0:
+                club = Club.query.get_or_404(request.form.get("club_id"))
+                league = club.league_id
+                get_league = League.query.get_or_404(league)
+                country = get_league.country_id
+                playersa = {
+                    "name": request.form.get("player_name"),
+                    "dob": request.form.get("player_dob"),
+                    "nationality": request.form.get(
+                        "player_nationality"),
+                    "position": request.form.get("player_position"),
+                    "club_id": request.form.get("club_id"),
+                    "league_id": league,
+                    "country_id": country,
+                    "image_url": request.form.get("player_image_url")
+                }
+                mongo.db.players.insert_one(playersa)
+                flash("Player Successfully Added!")
+                return redirect(url_for("playersa", club_id=club.id))
+            else:
+                flash("This Player Already Exists!")
+                return redirect(url_for("add_playera"))
+
+        clubs = list(Club.query.order_by(Club.club_name).all())
+        return render_template("add_playera.html", clubs=clubs)
+```
+
+Additionally, it was not possible to prevent duplicate player entries by preventing the addition of a player with the same name. The reason for this is that there may be numerous players with the same name and there may be multiple entries of the same player if they were deemed to be legends for multiple clubs. For this reason, the *image_url* field was used as a unique identifier to prevent duplicate entries which can be seen in the code snippet above. This is discussed further in the _Features Left to Implement_ section.
 
 ### Edit Player Page (Admin Only)
 
-### Delete Player Button (Admin Only)
+The data for Players is stored in a MongoDB collection called _players_. Due to this, the code in the _Edit Player route_ is different to _Edit Country, Edit League_ and _Edit Club_ as shown below.
+
+```python
+# Route to edit player if admin
+@app.route("/edit_playera/<player_id>", methods=["GET", "POST"])
+def edit_playera(player_id):
+    if session["user"] != "admin":
+        return redirect(url_for("playersa", club_id=0))
+    else:
+        clubs = list(Club.query.order_by(Club.club_name).all())
+        player = mongo.db.players.find_one({"_id": ObjectId(player_id)})
+        if request.method == "POST":
+            submit = {
+                "name": request.form.get("player_name"),
+                "dob": request.form.get("player_dob"),
+                "nationality": request.form.get(
+                    "player_nationality"),
+                "position": request.form.get("player_position"),
+                "club_id": request.form.get("club_id"),
+                "image_url": request.form.get("player_image_url")
+                }
+            mongo.db.players.update_one(
+                {"_id": ObjectId(player_id)}, {"$set": submit})
+            flash("Player Successfully Updated!")
+            return redirect(url_for("playersa", club_id=0))
+        return render_template("edit_playera.html", player=player, clubs=clubs)
+```
 
 ### Delete Player Modal (Admin Only)
 
+The data for Players is stored in a MongoDB collection called _players_. Due to this, the code in the _Delete Player route_ is different to _Delete Country, Delete League_ and _Delete Club_ as shown below.
+
+```python
+# Route to delete player if admin
+@app.route("/delete_playera/<player_id>")
+def delete_playera(player_id):
+    if session["user"] != "admin":
+        return redirect(url_for("playersa", club_id=0))
+    else:
+        mongo.db.players.delete_one({"_id": ObjectId(player_id)})
+        flash("Player Successfully Deleted!")
+        return redirect(url_for("playersa", club_id=0))
+```
+
 ### Form Page
 
+The Form page is only visible in the _navbar_ if the user is not an admin as discussed in the _navbar_ section. The purpose of the form is for a non-admin user to submit a form to request that a player be added to the database. The form in the project is a dummy form and does not have a POST method as shown in the _route_ code below.
+
+```python
+# Route to form if user != admin
+@app.route("/form")
+def form():
+    if session["user"] == "admin":
+        return redirect(url_for("profile", username=session["user"]))
+    else:
+        return render_template("form.html")
+```
+
+The form's action directs the user to _confirmation.html_ as shown below.
+
+```html
+<h3 class="cyan-text text-darken-4 center-align">Player Submission Form</h3>
+
+<div class="row">
+    <form class="col s12" action="{{ url_for('confirmation') }}">
+```
+
 ### Confirmation Page
+
+The Confirmation page is only accessible if the user is not an admin as shown in the _route_ below.
+
+```python
+# Route to confirmation page after form submission
+@app.route("/confirmation")
+def confirmation():
+    if session["user"] == "admin":
+        return redirect(url_for("profile", username=session["user"]))
+    else:
+        return render_template("confirmation.html")
+```
+
+The user is directed to the confirmation page after submitting an entry via the form page.
 
 ### Footer
 
