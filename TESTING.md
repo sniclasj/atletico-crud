@@ -242,6 +242,18 @@ App
 
 ## Leagues Page
 
+### Leagues Large
+
+![Leagues Large](documentation/testing/atletico-crud-responsiveness-leagues-large.png)
+
+### Leagues Medium
+
+![Leagues Medium](documentation/testing/atletico-crud-responsiveness-leagues-medium.png)
+
+### Leagues Small
+
+![Leagues Small](documentation/testing/atletico-crud-responsiveness-leagues-small.png)
+
 ## Clubs Page
 
 ## Players Page
