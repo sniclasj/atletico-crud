@@ -111,6 +111,7 @@ The navbar is always present at the top of the page for large screens and as a c
 ### Logo
 
 The logo is always visible at the top of the page for large and small screen devices. The logo will link to the profile page if a user is logged in and will link to the home page if no user is logged in. The code snippet below demonstrates how this is achieved.
+
 ![Logo](documentation/testing/atletico-crud-logo.png)
 
 ```html
