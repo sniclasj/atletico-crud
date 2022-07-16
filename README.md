@@ -60,9 +60,20 @@ The font used for the logo and the page headings is Monoton from Google Fonts. I
 
 # Wireframes
 
+## Country Wireframe
+
 ![Wireframes Country](documentation/wireframes/atletico-crud-wireframe-country-page.jpg)
+
+## Leagues Wireframe
+
 ![Wireframes League](documentation/wireframes/atletico-crud-wireframe-league-page.jpg)
+
+## Clubs Wireframe
+
 ![Wireframes Club](documentation/wireframes/atletico-crud-wireframe-club-page.jpg)
+
+## Player Wireframe
+
 ![Wireframes Player](documentation/wireframes/atletico-crud-wireframe-player-page.jpg)
 
 # Features
