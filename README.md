@@ -769,7 +769,69 @@ To view all testing documentation, please refer to [TESTING.md](TESTING.md).
 
 # Deployment
 
-## Heroku
+The live deployed application can be found at [atletico-crud](https://atletico-crud.herokuapp.com/).
+
+## Heroku Deployment
+
+This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+
+Deployment steps are as follows, after account setup:
+
+- Select *New* in the top-right corner of your Heroku Dashboard, and select *Create new app* from the dropdown menu.
+- Your app name must be unique, and then choose a region closest to you (EU or USA), and finally, select *Create App*.
+- From the new app *Settings*, click *Reveal Config Vars*, and set the following key/value pairs:
+  - `IP` 0.0.0.0
+  - `PORT` 5000
+  - `MONGO_URI` (insert your own MongoDB URI key here)
+  - `MONGO_DBNAME` (insert your own MongoDB DB Name key here)
+  - `DATABASE_URL` (this comes from the **Resources** tab, you can get your own Postgres Database using the Free Hobby Tier)
+  - `SECRET_KEY` (this can be any random secret key)
+
+Heroku needs two additional files in order to deploy properly.
+- requirements.txt
+- Procfile
+
+You can install this project's requirements (where applicable) using: `pip3 install -r requirements.txt`. If you have your own packages that have been installed, then the requirements file needs updated using: `pip3 freeze --local > requirements.txt`
+
+The Procfile can be created with the following command: `echo web: python app.py > Procfile`
+
+For Heroku deployment, follow these steps to connect your GitHub repository to the newly created app:
+
+Either:
+- Select "Automatic Deployment" from the Heroku app.
+
+Or:
+- In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
+- Set the remote for Heroku: `heroku git:remote -a <app_name>` (replace app_name with your app, without the angle-brackets)
+- After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type: `git push heroku main`
+
+The frontend terminal should now be connected and deployed to Heroku.
+
+## Local Deployment
+
+*Gitpod* IDE was used to write the code for this project.
+
+To make a local copy of this repository, you can clone the project by typing the follow into your IDE terminal:
+- `git clone https://github.com/sniclasj/atletico-crud.git`
+
+You can install this project's requirements (where applicable) using: `pip3 install -r requirements.txt`.
+
+Create an `env.py` file, and add the following environment variables:
+
+```python
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("MONGO_URI", "insert your own MongoDB URI key here")
+os.environ.setdefault("MONGO_DBNAME", "insert your own MongoDB DB Name key here")
+os.environ.setdefault("DATABASE_URL", "from your Hobby Tier on the Resources tab from Heroku")
+os.environ.setdefault("SECRET_KEY", "this can be any random secret key")
+```
+
+Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/sniclasj/atletico-crud)
 
 ![Freeze requirements.txt](documentation/deployment/atletico-crud-heroku-freeze-requirements.png)
 ![Create Procfile](documentation/deployment/atletico-crud-heroku-procfile.png)
