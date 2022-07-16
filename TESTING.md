@@ -224,6 +224,24 @@ App
 
 ![App](documentation/testing/atletico-crud-python-validation-app.png)
 
+# Lightouse
+
+## Countries
+
+![Countries Lighthouse](documentation/testing/atletico-crud-lighthouse-countries.png)
+
+## Leagues
+
+![Leagues Lighthouse](documentation/testing/atletico-crud-lighthouse-leagues.png)
+
+## Clubs
+
+![Clubs Lighthouse](documentation/testing/atletico-crud-lighthouse-clubs.png)
+
+## Players
+
+![Players Lighthouse](documentation/testing/atletico-crud-lighthouse-players.png)
+
 # Responsiveness
 
 ## Countries
