@@ -287,7 +287,8 @@ The Add Country button only appears on the countries page if the user logged in 
 ```
 
 ### Add Country Page (Admin Only)
-The Add Country page allows the admin user to type in a country name to the form as well as an image url to represent that particular country. The code snippets below show the html form, the routes and the model which PREVENTS DUPLICATE ENTRIES.
+The Add Country page allows the admin user to type in a country name to the form as well as an image url to represent that particular country. The code snippets below show the html form along with the python route. The python route for _Add Country_ below in conjunction with the country model above contain code which prevents duplicate entries such as adding the same country name twice.
+
 ```html
 <div class="row">
     <form class="col s12" method="POST" action="{{ url_for('add_country') }}">
@@ -318,11 +319,41 @@ The Add Country page allows the admin user to type in a country name to the form
     </form>
 </div>
 ```
-PYTHON CODE SNIPPETS FOR ROUTES AND MODELS
+
+```python
+# Route to add a country if admin
+@app.route("/add_country", methods=["GET", "POST"])
+def add_country():
+    if session["user"] != "admin":
+        return redirect(url_for("countries"))
+
+    if request.method == "POST":
+
+        existing_country = Country.query.filter(
+            func.lower(Country.country_name) == request.form.get(
+                "country_name").lower()).first()
+        if existing_country:
+            flash("Country Already Exists!")
+            return redirect(url_for("add_country"))
+
+        country = Country(
+            country_name=request.form.get("country_name"),
+            country_image_url=request.form.get("country_image_url")
+            )
+
+        db.session.add(country)
+        db.session.commit()
+        flash("Country Successfully Added!")
+        return redirect(url_for("countries"))
+
+    return render_template("add_country.html")
+```
 
 ### Edit Country Button (Admin Only)
 The Edit Country button only appears on the countries page if the user logged in is an admin. Clicking the button takes the admin user to the Edit Country page which is discussed below.
+
 ![Edit Country Button](documentation/testing/atletico-crud-edit-country-button.png)
+
 ```html
 {% if session.user|lower == "admin"|lower %}
 <a href="{{ url_for('edit_country', country_id=country.id) }}" class="btn-small green">Edit</a>
@@ -331,7 +362,8 @@ The Edit Country button only appears on the countries page if the user logged in
 ```
 
 ### Edit Country Page (Admin Only)
-The Edit Country page allows the admin user to edit the details for a country such as the country name and the image url to represent that particular country. The code snippets below show the html form, the routes and the model which PREVENTS DUPLICATE ENTRIES.
+The Edit Country page allows the admin user to edit the details for a country such as the country name and the image url to represent that particular country. The code snippets below show the html form along with the python route. The python route for _Edit Country_ below in conjunction with the country model above contain code which prevents duplicate entries such as editing an existing country to be the same as another country which already exists in the database.
+
 ```html
 <div class="row">
     <form class="col s12" method="POST" action="{{ url_for('edit_country', country_id=country.id) }}">
@@ -362,11 +394,35 @@ The Edit Country page allows the admin user to edit the details for a country su
     </form>
 </div>
 ```
-PYTHON CODE SNIPPETS FOR ROUTES AND MODELS
+
+```python
+# Route to edit country if admin
+@app.route("/edit_country/<int:country_id>", methods=["GET", "POST"])
+def edit_country(country_id):
+    country = Country.query.get_or_404(country_id)
+
+    if request.method == "POST":
+
+        existing_country = Country.query.filter(
+            func.lower(Country.country_name) == request.form.get(
+                "country_name").lower()).first()
+        if existing_country:
+            flash("Country Already Exists!")
+            return redirect(url_for("countries"))
+
+        country.country_name = request.form.get("country_name")
+        country.country_image_url = request.form.get("country_image_url")
+        db.session.commit()
+        flash("Country Successfully Updated!")
+        return redirect(url_for("countries"))
+    return render_template("edit_country.html", country=country)
+```
 
 ### Delete Country Button (Admin Only)
 The Delete Country button only appears on the countries page if the user logged in is an admin. Clicking the button initiates a modal which pops up asking the user if they definitely wish to proceed with the deletion which is discussed in the next section.
+
 ![Delete Country Button](documentation/testing/atletico-crud-delete-country-button.png)
+
 ```html
 {% if session.user|lower == "admin"|lower %}
 <a href="{{ url_for('edit_country', country_id=country.id) }}" class="btn-small green">Edit</a>
@@ -376,7 +432,9 @@ The Delete Country button only appears on the countries page if the user logged 
 
 ### Delete Country Modal (Admin Only)
 The modal pop-up allows a user to confirm the deletion by clicking Delete or to cancel the deletion by clicking Cancel. Clicking Cancel takes the user back to the countries page.
+
 ![Delete Modal](documentation/testing/atletico-crud-chrome-delete-modal.png)
+
 ```html
 <!-- Modal to confirm delete -->
 <div id="modal-{{ country.id }}" class="modal">
@@ -389,6 +447,25 @@ The modal pop-up allows a user to confirm the deletion by clicking Delete or to 
         <a href="{{ url_for('countries') }}" class="modal-close btn green">Cancel</a>
     </div>
 </div>
+```
+
+If the user proceeds with confirming the deletion, the python route for _Delete Country_ is shown below. Although the Country model is a Postgres model, the delete route below also contains code for the deletion of data from MongoDB. The reason for this is that whilst Country, League and Club are all stored in Postgres, the data for Players is stored in MongoDB. The Postgres models have been set up so that the deletion of a table _e.g. Country_ cascades to any tables linked to it as per the models.
+
+For example, the country England, has a League (Premier League) which in turn has two Clubs (Newcastle and Liverpool). The Clubs Newcastle and Liverpool have two players respectively. If the Country England was deleted, the League (Premier League) and the Clubs (Newcastle and Liverpool) would also be deleted as per due to the relationship set-up between the Postgres tables in the models. As the MongoDB Players table is not linked to the Postgres tables via the Postgres models, the Players associated with any Leagues or Clubs within the Country of England would not be deleted without the inclusion of the MongoDB line of code in the Delete Country route highlighted below.
+
+```python
+# Route to delete country if admin
+@app.route("/delete_country/<int:country_id>")
+def delete_country(country_id):
+    if session["user"] != "admin":
+        return redirect(url_for("countries"))
+    else:
+        country = Country.query.get_or_404(country_id)
+        mongo.db.players.delete_many({"country_id": (country_id)})
+        db.session.delete(country)
+        db.session.commit()
+        flash("Country Successfully Deleted!")
+        return redirect(url_for("countries"))
 ```
 
 ### Leagues Page
