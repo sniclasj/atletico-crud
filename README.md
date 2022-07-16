@@ -855,12 +855,35 @@ To view all testing documentation, please refer to [TESTING.md](TESTING.md).
 ![Generate And Migrate Models](documentation/deployment/atletico-crud-generate-migrate-models.png)
 
 ## Flask-Migrate
+
+During the course of development, it became necessary to update the Postgres models. In order to do this, Flask-Migrate was used.
+
+- Install Flask-Migrate
+
 ![Install Flask Migrate](documentation/deployment/atletico-crud-install-flask-migrate.png)
+
+- Flask-Migrate Install Confirmed
+
 ![Flask Migrate Installed](documentation/deployment/atletico-crud-flask-migrate-installed.png)
+
+- Import Flask-Migrate to init.py
+
 ![Import Flask Migrate To __init__.py](documentation/deployment/atletico-crud-import-flask-migrate-to-init.png)
+
+- Define Migrate in init.py
+
 ![Define Migrate In __init__.py](documentation/deployment/atletico-crud-define-migrate-in-init.png)
+
+- Enter Flask DB Init Command to CLI
+
 ![Flask DB Init Command](documentation/deployment/atletico-crud-flask-db-init.png)
+
+- Carry Out Initial Migration in CLI
+
 ![Initial Migration Command](documentation/deployment/atletico-crud-initial-migration.png)
+
+- Carry Out DB Upgrade in CLI
+
 ![Flask DB Upgrade To Apply Migration](documentation/deployment/atletico-crud-apply-migration-via-flask-db-upgrade.png)
 
 ## Initial Set Up MongoDB
