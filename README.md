@@ -674,6 +674,9 @@ Route for players would be country/league/club/player instead of player/club_id.
 ### Enter Full Record Functionality
 A method for a full record to be added whereby a country, league, club and player could be added from one form with data being stored in the relevant tables.
 
+### Further Prevention Of Duplicate Player Entires
+I would like to create a method where multiple criteria are assessed to prevent duplicate player entries. For example, if the player name, club name and nationality were the same but the DOB was different, this would be allowed. However, if all fields were the same, this would not be allowed.
+
 # Technologies Used
 - Git - used for version control.
 - GitHub - used to secure my code online.
