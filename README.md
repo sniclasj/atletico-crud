@@ -46,7 +46,7 @@ The font used for the logo and the page headings is Monoton from Google Fonts. I
 
 ![Mundial](documentation/testing/atletico-crud-mundial.png)
 
-# Visual ERD
+# Initial Visual ERD
 ![Visual ERD](documentation/testing/atletico-crud-erd-image.png)
 
 # Wireframes
