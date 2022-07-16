@@ -256,6 +256,14 @@ App
 
 ## Clubs Page
 
+### Clubs 
+
+![Clubs Large](documentation/testing/atletico-crud-responsiveness-clubs-large.png)
+
+### Clubs Medium and Below
+
+![Clubs Medium And Below](documentation/testing/atletico-crud-responsiveness-clubs-med-and-below.png)
+
 ## Players Page
 
 # User Story Tests
