@@ -768,7 +768,9 @@ I would like to create a method where multiple criteria are assessed to prevent 
 To view all testing documentation, please refer to [TESTING.md](TESTING.md).
 
 # Deployment
+
 ## Heroku
+
 ![Freeze requirements.txt](documentation/deployment/atletico-crud-heroku-freeze-requirements.png)
 ![Create Procfile](documentation/deployment/atletico-crud-heroku-procfile.png)
 ![Connect Heroku and GitHub ](documentation/deployment/atletico-crud-heroku-connect-to-github.png)
@@ -779,24 +781,77 @@ To view all testing documentation, please refer to [TESTING.md](TESTING.md).
 # Set Up
 
 ## Initial Set Up SQLAlchemy
+
+- Install Flask-SQLAlchemy
+
 ![Install Flask-SQLAlchemy](documentation/deployment/atletico-crud-install-flask-sqlalchemy.png)
+
+- Confirmation of SQLAlchemy Installation
+
 ![Completed Flask-SQLAlchemy Install](documentation/deployment/atletico-crud-flask-sqlalchemy-installed.png)
+
+- Creation of env.py File
+
 ![Create env.py File](documentation/deployment/atletico-crud-create-env-file.png)
+
+- Add env.py and pychache to gitignore
+
 ![Add env.py and __pycache__ to .gitignore](documentation/deployment/atletico-crud-files-added-to-gitignore.png)
+
+- Import os to env.py File CHANGE SCREENSHOT
+
 ![Import OS To env.py](documentation/deployment/atletico-crud-import-os.png)
+
+- Create atleticocrud Folder with init.py File
+
 ![Create atleticocrud Folder With __init__.py File](documentation/deployment/atletico-crud-folder-with-init-file.png)
+
+- Add Imports to init.py File CHANGE SCREENSHOT
+
 ![Imports To __init__.py](documentation/deployment/atletico-crud-imports.png)
+
+- Set Initial Variables in init.py CHANGE SCREENSHOT
+
 ![Set Initial Variables In __init__.py](documentation/deployment/atletico-crud-set-init-vars.png)
+
+- Create routes.py File
+
 ![Create routes.py File](documentation/deployment/atletico-crud-create-routes-file.png)
+
+- Add Imports to routes.py CHANGE SCREENSHOT
+
 ![Imports To routes.py](documentation/deployment/atletico-crud-routes-imports.png)
+
+- Create app.py File
+
 ![Create app.py File](documentation/deployment/atletico-crud-create-app-file.png)
+
+- Add Imports to app.py CANGE SCREENSHOT
+
 ![Imports To app.py File](documentation/deployment/atletico-crud-app-file-imports.png)
+
+- Create Templates Folder with base.html File
+
 ![Create templates Directory With base.html file](documentation/deployment/atletico-crud-templates-directory-with-base-file.png)
+
+- Set Up base.html Boilerplate
+
 ![base.html Boilerplate Set-Up](documentation/deployment/atletico-crud-base-html.png)
+
+- Initial App Run in Development Environment
+
 ![Initial app.py run](documentation/deployment/atletico-crud-initial-app-run.png)
+
+- Create models.py File
+
 ![Create models.py File](documentation/deployment/atletico-crud-create-models-file.png)
 
+- Create Database Postgres From CLI
+
 ![Postgres CLI](documentation/deployment/atletico-crud-create-database-postgres-cli.png)
+
+- Generate and Migrate Models
+
 ![Generate And Migrate Models](documentation/deployment/atletico-crud-generate-migrate-models.png)
 
 ## Flask-Migrate
