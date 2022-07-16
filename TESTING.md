@@ -58,6 +58,26 @@ Chrome Log-Out
 
 ## Edge
 
+Edge Countries
+
+![Edge Countries](documentation/testing/atletico-crud-edge-countries.png)
+
+Edge Leagues
+
+![Edge Leagues](documentation/testing/atletico-crud-edge-leagues.png)
+
+Edge Clubs
+
+![Edge Clubs](documentation/testing/atletico-crud-edge-clubs.png)
+
+Edge Players
+
+![Edge Players](documentation/testing/atletico-crud-edge-players.png)
+
+Edge Form
+
+![Edge Form](documentation/testing/atletico-crud-edge-form.png)
+
 ## Safari (Mobile)
 
 Safari Home Page
