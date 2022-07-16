@@ -715,6 +715,10 @@ The footer is very simple and is generated via Materialize CSS. It simply contai
 
 ### Favicon
 
+The favicon is an icon of the blue star which used to be the sponsor on Newcastle United's kit in the 90s.
+
+![Favicon](atleticocrud/static/images/atletico-crud-favicon.png)
+
 ## Features Left to Implement
 
 ### Improved Admin Functionality
