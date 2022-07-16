@@ -653,6 +653,10 @@ The user is directed to the confirmation page after submitting an entry via the 
 
 ### Footer
 
+The footer is very simple and is generated via Materialize CSS. It simply contains the name of the database and the name of the developer. The name of the developer acts as a hyperlink to the developer's GitHub profile which opens in a new tab.
+
+![Footer](documentation/testing/atletico-crud-footer.png)
+
 ### Favicon
 
 ## Features Left to Implement
