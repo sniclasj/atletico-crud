@@ -176,6 +176,7 @@ def add_league():
 
     countries = list(Country.query.order_by(Country.country_name).all())
     if request.method == "POST":
+        
         existing_league = League.query.filter(
             func.lower(League.league_name) == request.form.get(
                 "league_name").lower()).first()
@@ -184,16 +185,17 @@ def add_league():
             flash("League Already Exists!")
             return redirect(url_for("add_league"))
 
-            league = League(
-                league_name=request.form.get("league_name"),
-                league_image_url=request.form.get("league_image_url"),
-                country_id=request.form.get("country_id")
-                )
-            db.session.add(league)
-            db.session.commit()
-            flash("League Successfully Added!")
-            return redirect(url_for(
-                "leagues", country_id=league.country_id))
+        league = League(
+            league_name=request.form.get("league_name"),
+            league_image_url=request.form.get("league_image_url"),
+            country_id=request.form.get("country_id")
+            )
+        db.session.add(league)
+        db.session.commit()
+        flash("League Successfully Added!")
+        return redirect(url_for(
+            "leagues", country_id=league.country_id))
+
     return render_template("add_league.html", countries=countries)
 
 
@@ -266,15 +268,15 @@ def add_club():
             flash("Club Already Exists!")
             return redirect(url_for("add_club"))
 
-            club = Club(
-                club_name=request.form.get("club_name"),
-                club_image_url=request.form.get("club_image_url"),
-                league_id=request.form.get("league_id")
-                )
-            db.session.add(club)
-            db.session.commit()
-            flash("Club Successfully Added!")
-            return redirect(url_for("clubs", league_id=club.league_id))
+        club = Club(
+            club_name=request.form.get("club_name"),
+            club_image_url=request.form.get("club_image_url"),
+            league_id=request.form.get("league_id")
+            )
+        db.session.add(club)
+        db.session.commit()
+        flash("Club Successfully Added!")
+        return redirect(url_for("clubs", league_id=club.league_id))
     return render_template("add_club.html", leagues=leagues)
 
 
