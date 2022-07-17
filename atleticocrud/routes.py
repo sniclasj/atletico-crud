@@ -194,7 +194,7 @@ def add_league():
         db.session.commit()
         flash("League Successfully Added!")
         return redirect(url_for(
-            "leagues", country_id=0))
+            "leagues", country_id=league.country_id))
 
     return render_template("add_league.html", countries=countries)
 
@@ -276,7 +276,7 @@ def add_club():
         db.session.add(club)
         db.session.commit()
         flash("Club Successfully Added!")
-        return redirect(url_for("clubs", league_id=0))
+        return redirect(url_for("clubs", league_id=club.league_id))
     return render_template("add_club.html", leagues=leagues)
 
 
