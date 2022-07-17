@@ -104,7 +104,14 @@ def add_country():
                 "country_name").lower()).first()
         if existing_country:
             flash("Country Already Exists!")
-            return redirect(url_for("add_country"))
+            return redirect(url_for("countries"))
+
+        exisitng_country_img = Country.query.filter(
+            func.lower(Country.country_image_url) == request.form.get(
+                "country_image_url").lower()).first()
+        if exisitng_country_img:
+            flash("Image Already in Use!")
+            return redirect(url_for("countries"))
 
         country = Country(
             country_name=request.form.get("country_name"),
@@ -131,6 +138,13 @@ def edit_country(country_id):
                 "country_name").lower()).first()
         if existing_country:
             flash("Country Already Exists!")
+            return redirect(url_for("countries"))
+
+        exisitng_country_img = Country.query.filter(
+            func.lower(Country.country_image_url) == request.form.get(
+                "country_image_url").lower()).first()
+        if exisitng_country_img:
+            flash("Image Already in Use!")
             return redirect(url_for("countries"))
 
         country.country_name = request.form.get("country_name")
@@ -180,9 +194,15 @@ def add_league():
         existing_league = League.query.filter(
             func.lower(League.league_name) == request.form.get(
                 "league_name").lower()).first()
-
         if existing_league:
             flash("League Already Exists!")
+            return redirect(url_for("leagues", country_id=0))
+
+        exisitng_league_img = League.query.filter(
+            func.lower(League.league_image_url) == request.form.get(
+                "league_image_url").lower()).first()
+        if exisitng_league_img:
+            flash("Image Already in Use!")
             return redirect(url_for("leagues", country_id=0))
 
         league = League(
@@ -209,9 +229,15 @@ def edit_league(league_id):
         existing_league = League.query.filter(
             func.lower(League.league_name) == request.form.get(
                 "league_name").lower()).first()
-
         if existing_league:
             flash("League Already Exists!")
+            return redirect(url_for("leagues", country_id=0))
+
+        exisitng_league_img = League.query.filter(
+            func.lower(League.league_image_url) == request.form.get(
+                "league_image_url").lower()).first()
+        if exisitng_league_img:
+            flash("Image Already in Use!")
             return redirect(url_for("leagues", country_id=0))
 
         league.league_name = request.form.get("league_name")
@@ -263,9 +289,15 @@ def add_club():
         existing_club = Club.query.filter(
             func.lower(Club.club_name) == request.form.get(
                 "club_name").lower()).first()
-
         if existing_club:
             flash("Club Already Exists!")
+            return redirect(url_for("clubs", league_id=0))
+
+        exisitng_club_img = Club.query.filter(
+            func.lower(Club.club_image_url) == request.form.get(
+                "club_image_url").lower()).first()
+        if exisitng_club_img:
+            flash("Image Already in Use!")
             return redirect(url_for("clubs", league_id=0))
 
         club = Club(
@@ -290,9 +322,15 @@ def edit_club(club_id):
         existing_club = Club.query.filter(
             func.lower(Club.club_name) == request.form.get(
                 "club_name").lower()).first()
-
         if existing_club:
             flash("Club Already Exists!")
+            return redirect(url_for("clubs", league_id=0))
+
+        exisitng_club_img = Club.query.filter(
+            func.lower(Club.club_image_url) == request.form.get(
+                "club_image_url").lower()).first()
+        if exisitng_club_img:
+            flash("Image Already in Use!")
             return redirect(url_for("clubs", league_id=0))
 
         club.club_name = request.form.get("club_name")
