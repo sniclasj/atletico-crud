@@ -183,7 +183,7 @@ def add_league():
 
         if existing_league:
             flash("League Already Exists!")
-            return redirect(url_for("add_league"))
+            return redirect(url_for("leagues", country_id=0))
 
         league = League(
             league_name=request.form.get("league_name"),
@@ -194,7 +194,7 @@ def add_league():
         db.session.commit()
         flash("League Successfully Added!")
         return redirect(url_for(
-            "leagues", country_id=league.country_id))
+            "leagues", country_id=0))
 
     return render_template("add_league.html", countries=countries)
 
@@ -219,7 +219,7 @@ def edit_league(league_id):
         league.country_id = request.form.get("country_id")
         db.session.commit()
         flash("League Successfully Updated!")
-        return redirect(url_for("leagues", country_id=league.country_id))
+        return redirect(url_for("leagues", country_id=0))
     return render_template(
         "edit_league.html", league=league, countries=countries)
 
@@ -235,7 +235,7 @@ def delete_league(league_id):
         db.session.delete(league)
         db.session.commit()
         flash("League Successfully Deleted!")
-        return redirect(url_for("leagues", country_id=league.country_id))
+        return redirect(url_for("leagues", country_id=0))
 
 
 # Route to display all clubs if league_id == 0
@@ -266,7 +266,7 @@ def add_club():
 
         if existing_club:
             flash("Club Already Exists!")
-            return redirect(url_for("add_club"))
+            return redirect(url_for("clubs", league_id=0))
 
         club = Club(
             club_name=request.form.get("club_name"),
@@ -276,7 +276,7 @@ def add_club():
         db.session.add(club)
         db.session.commit()
         flash("Club Successfully Added!")
-        return redirect(url_for("clubs", league_id=club.league_id))
+        return redirect(url_for("clubs", league_id=0))
     return render_template("add_club.html", leagues=leagues)
 
 
@@ -300,7 +300,7 @@ def edit_club(club_id):
         club.league_id = request.form.get("league_id")
         db.session.commit()
         flash("Club Successfully Updated!")
-        return redirect(url_for("clubs", league_id=club.league_id))
+        return redirect(url_for("clubs", league_id=0))
     return render_template("edit_club.html", club=club, leagues=leagues)
 
 
@@ -315,7 +315,7 @@ def delete_club(club_id):
         db.session.delete(club)
         db.session.commit()
         flash("Club Successfully Deleted!")
-        return redirect(url_for("clubs", league_id=club.league_id))
+        return redirect(url_for("clubs", league_id=0))
 
 
 # Route to display all players if league_id == 0
@@ -360,7 +360,7 @@ def add_playera():
                 return redirect(url_for("playersa", club_id=club.id))
             else:
                 flash("This Player Already Exists!")
-                return redirect(url_for("add_playera"))
+                return redirect(url_for("playersa", club_id=0))
 
         clubs = list(Club.query.order_by(Club.club_name).all())
         return render_template("add_playera.html", clubs=clubs)
