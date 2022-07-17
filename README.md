@@ -386,7 +386,14 @@ def add_country():
                 "country_name").lower()).first()
         if existing_country:
             flash("Country Already Exists!")
-            return redirect(url_for("add_country"))
+            return redirect(url_for("countries"))
+
+        exisitng_country_img = Country.query.filter(
+            func.lower(Country.country_image_url) == request.form.get(
+                "country_image_url").lower()).first()
+        if exisitng_country_img:
+            flash("Image Already in Use!")
+            return redirect(url_for("countries"))
 
         country = Country(
             country_name=request.form.get("country_name"),
@@ -462,6 +469,13 @@ def edit_country(country_id):
                 "country_name").lower()).first()
         if existing_country:
             flash("Country Already Exists!")
+            return redirect(url_for("countries"))
+
+        exisitng_country_img = Country.query.filter(
+            func.lower(Country.country_image_url) == request.form.get(
+                "country_image_url").lower()).first()
+        if exisitng_country_img:
+            flash("Image Already in Use!")
             return redirect(url_for("countries"))
 
         country.country_name = request.form.get("country_name")
