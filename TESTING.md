@@ -386,5 +386,10 @@ App
 
 # Unfixed Bugs
 
-- There is a risk that the *image_urls* used for the country flags, league logos, club badges and players are updated at source which would cause the image to stop displaying on my site. This is something that I would monitor and if it were to happen, I could log in as an admin to rectify the issue by editing the *image_url* to one that works correctly.
-- If a Country/League/Club name doesn't change, it won't let you update the image XXX, however, avoided it displaying an error with the `existing_country/league/club_img` check.
+## Risk of Invalid Image URLs
+
+There is a risk that the *image_urls* used for the country flags, league logos, club badges and players are updated at source which would cause the image to stop displaying on my site. This is something that I would monitor and if it were to happen, I could log in as an admin to rectify the issue by editing the *image_url* to one that works correctly.
+
+## Editing a Country/League/Club Name or Image URL
+
+If a Country/League/Club name doesn't change, it won't let you update the image XXX, however, avoided it displaying an error with the `existing_country/league/club_img` check.
