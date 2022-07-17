@@ -783,8 +783,14 @@ Deployment steps are as follows, after account setup:
   - `IP` 0.0.0.0
   - `PORT` 5000
   - `MONGO_URI` (insert your own MongoDB URI key here)
+    - To get the `MONGO_URI`, XXX. 
+    - XXX
   - `MONGO_DBNAME` (insert your own MongoDB DB Name key here)
-  - `DATABASE_URL` (this comes from the **Resources** tab, you can get your own Postgres Database using the Free Hobby Tier)
+    - To get the `MONGO_DBNAME`, XXX.
+    - XXX
+  - `DATABASE_URL` (this comes from the _Resources_ tab, you can get your own Postgres Database using the Free Hobby Tier)
+    - Click on the _Resources_ tab, XXX.
+    - XXX
   - `SECRET_KEY` (this can be any random secret key)
 
 Heroku needs two additional files in order to deploy properly.
@@ -793,12 +799,26 @@ Heroku needs two additional files in order to deploy properly.
 
 You can install this project's requirements (where applicable) using: `pip3 install -r requirements.txt`. If you have your own packages that have been installed, then the requirements file needs updated using: `pip3 freeze --local > requirements.txt`
 
+![Freeze requirements.txt](documentation/deployment/atletico-crud-heroku-freeze-requirements.png)
+
 The Procfile can be created with the following command: `echo web: python app.py > Procfile`
+
+![Create Procfile](documentation/deployment/atletico-crud-heroku-procfile.png)
 
 For Heroku deployment, follow these steps to connect your GitHub repository to the newly created app:
 
 Either:
-- Select "Automatic Deployment" from the Heroku app.
+- Connect Heroku and GitHub.
+
+![Connect Heroku and GitHub ](documentation/deployment/atletico-crud-heroku-connect-to-github.png)
+
+- Then select "Automatic Deployment" from the Heroku app.
+
+![Enable Auto Deployment](documentation/deployment/atletico-crud-heroku-enable-auto-deploys.png)
+
+- Click the _Deploy Branch_ button.
+
+![App Successfully Deployed](documentation/deployment/atletico-crud-heroku-successfully-deployed-app.png)
 
 Or:
 - In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
@@ -833,12 +853,7 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/sniclasj/atletico-crud)
 
-![Freeze requirements.txt](documentation/deployment/atletico-crud-heroku-freeze-requirements.png)
-![Create Procfile](documentation/deployment/atletico-crud-heroku-procfile.png)
-![Connect Heroku and GitHub ](documentation/deployment/atletico-crud-heroku-connect-to-github.png)
-![Set Config Vars](documentation/deployment/atletico-crud-heroku-config-vars.png)
-![Enable Auto Deployment](documentation/deployment/atletico-crud-heroku-enable-auto-deploys.png)
-![App Successfully Deployed](documentation/deployment/atletico-crud-heroku-successfully-deployed-app.png)
+![Set Config Vars](documentation/deployment/atletico-crud-heroku-config-vars.png) XXX.
 
 # Set Up
 
@@ -868,11 +883,11 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ![Create atleticocrud Folder With __init__.py File](documentation/deployment/atletico-crud-folder-with-init-file.png)
 
-- Add Imports to init.py File CHANGE SCREENSHOT
+- Add Imports to init.py File CHANGE SCREENSHOT XXX
 
 ![Imports To __init__.py](documentation/deployment/atletico-crud-imports.png)
 
-- Set Initial Variables in init.py CHANGE SCREENSHOT
+- Set Initial Variables in init.py CHANGE SCREENSHOT XXX
 
 ![Set Initial Variables In __init__.py](documentation/deployment/atletico-crud-set-init-vars.png)
 
@@ -880,7 +895,7 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ![Create routes.py File](documentation/deployment/atletico-crud-create-routes-file.png)
 
-- Add Imports to routes.py CHANGE SCREENSHOT
+- Add Imports to routes.py CHANGE SCREENSHOT XXX
 
 ![Imports To routes.py](documentation/deployment/atletico-crud-routes-imports.png)
 
@@ -888,7 +903,7 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ![Create app.py File](documentation/deployment/atletico-crud-create-app-file.png)
 
-- Add Imports to app.py CANGE SCREENSHOT
+- Add Imports to app.py CANGE SCREENSHOT XXX
 
 ![Imports To app.py File](documentation/deployment/atletico-crud-app-file-imports.png)
 
@@ -954,7 +969,7 @@ During the course of development, it became necessary to update the Postgres mod
 
 ![Connecting to Mongo DB](documentation/deployment/atletico-crud-connect-mongo-db.png)
 
-- Confirmation of MongoDB Connection UPDATE SCREENSHOT
+- Confirmation of MongoDB Connection UPDATE SCREENSHOT XXX
 
 ![Confirmation of Mongo DB Connection](documentation/deployment/atletico-crud-mongo-connection-confirmation.png)
 
@@ -970,11 +985,11 @@ During the course of development, it became necessary to update the Postgres mod
 
 ![Install Flask-PyMongo](documentation/deployment/atletico-crud-install-flask-pymongo.png)
 
-- Get MONGO_URI CHANGE SCREENSHOT
+- Get MONGO_URI CHANGE SCREENSHOT XXX
 
 ![Get MONGO_URI](documentation/deployment/)
 
-- Add Mongo URI to env.py CHANGE SCREENSHOT
+- Add Mongo URI to env.py CHANGE SCREENSHOT XXX
 
 ![Adding Mongo URI to env.py](documentation/deployment/atletico-crud-add-mongo-uri-to-env.png)
 
@@ -1004,6 +1019,7 @@ The images used for country flags, league logos, club badges and players are sum
 |          |                 |           | [Dušan Vlahovic](https://www.si.com/.image/t_share/MTgwNjQ1MzM2MzU4ODU1NzY4/sipa_33122839.jpg)    |
 |          |                 | [Roma](https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/AS_Roma_logo_%282017%29.svg/800px-AS_Roma_logo_%282017%29.svg.png) | [Daniele De Rossi](https://cdn.vox-cdn.com/thumbor/bJHTKnBFR3Y1-gDrv2Ypoguc1XA=/0x0:3000x2140/1220x813/filters:focal(1230x551:1710x1031):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/59412171/944411452.jpg.0.jpg) |
 |          |                 |           | [Francesco Totti](https://e1.365dm.com/13/02/800x600/Francesco-Totti-Roma-2013_2902020.jpg?20130717231903)  |
+
 ## Acknowledgements
 I would like to thank my Code Institute mentor Tim Nelson for his support during the course of this project.
 
