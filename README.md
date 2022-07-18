@@ -758,24 +758,24 @@ I would like to create a method where multiple criteria are assessed to prevent 
 
 # Technologies Used
 
-- Git - used for version control.
-- GitHub - used to secure my code online.
-- Gitpod - used as the cloud-based IDE.
-- GitHub Projects - used to track project progress [here](https://github.com/sniclasj/atletico-crud/projects/1).
-- Flask - used to create the Python web application.
-- Flask-SQLAlchemy - used as an extension to Flask to simplify use of SQLAlchemy.
-- Flask Migrate - used to handle SQLAlchemy database migrations for the Flask application.
-- PyMongo - used as the Python distribution containing tools for working with MongoDB.
-- Flask-PyMongo - used to bridge Flask and PyMongo.
-- SQLAlchemy - used for the relational database provider.
-- MongoDB - used as the non-relational database provider.
-- Heroku - used to deploy the site.
-- amiresponsive - used for the mockup image.
-- Materialize CSS - used to create the layout and structure of the website.
-- HTML - used to write the code for the website.
-- Python - used to write the code for the website.
-- JavaScript - used to initialize Materialize CSS scripts.
-- CSS - used to style the website.
+- [Git](https://www.atlassian.com/git) - used for version control.
+- [GitHub](https://github.com/) - used to secure my code online.
+- [Gitpod](https://www.gitpod.io/) - used as the cloud-based IDE.
+- [GitHub Projects](https://github.com/sniclasj/atletico-crud/projects/1) - used to track project progress [here](https://github.com/sniclasj/atletico-crud/projects/1).
+- [Flask](https://flask.palletsprojects.com/en/2.1.x/) - used to create the Python web application.
+- [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/) - used as an extension to Flask to simplify use of SQLAlchemy.
+- [Flask Migrate](https://flask-migrate.readthedocs.io/en/latest/) - used to handle SQLAlchemy database migrations for the Flask application.
+- [PyMongo](https://pymongo.readthedocs.io/en/stable/) - used as the Python distribution containing tools for working with MongoDB.
+- [Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/) - used to bridge Flask and PyMongo.
+- [SQLAlchemy](https://www.sqlalchemy.org/) - used for the relational database provider.
+- [MongoDB](https://www.mongodb.com/) - used as the non-relational database provider.
+- [Heroku](https://id.heroku.com/login) - used to deploy the site.
+- [amiresponsive](http://ami.responsivedesign.is/#) - used for the mockup image.
+- [Materialize CSS](https://materializecss.com/) - used to create the layout and structure of the website.
+- [HTML](https://en.wikipedia.org/wiki/HTML) - used to write the code for the website.
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - used to write the code for the website.
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - used to initialize Materialize CSS scripts.
+- [CSS](https://en.wikipedia.org/wiki/CSS) - used to style the website.
 
 # Set-Up
 
