@@ -917,7 +917,7 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ![Create app.py File](documentation/deployment/atletico-crud-create-app-file.png)
 
-- Add Imports to app.py CANGE SCREENSHOT XXX
+- Add Imports to app.py
 
 ![Imports To app.py File](documentation/deployment/atletico-crud-app-file-imports.png)
 
