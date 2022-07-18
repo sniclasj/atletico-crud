@@ -983,9 +983,9 @@ During the course of development, it became necessary to update the Postgres mod
 
 ![Connecting to Mongo DB](documentation/deployment/atletico-crud-connect-mongo-db.png)
 
-- Confirmation of MongoDB Connection UPDATE SCREENSHOT XXX
+- Confirmation of MongoDB Connection
 
-![Confirmation of Mongo DB Connection](documentation/deployment/atletico-crud-mongo-connection-confirmation.png)
+![Confirmation of Mongo DB Connection](documentation/deployment/atletico-crud-mongo-connection-confirmation-update.png)
 
 - Install DNS Python
 
