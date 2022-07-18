@@ -1003,7 +1003,7 @@ During the course of development, it became necessary to update the Postgres mod
 
 ![Get MONGO_URI](documentation/deployment/)
 
-- Add Mongo URI to env.py CHANGE SCREENSHOT XXX
+- Add Mongo URI to env.py.
 
 ![Adding Mongo URI to env.py](documentation/deployment/atletico-crud-add-mongo-uri-to-env-redacted.jpg)
 
