@@ -953,7 +953,7 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 - Generate and Migrate Models
 
-![Generate And Migrate Models](documentation/deployment/atletico-crud-generate-migrate-models.png)
+![Generate And Migrate Models](documentation/deployment/atletico-crud-generate-migrate-models-update.png)
 
 ## Flask-Migrate
 
