@@ -807,6 +807,8 @@ Deployment steps are as follows, after account setup:
     - XXX
   - `SECRET_KEY` (this can be any random secret key)
 
+![Set Config Vars](documentation/deployment/atletico-crud-heroku-config-vars-update.png)
+
 Heroku needs two additional files in order to deploy properly.
 - requirements.txt
 - Procfile
@@ -866,8 +868,6 @@ os.environ.setdefault("SECRET_KEY", "this can be any random secret key")
 Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/sniclasj/atletico-crud)
-
-![Set Config Vars](documentation/deployment/atletico-crud-heroku-config-vars.png) XXX.
 
 # Set Up
 
