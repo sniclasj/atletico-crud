@@ -901,9 +901,9 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ![Imports To __init__.py](documentation/deployment/atletico-crud-imports-update.png)
 
-- Set Initial Variables in init.py CHANGE SCREENSHOT XXX
+- Set Variables in init.py
 
-![Set Initial Variables In __init__.py](documentation/deployment/atletico-crud-set-init-vars.png)
+![Set Variables In __init__.py](documentation/deployment/atletico-crud-set-init-vars-update.png)
 
 - Create routes.py File
 
