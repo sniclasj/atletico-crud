@@ -1005,7 +1005,7 @@ During the course of development, it became necessary to update the Postgres mod
 
 - Add Mongo URI to env.py CHANGE SCREENSHOT XXX
 
-![Adding Mongo URI to env.py](documentation/deployment/atletico-crud-add-mongo-uri-to-env.png)
+![Adding Mongo URI to env.py](documentation/deployment/atletico-crud-add-mongo-uri-to-env-redacted.jpg)
 
 # Credits
 
