@@ -226,7 +226,7 @@ The screenshot below shows that the only issue with the JavaScript used for this
 
 The following screenshots show that [pep8 online](http://pep8online.com/) found no errors in the python code for init.py, models.py, routes.py and app.py.
 
-The files env.py and any python files in the _mirations_ folder were not validated as this is not required.
+The files env.py and any python files in the _migrations_ folder were not validated as this is not required.
 
 Init
 
