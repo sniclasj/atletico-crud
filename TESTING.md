@@ -364,7 +364,7 @@ App
 
 ![Chrome Players Page](documentation/testing/atletico-crud-chrome-players.png)
 
-- As an admin, I want to be able to updtae/edit data within the database.
+- As an admin, I want to be able to update/edit data within the database.
 
 ![Chrome Edit Club Page](documentation/testing/atletico-crud-chrome-edit.png)
 
