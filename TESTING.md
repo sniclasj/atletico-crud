@@ -392,7 +392,7 @@ There is a risk that the *image_urls* used for the country flags, league logos, 
 
 ## Editing a Country/League/Club Name or Image URL Workaround
 
-In order to prevent duplicate entries of Countries/Leagues/Clubs into the database which would cause a Postgres error, the following code was written into the Add and Edit routes for the Country, League and Club models. The exaple below is taken from the Club model.
+In order to prevent duplicate entries of Countries/Leagues/Clubs into the database which would cause a Postgres error, the following code was written into the Add and Edit routes for the Country, League and Club models. The example below is taken from the Club model.
 
 ```python
         existing_club = Club.query.filter(
@@ -424,7 +424,7 @@ Similarly, if an user only wanted to edit the name of a country/league/club asso
 
 ### The Workaround
 
-Imagine a scenario where _England_ was incorrectly entered as _England**s**_ in Country Name whilst the Country Image URL added was correct. The workaround to be able to rectify this error via the Edit COuntry functionality is as follows:
+Imagine a scenario where _England_ was incorrectly entered as _England**s**_ in Country Name whilst the Country Image URL added was correct. The workaround to be able to rectify this error via the Edit Country functionality is as follows:
 
 - Click Edit Country/League/Club.
 - Enter an arbitrary value _e.g. ABC_ into the Country Name field to replace _England**s**_.
