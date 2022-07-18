@@ -889,9 +889,9 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ![Add env.py and __pycache__ to .gitignore](documentation/deployment/atletico-crud-files-added-to-gitignore.png)
 
-- Import os to env.py File CHANGE SCREENSHOT
+- Import os to env.py
 
-![Import OS To env.py](documentation/deployment/atletico-crud-import-os.png)
+![Import OS To env.py](documentation/deployment/atletico-crud-add-mongo-uri-to-env-redacted.jpg.png)
 
 - Create atleticocrud Folder with init.py File
 
