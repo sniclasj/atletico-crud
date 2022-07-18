@@ -20,7 +20,7 @@
 
 - Import os to env.py
 
-![Import OS To env.py](documentation/deployment/atletico-crud-add-mongo-uri-to-env-redacted.jpg.png)
+![Import OS To env.py](documentation/deployment/atletico-crud-add-mongo-uri-to-env-redacted.jpg)
 
 - Create atleticocrud Folder with init.py File
 
