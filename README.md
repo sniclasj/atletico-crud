@@ -897,9 +897,9 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ![Create atleticocrud Folder With __init__.py File](documentation/deployment/atletico-crud-folder-with-init-file.png)
 
-- Add Imports to init.py File CHANGE SCREENSHOT XXX
+- Add Imports to init.py File
 
-![Imports To __init__.py](documentation/deployment/atletico-crud-imports.png)
+![Imports To __init__.py](documentation/deployment/atletico-crud-imports-update.png)
 
 - Set Initial Variables in init.py CHANGE SCREENSHOT XXX
 
