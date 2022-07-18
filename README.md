@@ -793,6 +793,9 @@ Deployment steps are as follows, after account setup:
 
 - Select *New* in the top-right corner of your Heroku Dashboard, and select *Create new app* from the dropdown menu.
 - Your app name must be unique, and then choose a region closest to you (EU or USA), and finally, select *Create App*.
+
+![Heroku App Set-Up](documentation/deployment/atletico-crud-heroku-initial-steps.jpg)
+
 - From the new app *Settings*, click *Reveal Config Vars*, and set the following key/value pairs:
   - `IP` 0.0.0.0
   - `PORT` 5000
