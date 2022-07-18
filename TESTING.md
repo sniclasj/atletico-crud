@@ -390,6 +390,53 @@ App
 
 There is a risk that the *image_urls* used for the country flags, league logos, club badges and players are updated at source which would cause the image to stop displaying on my site. This is something that I would monitor and if it were to happen, I could log in as an admin to rectify the issue by editing the *image_url* to one that works correctly.
 
-## Editing a Country/League/Club Name or Image URL
+## Editing a Country/League/Club Name or Image URL Workaround
 
-If a Country/League/Club name doesn't change, it won't let you update the image XXX, however, avoided it displaying an error with the `existing_country/league/club_img` check.
+In order to prevent duplicate entries of Countries/Leagues/Clubs into the database which would cause a Postgres error, the following code was written into the Add and Edit routes for the Country, League and Club models. The exaple below is taken from the Club model.
+
+```python
+        existing_club = Club.query.filter(
+            func.lower(Club.club_name) == request.form.get(
+                "club_name").lower()).first()
+        if existing_club:
+            flash("Club Already Exists!")
+            return redirect(url_for("clubs", league_id=0))
+
+        exisitng_club_img = Club.query.filter(
+            func.lower(Club.club_image_url) == request.form.get(
+                "club_image_url").lower()).first()
+        if exisitng_club_img:
+            flash("Image Already in Use!")
+            return redirect(url_for("clubs", league_id=0))
+```
+
+This worked well for preventing the Postgres error when attempting to add duplicate data, however, it has given rise to the requirement to use a frustrating workaround when utilising the Edit Country/League/Club functionality which is discussed below.
+
+### Description of Scenario
+
+When editing a Country/League/Club, it is not possible to update the image without changing the name of the Country/League/Club too. This is due to the `existing country/league/club` check within the Add and Edit routes which will flash the message "Country/League/Club Already Exists!".
+
+Similarly, it is not possible to add the same country/league/country_image_url to the same data table. This is due to the `existing_country/league/club_img` check within the Add and Edit routes which will flash the message "Image Already In Use!".
+
+This could be frustrating for a user as if an user wanted to edit the image used to represent _England_ whilst keeping the name the same, it would not be possible and the flash message would display "Country Already Exists!".
+
+Similarly, if an user only wanted to edit the name of a country/league/club associated with an image, it would not be possible and the flash message would display "Image Already In Use!".
+
+### The Workaround
+
+Imagine a scenario where _England_ was incorrectly entered as _England**s**_ in Country Name whilst the Country Image URL added was correct. The workaround to be able to rectify this error via the Edit COuntry functionality is as follows:
+
+- Click Edit Country/League/Club.
+- Enter an arbitrary value _e.g. ABC_ into the Country Name field to replace _England**s**_.
+- Enter an arbitrary value _e.g. www.google.com_ into the Country Image URL field to replace the correct Country Image URL.
+- Click the Edit Country button and the data will successfully update and will display a non-sensical Country of _ABC_ with the image URL _www.google.com_.
+- Now, repeat the above process but enter the desired country name _England_ into the Country Name field to replace _ABC_ and enter the correct Country Image URL back into the Country Image URL field to replace _www.google.com_.
+- Click the Edit Country button and the data will successfully update to give a Country with the name England and the image displayed will be the England flag.
+
+Although this workaround is frustrating, it does prevent duplicate entries into the database causing a Postgres error which does take priority as an issue vs. this workaround in my opinion.
+
+I would like to fix this 'Workaround Bug' in future however at the moment, the only user impacted by this will be the admin. If care is taken during the data creation phase, this workaround should not be required and it is credible to suggest that should an error occur during this phase, the admin could utilise the workaround or could simply delete the entry and start again.
+
+The only credible situation where this workaround would need to be utilised frequently (annually) would be at the end of a season when clubs within leagues change due to promotion/relegation.
+
+It is also worth noting that this issue does not occur for the Players data which is stored on MongoDB.
