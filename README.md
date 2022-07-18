@@ -909,9 +909,9 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ![Create routes.py File](documentation/deployment/atletico-crud-create-routes-file.png)
 
-- Add Imports to routes.py CHANGE SCREENSHOT XXX
+- Add Imports to routes.py
 
-![Imports To routes.py](documentation/deployment/atletico-crud-routes-imports.png)
+![Imports To routes.py](documentation/deployment/atletico-crud-routes-imports-update.png)
 
 - Create app.py File
 
