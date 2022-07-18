@@ -799,9 +799,26 @@ Deployment steps are as follows, after account setup:
 - From the new app *Settings*, click *Reveal Config Vars*, and set the following key/value pairs:
   - `IP` 0.0.0.0
   - `PORT` 5000
-  - `MONGO_URI` (insert your own MongoDB URI key here)
-    - To get the `MONGO_URI`, XXX. 
-    - XXX
+  - `MONGO_URI` (insert your own MongoDB URI key here). To get the `MONGO_URI`, follow the steps outlined below.
+
+Click on the cluster created for the project.
+
+![Mongo URI Step One](documentation/deployment/atletico-crud-mongo-uri-step-one.png)
+
+Click on the _Connect_ button.
+
+![Mongo URI Step Two](documentation/deployment/atletico-crud-mongo-uri-step-two.png)
+
+Click _Connect Your Application_.
+
+![Mongo URI Step Three](documentation/deployment/atletico-crud-mongo-uri-step-three.png)
+
+Copy the connection string and ensure to replace `<password>` with your own password.
+
+![Mongo URI Step Four](documentation/deployment/atletico-crud-mongo-uri-step-four.png)
+
+Paste this string into the env.py file and Heroku config var as the value for the MONGO_URI key.
+
   - `MONGO_DBNAME` (insert your own MongoDB DB Name key here). The `MONGO_DBNAME` is the name given to the database created within the cluster on the MongoDB website as shown in the screenshot below.
 
   ![MongoDB Name](documentation/deployment/atletico-crud-routes-mongo-db-name.png)
@@ -1009,9 +1026,25 @@ During the course of development, it became necessary to update the Postgres mod
 
 ![Install Flask-PyMongo](documentation/deployment/atletico-crud-install-flask-pymongo.png)
 
-- Get MONGO_URI CHANGE SCREENSHOT XXX
+- Get MONGO_URI
 
-![Get MONGO_URI](documentation/deployment/)
+Click on the cluster created for the project.
+
+![Mongo URI Step One](documentation/deployment/atletico-crud-mongo-uri-step-one.png)
+
+Click on the _Connect_ button.
+
+![Mongo URI Step Two](documentation/deployment/atletico-crud-mongo-uri-step-two.png)
+
+Click _Connect Your Application_.
+
+![Mongo URI Step Three](documentation/deployment/atletico-crud-mongo-uri-step-three.png)
+
+Copy the connection string and ensure to replace `<password>` with your own password.
+
+![Mongo URI Step Four](documentation/deployment/atletico-crud-mongo-uri-step-four.png)
+
+Paste this string into the env.py file and Heroku config var as the value for the MONGO_URI key.
 
 - Add Mongo URI to env.py.
 
