@@ -777,6 +777,10 @@ I would like to create a method where multiple criteria are assessed to prevent 
 - JavaScript - used to initialize Materialize CSS scripts.
 - CSS - used to style the website.
 
+# Set-Up
+
+To view set-up documentation (such as import steps etc.), please refer to [SETUP.md](SETUP.md).
+
 # Testing
 
 To view all testing documentation, please refer to [TESTING.md](TESTING.md).
