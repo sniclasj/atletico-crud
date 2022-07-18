@@ -799,13 +799,20 @@ Deployment steps are as follows, after account setup:
   - `MONGO_URI` (insert your own MongoDB URI key here)
     - To get the `MONGO_URI`, XXX. 
     - XXX
-  - `MONGO_DBNAME` (insert your own MongoDB DB Name key here)
-    - To get the `MONGO_DBNAME`, XXX.
-    - XXX
+  - `MONGO_DBNAME` (insert your own MongoDB DB Name key here). The `MONGO_DBNAME` is the name given to the database created within the cluster on the MongoDB website as shown in the screenshot below.
+
+  ![MongoDB Name](documentation/deployment/atletico-crud-routes-mongo-db-name.png)
+
   - `DATABASE_URL` (this comes from the _Resources_ tab, you can get your own Postgres Database using the Free Hobby Tier)
-    - Click on the _Resources_ tab, XXX.
-    - XXX
+    - Click on the _Resources_ tab.
+    - Search for Postgres in the 'Add-ons' search bar.
+    - Select Heroku Postgres as shown in the screenshot below.
+
+![Heroku Postgres Add-On](documentation/deployment/atletico-crud-heroku-postgres-add-on.png)
+
   - `SECRET_KEY` (this can be any random secret key)
+
+The below screenshot shows the completed config vars page on Heroku with sensitive information in the value boxes redacted.
 
 ![Set Config Vars](documentation/deployment/atletico-crud-heroku-config-vars-update.png)
 
