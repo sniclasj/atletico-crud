@@ -901,6 +901,12 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/sniclasj/atletico-crud)
 
+## Difference Between Local App and Heroku Deployed App
+
+The only difference between the local app and the app deployed on Heroku is that the players are not 'wired up' to the clubs on the local app with the exception of Newcastle United. The reason for this is that players are linked to clubs via club_ids. The club_id for Atletico Madrid in the local app is 43 whereas the club_id for Atletico Madrid in the Heroku app is 7. Newcastle United has the club_id of 1 both in the local app and the app deployed on Heroku. The reason for this is that Newcastle United (the club I support) was the first club added to both databases (local and deployed). However, due to the number of iterative tests completed in the local version of the app, there are mismatches between local club_ids and Heroku deployed club_ids.
+
+When clicking 'View Players' for Atletico Madrid in the local app, no players will display as no player has the club_id of 43 on MongoDB. When clicking 'View Players' for Atletico Madrid on the Heroku app, two players will display as two players have the club_id of 7 on MongoDB.
+
 # Credits
 
 ## Content
