@@ -384,6 +384,34 @@ App
 
 ![Safari Delete Modal](documentation/testing/atletico-crud-safari-delete-modal.jpg)
 
+# Error Handling
+
+## Error Code 404
+
+The code below diverts users to a custom Error 404 page which is also shown in the screenshot below.
+
+```python
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
+```
+
+![Error 400 Page](documentation/testing/atletico-crud-error-handling-404.png)
+
+## Error Code 500
+
+The code below diverts users to a custom Error 500 page which is also shown in the screenshot below.
+
+```python
+@app.errorhandler(500)
+def page_not_found(e):
+    # note that we set the 500 status explicitly
+    return render_template('500.html'), 500
+```
+
+![Error 500 Page]()
+
 # Unfixed Bugs
 
 ## Risk of Invalid Image URLs
