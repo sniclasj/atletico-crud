@@ -460,6 +460,8 @@ The Edit Country page allows the admin user to edit the details for a country su
 # Route to edit country if admin
 @app.route("/edit_country/<int:country_id>", methods=["GET", "POST"])
 def edit_country(country_id):
+    if session["user"] != "admin":
+        return redirect(url_for("leagues", country_id=0))
     country = Country.query.get_or_404(country_id)
 
     if request.method == "POST":
