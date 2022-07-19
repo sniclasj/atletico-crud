@@ -14,6 +14,8 @@ def home():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if "user" in session:
+        return redirect(url_for('profile', username=session["user"]))
     if request.method == "POST":
         # check if username already exists in db
         existing_user = Users.query.filter(
@@ -41,6 +43,8 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if "user" in session:
+        return redirect(url_for('profile', username=session["user"]))
     if request.method == "POST":
         # check if username exists in db
         existing_user = Users.query.filter(
