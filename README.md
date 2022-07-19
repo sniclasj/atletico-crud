@@ -776,6 +776,7 @@ I would like to create a method where multiple criteria are assessed to prevent 
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - used to write the code for the website.
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - used to initialize Materialize CSS scripts.
 - [CSS](https://en.wikipedia.org/wiki/CSS) - used to style the website.
+- [Error Handling](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/) - used to create custom error handling pages for error code 404 and 500.
 
 # Set-Up
 
@@ -904,6 +905,10 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ## Content
 I utilised the Mini Project on the [Code Institute LMS](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/054c3813e82e4195b5a4d8cd8a99ebaa/) to help me create this project.
+
+I utilised the [Flask Migrate documentation](https://flask-migrate.readthedocs.io/en/latest/) to install and utilise Flask-Migrate.
+
+I utilised [Error Handling documentation](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/) to create customised error handling pages for error codes 404 and 500.
 
 ## Media
 The images used for country flags, league logos, club badges and players are summarised in the table below.
