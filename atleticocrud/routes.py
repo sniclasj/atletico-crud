@@ -133,6 +133,9 @@ def add_country():
 # Route to edit country if admin
 @app.route("/edit_country/<int:country_id>", methods=["GET", "POST"])
 def edit_country(country_id):
+    if session["user"] != "admin":
+        return redirect(url_for("countries"))
+
     country = Country.query.get_or_404(country_id)
 
     if request.method == "POST":
@@ -226,6 +229,9 @@ def add_league():
 # Route to edit league if admin
 @app.route("/edit_league/<int:league_id>", methods=["GET", "POST"])
 def edit_league(league_id):
+    if session["user"] != "admin":
+        return redirect(url_for("leagues", country_id=0))
+
     countries = list(Country.query.order_by(Country.country_name).all())
     league = League.query.get_or_404(league_id)
     if request.method == "POST":
@@ -319,6 +325,9 @@ def add_club():
 # Route to edit club if admin
 @app.route("/edit_club/<int:club_id>", methods=["GET", "POST"])
 def edit_club(club_id):
+    if session["user"] != "admin":
+        return redirect(url_for("clubs", league_id=0))
+
     leagues = list(League.query.order_by(League.league_name).all())
     club = Club.query.get_or_404(club_id)
     if request.method == "POST":
